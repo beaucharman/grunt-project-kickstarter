@@ -97,7 +97,6 @@ module.exports = function(grunt) {
       }
     }
 
-    
   });
   
   /* Load Tasks 
@@ -110,6 +109,5 @@ module.exports = function(grunt) {
   /* Register Tasks
   ----------------------------------------------- */
   grunt.registerTask('default', ['sass', 'imagemin', 'ftp-deploy']);
-  
-  
+
 };
