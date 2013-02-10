@@ -93,7 +93,22 @@ module.exports = function(grunt) {
     {
       sass: {
         files: ['application/sass/*'],
-        tasks: ['sass']
+        tasks: ['sass'],
+        options: {
+          interrupt: true
+        }
+      }
+    },
+    
+    /* Copy Files
+    -----------------------------------------------
+    npm install grunt-contrib-copy
+    -----------------------------------------------*/
+    copy: {
+      dist: {
+        files: {
+         // "application/public/wordpress/wp-content/themes/wordpress-theme": "application/source/wordpress-theme/**"
+        }
       }
     }
 
@@ -104,10 +119,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-ftp-deploy');
   
   /* Register Tasks
   ----------------------------------------------- */
   grunt.registerTask('default', ['sass', 'imagemin', 'ftp-deploy']);
-
+  
 };

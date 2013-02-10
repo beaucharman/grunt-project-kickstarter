@@ -39,6 +39,10 @@ npm install grunt-mocha-test
 npm install grunt-jslint
 ```
 
+[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)
+```
+npm install grunt-contrib-copy --save-dev
+```
 
 [Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)
 ```
