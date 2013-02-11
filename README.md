@@ -53,3 +53,33 @@ npm install grunt-contrib-watch --save-dev
 ```
 npm install grunt-contrib-coffee
 ```
+
+## Static and Dynamic Site Development
+```
+-application 
+--development
+---index.html and friends
+--production
+--source
+---coffee     <- Coffescripts
+---images     <- uncompressed images
+---jekyll     <- Jekyll template (if utilising Jekyll)
+---sass       <- SASS / SCSS directory
+-node_modules <- all the good stuff
+-package.json <- Grunt's package file
+-readme.md    <- this file
+```
+
+## WordPress Theme Development
+
+-application 
+--development
+---html files
+--production
+--source
+---coffee
+---jekyll
+---sass
+-node_modules
+-package.json
+

@@ -15,17 +15,31 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     
+    meta: {
+      name: 'Grunt Project Kickstater'
+    },
+    
     /* SASS 
     -----------------------------------------------  
     npm install grunt-contrib-sass --save-dev  
     ----------------------------------------------- */
     sass: 
     {
-      dist: 
+      development: 
       {
         files:
         {
-          'application/public/library/styles/main.css':'application/sass/main.scss'
+          'application/public/static/library/styles/main.css':'application/source/sass/main.scss'
+        },
+        options: {                     
+          style: 'expanded'
+        }  
+      },
+      production: 
+      {
+        files:
+        {
+          'application/public/static/library/main.css':'application/source/sass/main.scss'
         },
         options: {                     
           style: 'compressed'
@@ -38,17 +52,11 @@ module.exports = function(grunt) {
     npm install grunt-contrib-coffee 
     ----------------------------------------------- */
     coffee: {
-      compile: {
-        files: {
-          'application/public/library/scripts/main.js': 'application/coffee/source.coffee'
-        }
-      },
-      flatten: {
-        options: {
-          flatten: true
-        },
-        files: {
-          'application/public/library/scripts/*.js': 'application/coffee/*.coffee'
+      development: {
+        compile: {
+          files: {
+            'application/public/static/library/scripts/main.js': 'application/source/coffee/main.coffee'
+          }
         }
       }
     },
@@ -58,12 +66,12 @@ module.exports = function(grunt) {
     npm install grunt-contrib-imagemin
     ----------------------------------------------- */
     imagemin: {                          
-      dist: {                            
+      development: {                            
         options: {                       
-          optimizationLevel: 7 
+          optimizationLevel: 3
         },
         files: {                         
-          // List 'src/image/name:destination/image/name' pairs here
+          'application/source/images/imagename.png': 'application/public/static/library/images/imagename.png'
         }
       }
     },
@@ -79,9 +87,22 @@ module.exports = function(grunt) {
           port: 21,
           authKey: ""
         },
-        src: "",
-        dest: "public_html",
+        src: "application/production/",
+        dest: "public_html/",
         exclusions: ["**/.DS_Store", "**/Thumbs.db"]
+      }
+    },
+    
+    /* Copy Files
+    -----------------------------------------------
+    To be used with WordPress theme development
+    npm install grunt-contrib-copy
+    -----------------------------------------------*/
+    copy: {
+      development: {
+        files: {
+          "application/public/wordpress/wp-content/themes/themename": "application/source/wordpress/themename/**"
+        }
       }
     },
     
@@ -92,7 +113,7 @@ module.exports = function(grunt) {
     watch:
     {
       sass: {
-        files: ['application/sass/*'],
+        files: ['application/source/sass/**'],
         tasks: ['sass'],
         options: {
           interrupt: true
@@ -100,30 +121,44 @@ module.exports = function(grunt) {
       }
     },
     
-    /* Copy Files
+    /* Regarde Watch Task 
     -----------------------------------------------
-    npm install grunt-contrib-copy
-    -----------------------------------------------*/
-    copy: {
-      dist: {
-        files: {
-         // "application/public/wordpress/wp-content/themes/wordpress-theme": "application/source/wordpress-theme/**"
-        }
+    Alternate to the above watch task
+    npm install grunt-contrib-watch --save-dev
+    -----------------------------------------------*/    
+    regarde: {
+      css: {
+        files: 'application/source/sass/**',
+        tasks: ['sass'],
+        events: true
       }
     }
-
+    
   });
   
   /* Load Tasks 
+  -----------------------------------------------  
+  Using grunt-regarde instead of grunt-contrib-watch
+  info here: https://github.com/gruntjs/grunt-contrib-livereload
   ----------------------------------------------- */
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-ftp-deploy');
+  grunt.loadNpmTasks('grunt-regarde');
   
-  /* Register Tasks
+  
+  /* Register Tasks: static
   ----------------------------------------------- */
-  grunt.registerTask('default', ['sass', 'imagemin', 'ftp-deploy']);
+  grunt.registerTask('default', ['sass:development']);
+  grunt.registerTask('production', ['sass:production']);
+  
+  /*
+    grunt.registerTask('default', ['sass:development copy']);
+    grunt.registerTask('production', ['sass:production copy']);
+  
+  
+  
+  */
   
 };
