@@ -8,6 +8,7 @@
 npm install -g grunt-cli
 npm install grunt@0.4.0a --save-dev
 ----------------------------------------------- */
+
 module.exports = function(grunt) {
 
   /* Project configuration
@@ -146,12 +147,10 @@ module.exports = function(grunt) {
     npm install grunt-contrib-watch --save-dev
     -----------------------------------------------*/    
     regarde: {
-      development: {
-        css: {
-          files: 'application/source/sass/**',
-          tasks: ['sass:development'],
-          events: true
-        }
+      css: {
+        files: 'application/source/sass/**',
+        tasks: ['sass:development'],
+        events: true
       }
     }
     
