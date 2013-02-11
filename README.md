@@ -17,6 +17,34 @@ as well as your other node modules:
 **[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee`
 
 **[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
+Example:
+```javascript
+"ftp-deploy": {
+  build: {
+    auth: {
+      host: "ftp.website.com",
+      port: 21,
+      authKey: "**keyname**"
+    },
+    src: "application/production/",
+    dest: "public_html/",
+    exclusions: ["**/.DS_Store", "**/Thumbs.db"]
+  }
+},
+```
+The authKey is referenceing an entry in a file JSON object saved in a .ftppass file that you can create and save in the Gruntfile.js directory :)
+```
+{
+  "**keyname**": {
+    "username": "",
+    "password": ""
+  },
+  "altkeyname": {
+    "username": "",
+    "password": ""
+  }
+}
+```
 
 **[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin`
 
@@ -43,39 +71,39 @@ Use Regarde instead
 
 Folder structure for a typical project, powered by Grunt.
 ```
-- application             <- all your important files
--- development            <- for developing locally
---- (index.html and friends)
--- production   
---- (your compressed, 'ready to push live' files)
--- source
---- coffee                <- Coffescripts
---- images                <- uncompressed images
---- jekyll                <- Jekyll template (if utilising Jekyll)
---- sass                  <- SASS / SCSS directory
-- Gruntfile.js            <- where the magic happens
-- node_modules            <- all the good stuff
-- package.json            <- Grunt's package file
-- readme.md               <- this file
+| application             <- all your important files
+ | development            <- for developing locally
+   | (index.html and friends)
+ | production   
+   | (your compressed, 'ready to push live' files)
+ | source
+  | coffee                <- Coffescripts
+  | images                <- uncompressed images
+  | jekyll                <- Jekyll template (if utilising Jekyll)
+  | sass                  <- SASS / SCSS directory
+| Gruntfile.js            <- where the magic happens
+| node_modules            <- all the good stuff
+| package.json            <- Grunt's package file
+| readme.md               <- this file
 ```
 
 ## WordPress Theme Development
 For local WordPress development, all theme files (the ones that you will be making direct changes to) reside in the `development` folder, forexample: 
 ```
-- application
--- development
---- theme-name (within a appropriatly named folder for easy zip and WordPress interaction purposes)
----- function.php
----- index.php
----- style.css etc...
+| application
+ | development
+  |theme-name (within a appropriatly named folder for easy zip and WordPress interaction purposes)
+    | function.php
+    | index.php
+    | style.css etc...
 ```
 
 and then, the WordPress install (running with either MAMP, or any LAMP application, locally of course) will sit in a folder within `application`, such as:
 ```
-- application
--- wordpress
---- wp-admin
---- wp-content et...
+| application
+ | wordpress
+  | wp-admin
+  | wp-content et...
 ```
 
 Alternativly WordPress can be placed outside of your project folder, if you wish to keep your source project files and localhost files seperate.

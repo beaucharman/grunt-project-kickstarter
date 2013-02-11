@@ -84,9 +84,9 @@ module.exports = function(grunt) {
     "ftp-deploy": {
       build: {
         auth: {
-          host: "",
+          host: "ftp.website.com",
           port: 21,
-          authKey: ""
+          authKey: "keyname"
         },
         src: "application/production/",
         dest: "public_html/",
@@ -116,13 +116,18 @@ module.exports = function(grunt) {
     /* Jekyll Task 
     -----------------------------------------------
     npm install grunt-jekyll
-    still working out bugs with jekyll :/ falling back 
-    to using the _cogfig.yml file
     -----------------------------------------------*/    
     jekyll: {
       server: {
         src: 'application/source/jekyll/',
-        dest: 'application/development/'
+        dest: 'application/development/',
+        src :        'application/jekyll',
+        dest:        'application/public',
+        auto:        true,
+        server:      true,
+        server_port: 4000,
+        pygments:    true,
+        permalink:   "/articles/:year/:month/:title/"
       }
     },
     
