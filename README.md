@@ -65,9 +65,9 @@ For local WordPress development, all theme files (the ones that you will be maki
 - application
 -- development
 --- theme-name (within a appropriatly named folder for easy zip and WordPress interaction purposes)
---- function.php
---- index.php
---- style.php etc...
+---- function.php
+---- index.php
+---- style.css etc...
 ```
 
 and then, the WordPress install (running with either MAMP, or any LAMP application, locally of course) will sit in a folder within `application`, such as:

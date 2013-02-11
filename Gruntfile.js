@@ -130,8 +130,8 @@ module.exports = function(grunt) {
     -----------------------------------------------
     npm install grunt-contrib-watch --save-dev
     -----------------------------------------------*/
-    watch:
-    {
+    /*
+    watch: {
       sass: {
         files: ['application/source/sass/**'],
         tasks: ['sass'],
@@ -140,6 +140,7 @@ module.exports = function(grunt) {
         }
       }
     },
+    */
     
     /* Regarde Watch Task 
     -----------------------------------------------
@@ -162,9 +163,11 @@ module.exports = function(grunt) {
   info here: https://github.com/gruntjs/grunt-contrib-livereload
   ----------------------------------------------- */
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-ftp-deploy');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-regarde');
   
   
