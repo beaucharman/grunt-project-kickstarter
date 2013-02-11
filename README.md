@@ -12,9 +12,15 @@ cd to your project folder, install **Grunt** there with `npm install grunt@0.4.0
 
 as well as your other node modules:
 
+---
+
 **[Contrib SASS](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
 
+---
+
 **[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee`
+
+---
 
 **[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
 Example:
@@ -24,7 +30,7 @@ Example:
     auth: {
       host: "ftp.website.com",
       port: 21,
-      authKey: "**keyname**"
+      authKey: "keyname"
     },
     src: "application/production/",
     dest: "public_html/",
@@ -33,9 +39,9 @@ Example:
 },
 ```
 The authKey is referenceing an entry in a file JSON object saved in a .ftppass file that you can create and save in the Gruntfile.js directory :)
-```
+```javascript
 {
-  "**keyname**": {
+  "keyname": {
     "username": "",
     "password": ""
   },
@@ -46,26 +52,46 @@ The authKey is referenceing an entry in a file JSON object saved in a .ftppass f
 }
 ```
 
+---
+
 **[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin`
+
+---
 
 **[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test`
 
+---
+
 **[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll`
+
+---
 
 **[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint`
 
+---
+
 **[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
+
+---
 
 **[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
 Use Regarde instead
 
+---
+
 **[Regarde Watch Task](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
+
+---
 
 ### Would love to get these working
 
 **[Contrib LiveReaload](https://github.com/gruntjs/grunt-contrib-livereload)** `npm install grunt-contrib-livereload`
 
+---
+
 **[Contrib Connect](https://github.com/gruntjs/grunt-contrib-connect)** `npm install grunt-contrib-connect --save-dev`
+
+---
 
 ## Static and Dynamic Site Development
 
