@@ -12,18 +12,14 @@ cd to your project folder, install **Grunt** there with `npm install grunt@0.4.0
 
 as well as your other node modules:
 
----
-
 **[Contrib SASS](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
-
----
 
 **[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee`
 
----
-
 **[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
+
 Example:
+
 ```javascript
 "ftp-deploy": {
   build: {
@@ -52,46 +48,51 @@ The authKey is referenceing an entry in a file JSON object saved in a .ftppass f
 }
 ```
 
----
-
 **[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin`
-
----
-
-**[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test`
-
----
 
 **[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll`
 
----
+**[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev` 
+
+**[Regarde](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
+
+**[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
+
+Use this if there is issues with Regarde.
+
+```javascript
+/* Watch Task 
+-----------------------------------------------
+npm install grunt-contrib-watch --save-dev
+-----------------------------------------------*/
+watch: 
+{
+  sass: 
+  {
+    files: ['application/source/sass/**'],
+    tasks: ['sass'],
+    options: 
+    {
+      interrupt: true
+    }
+  }
+}
+
+...
+
+grunt.loadNpmTasks('grunt-contrib-watch');
+```
+### Need to intergrate these:
 
 **[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint`
 
----
+**[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test`
 
-**[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
-
----
-
-**[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
-Use Regarde instead
-
----
-
-**[Regarde Watch Task](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
-
----
-
-### Would love to get these working
+### Would love to get these working:
 
 **[Contrib LiveReaload](https://github.com/gruntjs/grunt-contrib-livereload)** `npm install grunt-contrib-livereload`
 
----
-
 **[Contrib Connect](https://github.com/gruntjs/grunt-contrib-connect)** `npm install grunt-contrib-connect --save-dev`
-
----
 
 ## Static and Dynamic Site Development
 

@@ -9,14 +9,17 @@ npm install -g grunt-cli
 npm install grunt@0.4.0a --save-dev
 ----------------------------------------------- */
 
-module.exports = function(grunt) {
+module.exports = function(grunt) 
+{
 
   /* Project configuration
   ----------------------------------------------- */
-  grunt.initConfig({
+  grunt.initConfig(
+  {
     pkg: grunt.file.readJSON('package.json'),
     
-    meta: {
+    meta: 
+    {
       name: 'Grunt Project Kickstater'
     },
     
@@ -32,7 +35,8 @@ module.exports = function(grunt) {
         {
           'application/public/static/library/styles/main.css':'application/source/sass/main.scss'
         },
-        options: {                     
+        options: 
+        {                     
           style: 'expanded'
         }  
       },
@@ -42,7 +46,8 @@ module.exports = function(grunt) {
         {
           'application/public/static/library/main.css':'application/source/sass/main.scss'
         },
-        options: {                     
+        options: 
+        {                     
           style: 'compressed'
         }  
       }
@@ -52,11 +57,15 @@ module.exports = function(grunt) {
     -----------------------------------------------  
     npm install grunt-contrib-coffee 
     ----------------------------------------------- */
-    coffee: {
-      development: {
-        compile: {
-          files: {
-            'application/public/static/library/scripts/main.js': 'application/source/coffee/main.coffee'
+    coffee: 
+    {
+      development: 
+      {
+        compile: 
+        {
+          files: 
+          {
+            'application/public/static/library/scripts/main.js':'application/source/coffee/main.coffee'
           }
         }
       }
@@ -66,49 +75,17 @@ module.exports = function(grunt) {
     ----------------------------------------------- 
     npm install grunt-contrib-imagemin
     ----------------------------------------------- */
-    imagemin: {                          
-      development: {                            
-        options: {                       
+    imagemin: 
+    {                          
+      development: 
+      {                            
+        options: 
+        {                       
           optimizationLevel: 3
         },
-        files: {                         
-          'application/source/images/imagename.png': 'application/public/static/library/images/imagename.png'
-        }
-      }
-    },
-    
-    /* FTP Deploy 
-    -----------------------------------------------
-    Store ftp connection details in a .ftppass file
-    ----------------------------------------------- */
-    "ftp-deploy": {
-      build: {
-        auth: {
-          host: "ftp.website.com",
-          port: 21,
-          authKey: "keyname"
-        },
-        src: "application/production/",
-        dest: "public_html/",
-        exclusions: ["**/.DS_Store", "**/Thumbs.db"]
-      }
-    },
-    
-    /* Copy Files
-    -----------------------------------------------
-    To be used with WordPress theme development and/ or
-    moving development files to production
-    npm install grunt-contrib-copy
-    -----------------------------------------------*/
-    copy: {
-      production: {
-        files: {
-          "application/production/": "application/development/**"
-        }
-      },
-      wordpress: {
-        files: {
-          "path/to/wordpress/theme/from/this/file": "application/development/**"
+        files: 
+        {                         
+          'application/source/images/imagename.png':'application/public/static/library/images/imagename.png'
         }
       }
     },
@@ -117,45 +94,75 @@ module.exports = function(grunt) {
     -----------------------------------------------
     npm install grunt-jekyll
     -----------------------------------------------*/    
-    jekyll: {
-      server: {
-        src: 'application/source/jekyll/',
-        dest: 'application/development/',
-        src :        'application/jekyll',
-        dest:        'application/public',
+    jekyll: 
+    {
+      server: 
+      {
+        src:         'application/source/jekyll/',
+        dest:        'application/development/',
         auto:        true,
         server:      true,
         server_port: 4000,
         pygments:    true,
-        permalink:   "/articles/:year/:month/:title/"
+        permalink:   '/articles/:year/:month/:title/'
       }
     },
     
-    /* Watch Task 
+    /* Copy Files
     -----------------------------------------------
-    npm install grunt-contrib-watch --save-dev
+    To be used with WordPress theme development and/or
+    moving development files to production
+    npm install grunt-contrib-copy
     -----------------------------------------------*/
-    /*
-    watch: {
-      sass: {
-        files: ['application/source/sass/**'],
-        tasks: ['sass'],
-        options: {
-          interrupt: true
+    copy: 
+    {
+      production: 
+      {
+        files: 
+        {
+          'application/production/':'application/development/**'
+        }
+      },
+      wordpress: 
+      {
+        files: 
+        {
+          'path/to/wordpress/theme/from/this/file':'application/development/**'
         }
       }
     },
-    */
+    
+    /* FTP Deploy 
+    -----------------------------------------------
+    Store ftp connection details in a .ftppass file
+    ----------------------------------------------- */
+    'ftp-deploy': 
+    {
+      build: 
+      {
+        auth: 
+        {
+          host:     'ftp.website.com',
+          port:     21,
+          authKey:  'keyname'
+        },
+        src:        'application/production/',
+        dest:       'public_html/',
+        exclusions: ['**/.DS_Store', '**/Thumbs.db']
+      }
+    },
     
     /* Regarde Watch Task 
     -----------------------------------------------
     Alternate to the above watch task
-    npm install grunt-contrib-watch --save-dev
+    npm install grunt-regarde --save-dev
     -----------------------------------------------*/    
-    regarde: {
-      css: {
-        files: 'application/source/sass/**',
-        tasks: ['sass:development'],
+    regarde: 
+    {
+      css: 
+      {
+        files:  'application/source/sass/**',
+        tasks:  ['sass:development'],
         events: true
       }
     }
@@ -170,9 +177,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-ftp-deploy');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-jekyll');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-regarde');
   
   

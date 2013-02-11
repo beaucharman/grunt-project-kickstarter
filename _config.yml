@@ -1,5 +1,0 @@
-auto:        true
-server:      false
-server_port: 4000
-source:      application/source/jekyll
-destination: application/development
