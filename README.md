@@ -91,10 +91,12 @@ For local WordPress development, all theme files (the ones that you will be maki
 ```
 
 and then, the WordPress install (running with either MAMP, or any LAMP application, locally of course) will sit in a folder within `application`, such as:
+```
 - application
 -- wordpress
 --- wp-admin
 --- wp-content et...
+```
 
 or WordPress can be placed outside of your project folder, if you wish to keep your source porject and localhost files seperate.
 
