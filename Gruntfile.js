@@ -95,14 +95,33 @@ module.exports = function(grunt) {
     
     /* Copy Files
     -----------------------------------------------
-    To be used with WordPress theme development
+    To be used with WordPress theme development and/ or
+    moving development files to production
     npm install grunt-contrib-copy
     -----------------------------------------------*/
     copy: {
-      development: {
+      production: {
         files: {
-          "application/public/wordpress/wp-content/themes/themename": "application/source/wordpress/themename/**"
+          "application/production/": "application/development/**"
         }
+      },
+      wordpress: {
+        files: {
+          "path/to/wordpress/theme/from/this/file": "application/development/**"
+        }
+      }
+    },
+    
+    /* Jekyll Task 
+    -----------------------------------------------
+    npm install grunt-jekyll
+    still working out bugs with jekyll :/ falling back 
+    to using the _cogfig.yml file
+    -----------------------------------------------*/    
+    jekyll: {
+      server: {
+        src: 'application/source/jekyll/',
+        dest: 'application/development/'
       }
     },
     
@@ -127,10 +146,12 @@ module.exports = function(grunt) {
     npm install grunt-contrib-watch --save-dev
     -----------------------------------------------*/    
     regarde: {
-      css: {
-        files: 'application/source/sass/**',
-        tasks: ['sass'],
-        events: true
+      development: {
+        css: {
+          files: 'application/source/sass/**',
+          tasks: ['sass:development'],
+          events: true
+        }
       }
     }
     
@@ -148,17 +169,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-regarde');
   
   
-  /* Register Tasks: static
+  /* Register Tasks
   ----------------------------------------------- */
   grunt.registerTask('default', ['sass:development']);
-  grunt.registerTask('production', ['sass:production']);
-  
-  /*
-    grunt.registerTask('default', ['sass:development copy']);
-    grunt.registerTask('production', ['sass:production copy']);
-  
-  
-  
-  */
+  grunt.registerTask('production', ['sass:production', 'copy:production']);
+  grunt.registerTask('wordpress_dev', ['sass:development', 'copy:wordpress']);
   
 };

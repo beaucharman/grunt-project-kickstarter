@@ -1,3 +1,0 @@
-(function(){
-  var hello = 'world';
-})();

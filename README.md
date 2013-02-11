@@ -2,7 +2,7 @@
 
 ### Requirements
 
-Have [Node.js](http://nodejs.org/download/) installed
+Have [Node.js](http://nodejs.org/download/) installed, and [NPM](https://npmjs.org/doc/install.html) would be handy also.
 
 Uninstall Grunt globally, just incase.
 ```
@@ -36,6 +36,11 @@ npm install grunt-contrib-imagemin
 npm install grunt-mocha-test
 ```
 
+[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)
+```
+npm install grunt-jekyll
+```
+
 [jsLint](https://github.com/stephenmathieson/grunt-jslint)
 ```
 npm install grunt-jslint
@@ -58,30 +63,39 @@ npm install grunt-contrib-coffee
 
 ## Static and Dynamic Site Development
 ```
-- application 
--- development
---- index.html and friends
--- production
+- application             <- all your important files
+-- development            <- for developing locally
+--- (index.html and friends)
+-- production   
+--- (your compressed, 'ready to push live' files)
 -- source
---- coffee     <- Coffescripts
---- images     <- uncompressed images
---- jekyll     <- Jekyll template (if utilising Jekyll)
---- sass       <- SASS / SCSS directory
-- node_modules <- all the good stuff
-- package.json <- Grunt's package file
-- readme.md    <- this file
+--- coffee                <- Coffescripts
+--- images                <- uncompressed images
+--- jekyll                <- Jekyll template (if utilising Jekyll)
+--- sass                  <- SASS / SCSS directory
+- Gruntfile.js            <- where the magic happens
+- node_modules            <- all the good stuff
+- package.json            <- Grunt's package file
+- readme.md               <- this file
 ```
 
 ## WordPress Theme Development
+For local WordPress development, all theme files (the ones that you will be making direct changes to) reside in the `development` folder, forexample: 
+```
+- application
+-- development
+--- theme-name (within a appropriatly named folder for easy zip and WordPress interaction purposes)
+--- function.php
+--- index.php
+--- style.php etc...
+```
 
--application 
---development
----html files
---production
---source
----coffee
----jekyll
----sass
--node_modules
--package.json
+and then, the WordPress install (running with either MAMP, or any LAMP application, locally of course) will sit in a folder within `application`, such as:
+- application
+-- wordpress
+--- wp-admin
+--- wp-content et...
 
+or WordPress can be placed outside of your project folder, if you wish to keep your source porject and localhost files seperate.
+
+Then, simple ensure the correct paths are set for the 'copy' Grunt task :)
