@@ -33,7 +33,7 @@ module.exports = function(grunt)
       {
         files:
         {
-          'application/public/static/library/styles/main.css':'application/source/sass/main.scss'
+          'application/development/library/styles/main.css':'application/source/sass/main.scss'
         },
         options: 
         {                     
@@ -44,7 +44,7 @@ module.exports = function(grunt)
       {
         files:
         {
-          'application/public/static/library/main.css':'application/source/sass/main.scss'
+          'application/production/library/styles/main.css':'application/source/sass/main.scss'
         },
         options: 
         {                     
@@ -65,7 +65,7 @@ module.exports = function(grunt)
         {
           files: 
           {
-            'application/public/static/library/scripts/main.js':'application/source/coffee/main.coffee'
+            'application/development/library/scripts/main.js':'application/source/coffee/main.coffee'
           }
         }
       }
@@ -85,7 +85,7 @@ module.exports = function(grunt)
         },
         files: 
         {                         
-          'application/source/images/imagename.png':'application/public/static/library/images/imagename.png'
+          'application/source/images/imagename.png':'application/development/library/images/imagename.png'
         }
       }
     },
@@ -186,7 +186,7 @@ module.exports = function(grunt)
   /* Register Tasks
   ----------------------------------------------- */
   grunt.registerTask('default', ['sass:development']);
-  grunt.registerTask('production', ['sass:production', 'copy:production']);
+  grunt.registerTask('production', ['copy:production', 'sass:production']);
   grunt.registerTask('wordpress_dev', ['sass:development', 'copy:wordpress']);
   
 };
