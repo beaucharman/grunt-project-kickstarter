@@ -34,7 +34,7 @@ Example:
   }
 },
 ```
-The authKey is referenceing an entry in a file JSON object saved in a .ftppass file that you can create and save in the Gruntfile.js directory :)
+The authKey is referenceing an entry in a JSON object saved in a .ftppass file that you can create and save in the Gruntfile.js directory :)
 ```javascript
 {
   "keyname": {
