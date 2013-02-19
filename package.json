@@ -1,5 +1,5 @@
 {
-  "name": "grunt-project",
+  "name": "Grunt-Project-Kickstarter",
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.0a",

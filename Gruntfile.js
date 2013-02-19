@@ -3,10 +3,10 @@
   Grunt Project Kickstater
     
 -----------------------------------------------
-31st Jan, 2013
+19th Feb, 2013
 @beaucharman, http://beaucharman.me
 npm install -g grunt-cli
-npm install grunt@0.4.0a --save-dev
+npm install grunt --save-dev
 ----------------------------------------------- */
 
 module.exports = function(grunt) 
@@ -181,7 +181,6 @@ module.exports = function(grunt)
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-ftp-deploy');
   grunt.loadNpmTasks('grunt-regarde');
-  
   
   /* Register Tasks
   ----------------------------------------------- */

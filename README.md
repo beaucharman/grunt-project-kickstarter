@@ -8,7 +8,7 @@ Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase `npm uni
 
 Install **Grunt CLI globally** `npm install -g grunt-cli`
 
-cd to your project folder, install **Grunt** there with `npm install grunt@0.4.0a --save-dev`
+cd to your project folder, install **Grunt** there with `npm install grunt --save-dev`
 
 as well as your other node modules:
 
@@ -93,6 +93,8 @@ grunt.loadNpmTasks('grunt-contrib-watch');
 - **[Contrib LiveReaload](https://github.com/gruntjs/grunt-contrib-livereload)** `npm install grunt-contrib-livereload`
 
 - **[Contrib Connect](https://github.com/gruntjs/grunt-contrib-connect)** `npm install grunt-contrib-connect --save-dev`
+
+**[Compass](https://github.com/kahlil/grunt-compass)** `npm install grunt-compass`
 
 ## Static and Dynamic Site Development
 
