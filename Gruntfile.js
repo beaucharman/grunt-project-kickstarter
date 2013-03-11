@@ -16,11 +16,11 @@ module.exports = function(grunt)
   ----------------------------------------------- */
   grunt.initConfig(
   {
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON("package.json"),
 
     meta:
     {
-      name: 'Grunt Project Kickstater'
+      name: "Grunt Project Kickstater"
     },
 
     /* SASS
@@ -33,22 +33,22 @@ module.exports = function(grunt)
       {
         files:
         {
-          'application/development/library/styles/main.css':'application/source/sass/main.scss'
+          "application/development/library/styles/main.css":"application/source/sass/main.scss"
         },
         options:
         {
-          style: 'expanded'
+          style: "expanded"
         }
       },
       deploy:
       {
         files:
         {
-          'application/deploy/library/styles/main.css':'application/source/sass/main.scss'
+          "application/deploy/library/styles/main.css":"application/source/sass/main.scss"
         },
         options:
         {
-          style: 'compressed'
+          style: "compressed"
         }
       }
     },
@@ -65,7 +65,7 @@ module.exports = function(grunt)
         {
           files:
           {
-            'application/development/library/scripts/main.js':'application/source/coffee/main.coffee'
+            "application/development/library/scripts/main.js":"application/source/coffee/main.coffee"
           }
         }
       }
@@ -80,15 +80,16 @@ module.exports = function(grunt)
       development:
       {
         src: [
-          'application/development/library/scripts/plugin.js',
-          'application/development/library/scripts/main.js'
+          "application/development/library/scripts/plugin.js",
+          "application/development/library/scripts/main.js"
         ],
-        dest: 'application/deploy/main.js'
+        dest: "application/deploy/main.js"
       }
     },
 
-    /* Concat
+    /* Uglify
     -----------------------------------------------
+    Concats and minfies js files
     npm install grunt-contrib-uglify --save-dev
     ----------------------------------------------- */
     uglify:
@@ -97,16 +98,13 @@ module.exports = function(grunt)
       {
         options:
         {
-          mangle: false,
-          beautify: true
+          mangle: false
         },
         files:
         {
-          'application/deploy/main.js': [
-            'application/test/project.js',
-            'application/test/outro.js'
-            //'application/development/library/scripts/plugin.js',
-            //'application/development/library/scripts/main.js'
+          "application/deploy/main.js": [
+            "application/development/library/scripts/plugin.js",
+            "application/development/library/scripts/main.js"
           ]
         }
       }
@@ -126,7 +124,7 @@ module.exports = function(grunt)
         },
         files:
         {
-          'application/source/images/imagename.png':'application/development/library/images/imagename.png'
+          "application/source/images/imagename.png":"application/development/library/images/imagename.png"
         }
       }
     },
@@ -139,13 +137,19 @@ module.exports = function(grunt)
     {
       server:
       {
-        src:         'application/source/jekyll/',
-        dest:        'application/development/',
-        auto:        true,
+        src:         "application/source/jekyll/",
+        dest:        "application/development/",
+        auto:        false,
         server:      true,
         server_port: 4000,
         pygments:    true,
-        permalink:   '/articles/:year/:month/:title/'
+        permalink:   "/articles/:year/:month/:title/"
+      },
+      compile:{
+        src :        "application/jekyll",
+        dest:        "application/development",
+        pygments:    true,
+        permalink:   "/articles/:year/:month/:title/"
       }
     },
 
@@ -161,14 +165,14 @@ module.exports = function(grunt)
       {
         files:
         {
-          'application/deploy/':'application/development/**'
+          "application/deploy/":"application/development/**"
         }
       },
       wordpress:
       {
         files:
         {
-          'path/to/wordpress/theme/from/this/file':'application/development/**'
+          "path/to/wordpress/theme/from/this/file":"application/development/**"
         }
       }
     },
@@ -177,19 +181,19 @@ module.exports = function(grunt)
     -----------------------------------------------
     Store ftp connection details in a .ftppass file
     ----------------------------------------------- */
-    'ftp-deploy':
+    "ftp-deploy":
     {
       build:
       {
         auth:
         {
-          host:     'ftp.website.com',
+          host:     "ftp.website.com",
           port:     21,
-          authKey:  'keyname'
+          authKey:  "keyname"
         },
-        src:        'application/deploy/',
-        dest:       'public_html/',
-        exclusions: ['**/.DS_Store', '**/Thumbs.db']
+        src:        "application/deploy/",
+        dest:       "public_html/",
+        exclusions: ["**/.DS_Store", "**/Thumbs.db"]
       }
     },
 
@@ -201,8 +205,8 @@ module.exports = function(grunt)
     {
       css:
       {
-        files:  'application/source/sass/**',
-        tasks:  ['sass:development'],
+        files:  "application/source/sass/**",
+        tasks:  ["sass:development"],
         events: true
       }
     }
@@ -214,20 +218,20 @@ module.exports = function(grunt)
   Using grunt-regarde instead of grunt-contrib-watch
   info here: https://github.com/gruntjs/grunt-contrib-livereload
   ----------------------------------------------- */
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-coffee');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-jekyll');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-ftp-deploy');
-  grunt.loadNpmTasks('grunt-regarde');
+  grunt.loadNpmTasks("grunt-contrib-sass");
+  grunt.loadNpmTasks("grunt-contrib-coffee");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks("grunt-contrib-imagemin");
+  grunt.loadNpmTasks("grunt-jekyll");
+  grunt.loadNpmTasks("grunt-contrib-copy");
+  grunt.loadNpmTasks("grunt-ftp-deploy");
+  grunt.loadNpmTasks("grunt-regarde");
 
   /* Register Tasks
   ----------------------------------------------- */
-  grunt.registerTask('default', ['sass:development']);
-  grunt.registerTask('deploy', ['copy:deploy', 'sass:deploy']);
-  grunt.registerTask('wordpress_dev', ['sass:development', 'copy:wordpress']);
+  grunt.registerTask("default", ["sass:development"]);
+  grunt.registerTask("deploy", ["copy:deploy", "sass:deploy", "ftp-deploy:build"]);
+  grunt.registerTask("wordpress_dev", ["sass:development", "copy:wordpress"]);
 
 };
