@@ -12,9 +12,9 @@ cd to your project folder, install **Grunt** there with `npm install grunt --sav
 
 as well as your other node modules:
 
-- **[Contrib SASS](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
+- **[Contrib Sass](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
 
-- **[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee`
+- **[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee --save-dev`
 
 - **[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
 
@@ -48,9 +48,9 @@ The authKey is referenceing an entry in a JSON object saved in a `.ftppass` file
 }
 ```
 
-- **[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin`
+- **[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin --save-dev`
 
-- **[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll`
+- **[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
 
 - **[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev` 
 
@@ -82,19 +82,19 @@ watch:
 
 grunt.loadNpmTasks('grunt-contrib-watch');
 ```
-### Need to intergrate these:
+### Would love to intergrate these soon:
 
-- **[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint`
+- **[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint--save-dev`
+ 
+- **[CSSLint](https://github.com/gruntjs/grunt-contrib-csslint)** `npm install grunt-contrib-csslint --save-dev'
 
-- **[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test`
+- **[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test --save-dev`
+ 
+- **[CSSmin](https://github.com/gruntjs/grunt-contrib-cssmin)** `npm install grunt-contrib-cssmin --save-dev`
 
-### Would love to get these working:
+- **[Smush it](https://github.com/heldr/grunt-smushit)** `npm install grunt-smushit --save-dev`
 
-- **[Contrib LiveReaload](https://github.com/gruntjs/grunt-contrib-livereload)** `npm install grunt-contrib-livereload`
-
-- **[Contrib Connect](https://github.com/gruntjs/grunt-contrib-connect)** `npm install grunt-contrib-connect --save-dev`
-
-**[Compass](https://github.com/kahlil/grunt-compass)** `npm install grunt-compass`
+- **[Compass](https://github.com/kahlil/grunt-compass)** `npm install grunt-compass --save-dev`
 
 ## Static and Dynamic Site Development
 
