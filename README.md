@@ -58,7 +58,7 @@ The authKey is referenceing an entry in a JSON object saved in a `.ftppass` file
 
 - **[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
 
-Use this if there is issues with Regarde.
+Use Watch if there are issues with Regarde.
 
 ```javascript
 /* Watch Task 
