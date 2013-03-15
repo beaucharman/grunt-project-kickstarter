@@ -169,7 +169,7 @@ module.exports = function(grunt)
             expand: true,
             cwd: 'application/development/',
             src: ['**'],
-            dest: 'application/deploy/''
+            dest: 'application/deploy/'
           }
         ]
       },
