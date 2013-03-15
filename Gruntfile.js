@@ -164,16 +164,26 @@ module.exports = function(grunt)
       deploy:
       {
         files:
-        {
-          "application/deploy/":"application/development/**"
-        }
+        [
+          {
+            expand: true,
+            cwd: 'application/development/',
+            src: ['**'],
+            dest: 'application/deploy/''
+          }
+        ]
       },
       wordpress:
       {
         files:
-        {
-          "path/to/wordpress/theme/from/this/file":"application/development/**"
-        }
+        [
+          {
+            expand: true,
+            cwd: 'application/development/theme/',
+            src: ['**'],
+            dest: 'relative/path/to/wordpress/install/and/theme'
+          }
+        ]
       }
     },
 
