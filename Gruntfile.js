@@ -23,7 +23,7 @@ module.exports = function(grunt)
       name: "Grunt Project Kickstater"
     },
 
-    /* SASS
+    /* Sass
     -----------------------------------------------
     npm install grunt-contrib-sass --save-dev
     ----------------------------------------------- */
