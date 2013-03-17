@@ -55,7 +55,7 @@ module.exports = function(grunt)
 
     /* Coffee
     -----------------------------------------------
-    npm install grunt-contrib-coffee
+    npm install grunt-contrib-coffee --save-dev
     ----------------------------------------------- */
     coffee:
     {
@@ -112,7 +112,7 @@ module.exports = function(grunt)
 
     /* Image Min
     -----------------------------------------------
-    npm install grunt-contrib-imagemin
+    npm install grunt-contrib-imagemin --save-dev
     ----------------------------------------------- */
     imagemin:
     {
@@ -131,7 +131,7 @@ module.exports = function(grunt)
 
     /* Jekyll Task
     -----------------------------------------------
-    npm install grunt-jekyll
+    npm install grunt-jekyll --save-dev
     -----------------------------------------------*/
     jekyll:
     {
@@ -157,7 +157,7 @@ module.exports = function(grunt)
     -----------------------------------------------
     To be used with WordPress theme development and/or
     moving development files to deployment
-    npm install grunt-contrib-copy
+    npm install grunt-contrib-copy --save-dev
     -----------------------------------------------*/
     copy:
     {
