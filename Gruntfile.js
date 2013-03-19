@@ -207,6 +207,20 @@ module.exports = function(grunt)
       }
     },
 
+    /* Contrib Watch Task
+    -----------------------------------------------
+    npm install grunt-contrib-watch --save-dev
+    -----------------------------------------------*/
+    watch: {
+      build: {
+        files:  ["application/development/OOTSWordPressTheme/**", "application/source/sass/**"],
+        tasks:  ["sass:development"],
+        options: {
+          nospawn: true
+        }
+      }
+    },
+
     /* Regarde Watch Task
     -----------------------------------------------
     npm install grunt-regarde --save-dev
@@ -223,6 +237,27 @@ module.exports = function(grunt)
 
   });
 
+  /* Dynamic Watch task
+  -----------------------------------------------
+  To be used with Contrib Watch Task
+  ----------------------------------------------- */
+  grunt.event.on('watch', function(action, filepath)
+  {
+    var cwd = 'application/development/OOTSWordPressTheme/';
+    filepath = filepath.replace(cwd, '');
+    grunt.config.set('copy',
+    {
+      changed:
+      {
+        expand: true,
+        cwd: cwd,
+        src: filepath,
+        dest: '../3702_UON_WordPress_Install/wp-content/themes/OOTSWordPressTheme/'
+      }
+    });
+    return grunt.task.run('copy:changed');
+  });
+
   /* Load Tasks
   -----------------------------------------------
   Using grunt-regarde instead of grunt-contrib-watch
@@ -236,12 +271,13 @@ module.exports = function(grunt)
   grunt.loadNpmTasks("grunt-jekyll");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-ftp-deploy");
+  grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-regarde");
 
   /* Register Tasks
   ----------------------------------------------- */
   grunt.registerTask("default", ["sass:development"]);
-  grunt.registerTask("deploy", ["copy:deploy", "sass:deploy", "ftp-deploy:build"]);
   grunt.registerTask("wordpress_dev", ["sass:development", "copy:wordpress"]);
+  grunt.registerTask("deploy", ["copy:deploy", "sass:deploy", "ftp-deploy:build"]);
 
 };
