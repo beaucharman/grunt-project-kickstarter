@@ -98,7 +98,7 @@ grunt.loadNpmTasks('grunt-contrib-watch');
 
 ### Creating a dynamic watch task
 
-```
+```javascript
 /* Dynamic Watch task
 -----------------------------------------------
 To be used with Contrib Watch Task
