@@ -139,22 +139,22 @@ grunt.event.on('watch', function(action, filepath)
 
 Folder structure for a typical project, powered by Grunt.
 ```
-| application             <- all your important files
-  | development            <- for developing locally
+| application         <- all your important files
+  | development       <- for developing locally
     | (index.html and friends)
   | deploy
     | (your compressed, 'ready to push live' files)
   | source
-    | coffee                <- Coffescripts
-    | images                <- uncompressed images
-    | jekyll                <- Jekyll template (if utilising Jekyll)
-    | sass                  <- Sass directory
+    | coffee          <- Coffescripts
+    | images          <- uncompressed images
+    | jekyll          <- Jekyll template (if utilising Jekyll)
+    | sass            <- Sass directory
   | test
     | (output from test ralated tasks)
-| Gruntfile.js            <- where the magic happens
-| node_modules            <- all the good stuff, will appear after a `npm install`
-| package.json            <- Grunt's package file
-| README.md               <- this file
+| Gruntfile.js        <- where the magic happens
+| node_modules        <- all the good stuff, will appear after an 'npm install'
+| package.json        <- Grunt's package file
+| README.md           <- this file
 ```
 
 ## WordPress Theme Development
