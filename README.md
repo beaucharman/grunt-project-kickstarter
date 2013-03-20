@@ -1,5 +1,7 @@
 # Grunt Project Kickstarter
 
+Welcome to the **Grunt Project Kickstarter**, a file and folder structure to aid in the development and deployment process of a HTML, CMS or framework based applications - with some added [Grunt](https://github.com/gruntjs).
+
 ## Requirements
 
 Make sure to have **[Node.js](http://nodejs.org/download/)** installed, and **[NPM](https://npmjs.org/doc/install.html)** would be handy also.
@@ -52,7 +54,7 @@ The authKey is referenceing an entry in a JSON object saved in a `.ftppass` file
 
 - **[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
 
-- **[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev` 
+- **[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
 
 - **[Regarde](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
 
@@ -61,17 +63,17 @@ The authKey is referenceing an entry in a JSON object saved in a `.ftppass` file
 Use Watch if there are issues with Regarde.
 
 ```javascript
-/* Watch Task 
+/* Watch Task
 -----------------------------------------------
 npm install grunt-contrib-watch --save-dev
 -----------------------------------------------*/
-watch: 
+watch:
 {
-  sass: 
+  sass:
   {
     files: ['application/source/sass/**'],
     tasks: ['sass'],
-    options: 
+    options:
     {
       interrupt: true
     }
@@ -85,11 +87,11 @@ grunt.loadNpmTasks('grunt-contrib-watch');
 ### Would love to intergrate these soon:
 
 - **[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint--save-dev`
- 
+
 - **[CSSLint](https://github.com/gruntjs/grunt-contrib-csslint)** `npm install grunt-contrib-csslint --save-dev'
 
 - **[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test --save-dev`
- 
+
 - **[CSSmin](https://github.com/gruntjs/grunt-contrib-cssmin)** `npm install grunt-contrib-cssmin --save-dev`
 
 - **[Smush it](https://github.com/heldr/grunt-smushit)** `npm install grunt-smushit --save-dev`
@@ -103,7 +105,7 @@ Folder structure for a typical project, powered by Grunt.
 | application             <- all your important files
  | development            <- for developing locally
    | (index.html and friends)
- | deploy   
+ | deploy
    | (your compressed, 'ready to push live' files)
  | source
   | coffee                <- Coffescripts
@@ -117,7 +119,7 @@ Folder structure for a typical project, powered by Grunt.
 ```
 
 ## WordPress Theme Development
-For local WordPress development, all theme files (the ones that you will be making direct changes to) reside in the `development` folder, forexample: 
+For local WordPress development, all theme files (the ones that you will be making direct changes to) reside in the `development` folder, forexample:
 ```
 | application
  | development
