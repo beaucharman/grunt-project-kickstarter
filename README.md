@@ -125,11 +125,11 @@ grunt.event.on('watch', function(action, filepath)
 
 - **[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint--save-dev`
 
-- **[CSSLint](https://github.com/gruntjs/grunt-contrib-csslint)** `npm install grunt-contrib-csslint --save-dev'
-
-- **[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test --save-dev`
+- **[CSSLint](https://github.com/gruntjs/grunt-contrib-csslint)** `npm install grunt-contrib-csslint --save-dev`
 
 - **[CSSmin](https://github.com/gruntjs/grunt-contrib-cssmin)** `npm install grunt-contrib-cssmin --save-dev`
+
+- **[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test --save-dev`
 
 - **[Smush it](https://github.com/heldr/grunt-smushit)** `npm install grunt-smushit --save-dev`
 
