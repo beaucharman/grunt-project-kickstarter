@@ -22,13 +22,17 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee --save-dev`
 
-**[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
-
 **[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin --save-dev`
 
-**[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
+**[Concat](https://github.com/gruntjs/grunt-contrib-concat)** `pm install grunt-contrib-concat --save-dev`
 
-**[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
+**[Uglify](https://github.com/gruntjs/grunt-contrib-uglify)** `npm install grunt-contrib-uglify --save-dev`
+
+**[Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
+
+**[Copy](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
+
+**[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
 
 **[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
 
