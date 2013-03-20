@@ -4,35 +4,35 @@ Welcome to the **Grunt Project Kickstarter**, a file and folder structure to aid
 
 ## Requirements
 
-- Boot up Terminal.
+Boot up Terminal.
 
-- Make sure to have **[Node.js](http://nodejs.org/download/)** installed, and **[NPM](https://npmjs.org/doc/install.html)** would be handy also.
+Make sure to have **[Node.js](http://nodejs.org/download/)** installed, and **[NPM](https://npmjs.org/doc/install.html)** would be handy also.
 
-- Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`.
+Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`.
 
-- Install **Grunt CLI globally** `npm install -g grunt-cli`.
+Install **Grunt CLI globally** `npm install -g grunt-cli`.
 
-- `cd` to your project folder, install **Grunt** there with `npm install grunt --save-dev`.
+`cd` to your project folder, install **Grunt** there with `npm install grunt --save-dev`.
 
 ## Optional Tasks
 
 To use some of the task included in the `Grintfile.js`, make sure you install the following relavent node modules:
 
-- **[Contrib Sass](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
+**[Contrib Sass](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
 
-- **[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee --save-dev`
+**[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee --save-dev`
 
-- **[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
+**[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
 
-- **[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin --save-dev`
+**[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin --save-dev`
 
-- **[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
+**[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
 
-- **[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
+**[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
 
-- **[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
+**[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
 
-- **[Regarde](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
+**[Regarde](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
 
 ### Working with FTP Deploy
 
