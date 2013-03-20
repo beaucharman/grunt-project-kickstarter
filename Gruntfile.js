@@ -33,7 +33,7 @@ module.exports = function(grunt)
       {
         files:
         {
-          "application/development/library/styles/main.css":"application/source/sass/main.scss"
+          "application/development/library/styles/main.css" : "application/source/sass/main.scss"
         },
         options:
         {
@@ -44,7 +44,7 @@ module.exports = function(grunt)
       {
         files:
         {
-          "application/deploy/library/styles/main.css":"application/source/sass/main.scss"
+          "application/deploy/library/styles/main.css" : "application/source/sass/main.scss"
         },
         options:
         {
@@ -65,7 +65,7 @@ module.exports = function(grunt)
         {
           files:
           {
-            "application/development/library/scripts/main.js":"application/source/coffee/main.coffee"
+            "application/development/library/scripts/main.js" : "application/source/coffee/main.coffee"
           }
         }
       }
@@ -79,7 +79,8 @@ module.exports = function(grunt)
     {
       development:
       {
-        src: [
+        src:
+        [
           "application/development/library/scripts/plugin.js",
           "application/development/library/scripts/main.js"
         ],
@@ -102,7 +103,8 @@ module.exports = function(grunt)
         },
         files:
         {
-          "application/deploy/main.js": [
+          "application/deploy/main.js" :
+          [
             "application/development/library/scripts/plugin.js",
             "application/development/library/scripts/main.js"
           ]
@@ -124,7 +126,7 @@ module.exports = function(grunt)
         },
         files:
         {
-          "application/source/images/imagename.png":"application/development/library/images/imagename.png"
+          "application/source/images/imagename.png" : "application/development/library/images/imagename.png"
         }
       }
     },
@@ -167,9 +169,9 @@ module.exports = function(grunt)
         [
           {
             expand: true,
-            cwd: 'application/development/',
-            src: ['**'],
-            dest: 'application/deploy/'
+            cwd:    'application/development/',
+            src:    ['**'],
+            dest:   'application/deploy/'
           }
         ]
       },
@@ -179,9 +181,9 @@ module.exports = function(grunt)
         [
           {
             expand: true,
-            cwd: 'application/development/theme/',
-            src: ['**'],
-            dest: 'relative/path/to/wordpress/install/and/theme'
+            cwd:    'application/development/theme/',
+            src:    ['**'],
+            dest:   'relative/path/to/wordpress/install/and/theme'
           }
         ]
       }
@@ -193,7 +195,7 @@ module.exports = function(grunt)
     ----------------------------------------------- */
     "ftp-deploy":
     {
-      build:
+      deploy:
       {
         auth:
         {
@@ -215,7 +217,8 @@ module.exports = function(grunt)
       build: {
         files:  ["application/development/OOTSWordPressTheme/**", "application/source/sass/**"],
         tasks:  ["sass:development"],
-        options: {
+        options:
+        {
           nospawn: true
         }
       }
@@ -239,20 +242,22 @@ module.exports = function(grunt)
 
   /* Dynamic Watch task
   -----------------------------------------------
-  To be used with Contrib Watch Task
+  To be used with Contrib Watch Task, this event function
+  will capture the actual file changed and run run the task
+  on it, rather then the entire watched folder.
   ----------------------------------------------- */
   grunt.event.on('watch', function(action, filepath)
   {
-    var cwd = 'application/development/OOTSWordPressTheme/';
+    var cwd = 'application/development/';
     filepath = filepath.replace(cwd, '');
     grunt.config.set('copy',
     {
       changed:
       {
         expand: true,
-        cwd: cwd,
-        src: filepath,
-        dest: '../3702_UON_WordPress_Install/wp-content/themes/OOTSWordPressTheme/'
+        cwd:    cwd,
+        src:    filepath,
+        dest:   '/path/to/destination/from/Gruntfile'
       }
     });
     return grunt.task.run('copy:changed');
@@ -277,7 +282,6 @@ module.exports = function(grunt)
   /* Register Tasks
   ----------------------------------------------- */
   grunt.registerTask("default", ["sass:development"]);
-  grunt.registerTask("wordpress_dev", ["sass:development", "copy:wordpress"]);
-  grunt.registerTask("deploy", ["copy:deploy", "sass:deploy", "ftp-deploy:build"]);
+  grunt.registerTask("deploy", ["copy:deploy", "sass:deploy", "ftp-deploy:deploy"]);
 
 };

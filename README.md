@@ -123,32 +123,34 @@ grunt.event.on('watch', function(action, filepath)
 
 ### Would love to intergrate these soon:
 
-- **[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint--save-dev`
+**[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint--save-dev`
 
-- **[CSSLint](https://github.com/gruntjs/grunt-contrib-csslint)** `npm install grunt-contrib-csslint --save-dev`
+**[CSSLint](https://github.com/gruntjs/grunt-contrib-csslint)** `npm install grunt-contrib-csslint --save-dev`
 
-- **[CSSmin](https://github.com/gruntjs/grunt-contrib-cssmin)** `npm install grunt-contrib-cssmin --save-dev`
+**[CSSmin](https://github.com/gruntjs/grunt-contrib-cssmin)** `npm install grunt-contrib-cssmin --save-dev`
 
-- **[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test --save-dev`
+**[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test --save-dev`
 
-- **[Smush it](https://github.com/heldr/grunt-smushit)** `npm install grunt-smushit --save-dev`
+**[Smush it](https://github.com/heldr/grunt-smushit)** `npm install grunt-smushit --save-dev`
 
-- **[Compass](https://github.com/kahlil/grunt-compass)** `npm install grunt-compass --save-dev`
+**[Compass](https://github.com/kahlil/grunt-compass)** `npm install grunt-compass --save-dev`
 
 ## Static and Dynamic Site Development
 
 Folder structure for a typical project, powered by Grunt.
 ```
 | application             <- all your important files
- | development            <- for developing locally
-   | (index.html and friends)
- | deploy
-   | (your compressed, 'ready to push live' files)
- | source
-  | coffee                <- Coffescripts
-  | images                <- uncompressed images
-  | jekyll                <- Jekyll template (if utilising Jekyll)
-  | sass                  <- Sass directory
+  | development            <- for developing locally
+    | (index.html and friends)
+  | deploy
+    | (your compressed, 'ready to push live' files)
+  | source
+    | coffee                <- Coffescripts
+    | images                <- uncompressed images
+    | jekyll                <- Jekyll template (if utilising Jekyll)
+    | sass                  <- Sass directory
+  | test
+    | (output from test ralated tasks)
 | Gruntfile.js            <- where the magic happens
 | node_modules            <- all the good stuff, will appear after a `npm install`
 | package.json            <- Grunt's package file
@@ -159,19 +161,19 @@ Folder structure for a typical project, powered by Grunt.
 For local WordPress development, all theme files (the ones that you will be making direct changes to) reside in the `development` folder, for example:
 ```
 | application
- | development
-  |theme-name (within a appropriately named folder for easy zip and WordPress interaction purposes)
-    | function.php
-    | index.php
-    | style.css etc...
+  | development
+    | theme-name (within a appropriately named folder for easy zip and WordPress interaction purposes)
+      | function.php
+      | index.php
+      | style.css etc...
 ```
 
 and then, the WordPress install (running with either MAMP, or any LAMP application, locally of course) will sit in a folder within `application`, such as:
 ```
 | application
- | wordpress
-  | wp-admin
-  | wp-content etc...
+  | wordpress
+    | wp-admin
+    | wp-content etc...
 ```
 
 Alternatively WordPress can be placed outside of your project folder, if you wish to keep your source project files and localhost files separate.
