@@ -10,9 +10,11 @@ Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase `npm uni
 
 Install **Grunt CLI globally** `npm install -g grunt-cli`
 
-cd to your project folder, install **Grunt** there with `npm install grunt --save-dev`
+cd to your project folder, install **Grunt** there with `npm install grunt --save-dev`.
 
-as well as your other node modules:
+## Optional Tasks
+
+To use some of the task included in the `Grintfile.js`, make sure you install the following relavent node modules:
 
 - **[Contrib Sass](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
 
@@ -46,7 +48,7 @@ as well as your other node modules:
   }
 },
 ```
-The authKey is referenceing an entry in a JSON object saved in a `.ftppass` file that you can create and save in the `Gruntfile.js` directory :)
+The authKey is referencing an entry in a JSON object saved in a `.ftppass` file that you can create and save in the `Gruntfile.js` directory :)
 
 ```javascript
 {
@@ -148,11 +150,11 @@ Folder structure for a typical project, powered by Grunt.
 ```
 
 ## WordPress Theme Development
-For local WordPress development, all theme files (the ones that you will be making direct changes to) reside in the `development` folder, forexample:
+For local WordPress development, all theme files (the ones that you will be making direct changes to) reside in the `development` folder, for example:
 ```
 | application
  | development
-  |theme-name (within a appropriatly named folder for easy zip and WordPress interaction purposes)
+  |theme-name (within a appropriately named folder for easy zip and WordPress interaction purposes)
     | function.php
     | index.php
     | style.css etc...
@@ -166,6 +168,6 @@ and then, the WordPress install (running with either MAMP, or any LAMP applicati
   | wp-content etc...
 ```
 
-Alternativly WordPress can be placed outside of your project folder, if you wish to keep your source project files and localhost files seperate.
+Alternatively WordPress can be placed outside of your project folder, if you wish to keep your source project files and localhost files separate.
 
 Then, simply ensure the correct paths are set for the 'copy' Grunt task :)
