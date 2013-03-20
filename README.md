@@ -4,13 +4,15 @@ Welcome to the **Grunt Project Kickstarter**, a file and folder structure to aid
 
 ## Requirements
 
-Make sure to have **[Node.js](http://nodejs.org/download/)** installed, and **[NPM](https://npmjs.org/doc/install.html)** would be handy also.
+- Boot up Terminal.
 
-Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase `npm uninstall -g grunt`
+- Make sure to have **[Node.js](http://nodejs.org/download/)** installed, and **[NPM](https://npmjs.org/doc/install.html)** would be handy also.
 
-Install **Grunt CLI globally** `npm install -g grunt-cli`
+- Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`.
 
-cd to your project folder, install **Grunt** there with `npm install grunt --save-dev`.
+- Install **Grunt CLI globally** `npm install -g grunt-cli`.
+
+- `cd` to your project folder, install **Grunt** there with `npm install grunt --save-dev`.
 
 ## Optional Tasks
 
