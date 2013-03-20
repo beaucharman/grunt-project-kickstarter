@@ -20,7 +20,17 @@ as well as your other node modules:
 
 - **[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
 
-Example:
+- **[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin --save-dev`
+
+- **[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
+
+- **[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
+
+- **[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
+
+- **[Regarde](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
+
+### Working with FTP Deploy
 
 ```javascript
 "ftp-deploy": {
@@ -37,6 +47,7 @@ Example:
 },
 ```
 The authKey is referenceing an entry in a JSON object saved in a `.ftppass` file that you can create and save in the `Gruntfile.js` directory :)
+
 ```javascript
 {
   "keyname": {
@@ -50,15 +61,7 @@ The authKey is referenceing an entry in a JSON object saved in a `.ftppass` file
 }
 ```
 
-- **[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin --save-dev`
-
-- **[Grunt Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
-
-- **[Copy Files](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
-
-- **[Regarde](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
-
-- **[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
+### Working with Contrib Watch or Regarde
 
 Use Watch if there are issues with Regarde.
 
@@ -84,6 +87,32 @@ watch:
 
 grunt.loadNpmTasks('grunt-contrib-watch');
 ```
+
+### Creating a dynamic watch task
+
+```
+/* Dynamic Watch task
+-----------------------------------------------
+To be used with Contrib Watch Task
+----------------------------------------------- */
+grunt.event.on('watch', function(action, filepath)
+{
+  var cwd = 'application/development/OOTSWordPressTheme/';
+  filepath = filepath.replace(cwd, '');
+  grunt.config.set('copy',
+  {
+    changed:
+    {
+      expand: true,
+      cwd: cwd,
+      src: filepath,
+      dest: '../3702_UON_WordPress_Install/wp-content/themes/OOTSWordPressTheme/'
+    }
+  });
+  return grunt.task.run('copy:changed');
+});
+```
+
 ### Would love to intergrate these soon:
 
 - **[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint--save-dev`
