@@ -101,7 +101,7 @@ To be used with Contrib Watch Task
 ----------------------------------------------- */
 grunt.event.on('watch', function(action, filepath)
 {
-  var cwd = 'application/development/OOTSWordPressTheme/';
+  var cwd = 'application/development/';
   filepath = filepath.replace(cwd, '');
   grunt.config.set('copy',
   {
@@ -110,7 +110,7 @@ grunt.event.on('watch', function(action, filepath)
       expand: true,
       cwd: cwd,
       src: filepath,
-      dest: '../3702_UON_WordPress_Install/wp-content/themes/OOTSWordPressTheme/'
+      dest: '/destination/folder/'
     }
   });
   return grunt.task.run('copy:changed');
