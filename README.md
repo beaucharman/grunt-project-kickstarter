@@ -4,15 +4,15 @@ Welcome to the **Grunt Project Kickstarter**, a file and folder structure to aid
 
 ## Requirements
 
-Boot up Terminal.
+Boot up Terminal
 
-Make sure to have **[Node.js](http://nodejs.org/download/)** installed, and **[NPM](https://npmjs.org/doc/install.html)** would be handy also.
+Make sure to have **[Node.js](http://nodejs.org/download/)** installed, and **[NPM](https://npmjs.org/doc/install.html)** would be handy also
 
-Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`.
+Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`
 
-Install **Grunt CLI globally** `npm install -g grunt-cli`.
+Install **Grunt CLI globally** `npm install -g grunt-cli`
 
-`cd` to your project folder, install **Grunt** there with `npm install grunt --save-dev`.
+`cd` to your project folder, install **Grunt** there with `npm install grunt --save-dev`
 
 ## Optional Tasks
 
@@ -134,6 +134,8 @@ grunt.event.on('watch', function(action, filepath)
 **[Smush it](https://github.com/heldr/grunt-smushit)** `npm install grunt-smushit --save-dev`
 
 **[Compass](https://github.com/kahlil/grunt-compass)** `npm install grunt-compass --save-dev`
+
+**[SHH](https://github.com/andrewrjones/grunt-ssh)
 
 ## Static and Dynamic Site Development
 
