@@ -2,7 +2,7 @@
 
 Welcome to the **Grunt Project Kickstarter**, a file and folder structure to aid in the development and deployment process of a HTML, CMS or framework based applications - with some added [Grunt](https://github.com/gruntjs).
 
-## Requirements
+## Installation
 
 Boot up Terminal
 
@@ -54,7 +54,7 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
   }
 },
 ```
-The authKey is referencing an entry in a JSON object saved in a `.ftppass` file that you can create and save in the `Gruntfile.js` directory :)
+The `authKey` is referencing an entry in a JSON object saved in a `.ftppass` file that you can create and save in the `Gruntfile.js` directory :)
 
 ```javascript
 {
@@ -135,7 +135,7 @@ grunt.event.on('watch', function(action, filepath)
 
 **[Compass](https://github.com/kahlil/grunt-compass)** `npm install grunt-compass --save-dev`
 
-**[SHH](https://github.com/andrewrjones/grunt-ssh)
+**[SHH](https://github.com/andrewrjones/grunt-ssh)**
 
 ## Static and Dynamic Site Development
 
@@ -149,7 +149,7 @@ Folder structure for a typical project, powered by Grunt.
   | source
     | coffee          <- Coffescripts
     | images          <- uncompressed images
-    | jekyll          <- Jekyll template (if utilising Jekyll)
+    | jekyll          <- Jekyll templates (if utilising Jekyll)
     | sass            <- Sass directory
   | test
     | (output from test ralated tasks)

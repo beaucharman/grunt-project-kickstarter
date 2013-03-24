@@ -226,6 +226,7 @@ module.exports = function(grunt)
 
     /* Regarde Watch Task
     -----------------------------------------------
+    Watch task alternative.
     npm install grunt-regarde --save-dev
     -----------------------------------------------*/
     regarde:
