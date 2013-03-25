@@ -169,9 +169,9 @@ module.exports = function(grunt)
         [
           {
             expand: true,
-            cwd:    'application/development/',
-            src:    ['**'],
-            dest:   'application/deploy/'
+            cwd:    "application/development/",
+            src:    ["**"],
+            dest:   "application/deploy/"
           }
         ]
       },
@@ -181,9 +181,9 @@ module.exports = function(grunt)
         [
           {
             expand: true,
-            cwd:    'application/development/theme/',
-            src:    ['**'],
-            dest:   'relative/path/to/wordpress/install/and/theme'
+            cwd:    "application/development/theme/",
+            src:    ["**"],
+            dest:   "relative/path/to/wordpress/install/and/theme"
           }
         ]
       }
@@ -215,7 +215,7 @@ module.exports = function(grunt)
     -----------------------------------------------*/
     watch: {
       build: {
-        files:  ["application/development/OOTSWordPressTheme/**", "application/source/sass/**"],
+        files:  ["application/development/**", "application/source/sass/**"],
         tasks:  ["sass:development"],
         options:
         {
@@ -247,21 +247,21 @@ module.exports = function(grunt)
   will capture the actual file changed and run run the task
   on it, rather then the entire watched folder.
   ----------------------------------------------- */
-  grunt.event.on('watch', function(action, filepath)
+  grunt.event.on("watch", function(action, filepath)
   {
-    var cwd = 'application/development/';
-    filepath = filepath.replace(cwd, '');
-    grunt.config.set('copy',
+    var cwd = "application/development/";
+    filepath = filepath.replace(cwd, "");
+    grunt.config.set("copy",
     {
       changed:
       {
         expand: true,
         cwd:    cwd,
         src:    filepath,
-        dest:   '/path/to/destination/from/Gruntfile'
+        dest:   "/path/to/destination/from/Gruntfile"
       }
     });
-    return grunt.task.run('copy:changed');
+    return grunt.task.run("copy:changed");
   });
 
   /* Load Tasks
