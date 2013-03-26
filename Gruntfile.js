@@ -148,8 +148,8 @@ module.exports = function(grunt)
         permalink:   "/articles/:year/:month/:title/"
       },
       compile:{
-        src :        "application/jekyll",
-        dest:        "application/development",
+        src :        "application/jekyll/",
+        dest:        "application/development/",
         pygments:    true,
         permalink:   "/articles/:year/:month/:title/"
       }
@@ -163,15 +163,15 @@ module.exports = function(grunt)
     -----------------------------------------------*/
     copy:
     {
-      deploy:
+      build:
       {
         files:
         [
           {
             expand: true,
-            cwd:    "application/development/",
-            src:    ["**"],
-            dest:   "application/deploy/"
+            cwd: "application/development/",
+            src: ["**"],
+            dest: "relative/path/to/destination/"
           }
         ]
       },
@@ -183,7 +183,31 @@ module.exports = function(grunt)
             expand: true,
             cwd:    "application/development/theme/",
             src:    ["**"],
-            dest:   "relative/path/to/wordpress/install/and/theme"
+            dest:   "relative/path/to/wordpress/install/and/theme/"
+          }
+        ]
+      },
+      deploy:
+      {
+        files:
+        [
+          {
+            expand: true,
+            cwd: "application/development/",
+            src: ["**", "!**.DS_Store"],
+            dest: "application/deploy/"
+          }
+        ]
+      },
+      test_deploy:
+      {
+        files:
+        [
+          {
+            expand: true,
+            cwd: "application/deploy/",
+            src: ["**"],
+            dest: "relative/path/to/destination/"
           }
         ]
       }
@@ -213,10 +237,22 @@ module.exports = function(grunt)
     -----------------------------------------------
     npm install grunt-contrib-watch --save-dev
     -----------------------------------------------*/
-    watch: {
-      build: {
-        files:  ["application/development/**", "application/source/sass/**"],
+    watch:
+    {
+      sass:
+      {
+        files:  ["application/source/sass/**"],
         tasks:  ["sass:development"],
+        options:
+        {
+          nospawn: true
+        }
+      },
+      /* Used with dynamic watch task below */
+      event:
+      {
+        files:  ["application/development/**"],
+        tasks:  ["copy:changed"],
         options:
         {
           nospawn: true
@@ -258,16 +294,14 @@ module.exports = function(grunt)
         expand: true,
         cwd:    cwd,
         src:    filepath,
-        dest:   "/path/to/destination/from/Gruntfile"
+        dest:   "relative/path/to/destination/"
       }
     });
-    return grunt.task.run("copy:changed");
+    /* May need to use this instead of grunt.watch.event.tasks:copy:changed */
+    // return grunt.task.run("copy:changed");
   });
 
   /* Load Tasks
-  -----------------------------------------------
-  Using grunt-regarde instead of grunt-contrib-watch
-  info here: https://github.com/gruntjs/grunt-contrib-livereload
   ----------------------------------------------- */
   grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-coffee");
