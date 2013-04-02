@@ -318,6 +318,7 @@ module.exports = function(grunt)
   ----------------------------------------------- */
   grunt.registerTask("default", ["sass:development"]);
   grunt.registerTask("build", ["sass:development", "uglify:development"]);
+  grunt.registerTask("copy_build", ["copy:build", "sass:development"]);
   grunt.registerTask("deploy", ["copy:deploy", "sass:deploy", "ftp-deploy:deploy"]);
 
 };
