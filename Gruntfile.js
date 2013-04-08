@@ -233,6 +233,26 @@ module.exports = function(grunt)
       }
     },
 
+    /* Text Replace
+    -----------------------------------------------
+    npm install grunt-text-replace --save-dev
+    -----------------------------------------------*/
+    replace:
+    {
+      deploy:
+      {
+        src: ['application/development/filename.html'],
+        dest: 'application/deploy/filename.html',
+        replacements:
+        [
+          {
+            from: "original text",
+            to:   "replacement text"
+          }
+        ]
+      }
+    },
+
     /* Contrib Watch Task
     -----------------------------------------------
     npm install grunt-contrib-watch --save-dev
@@ -311,6 +331,7 @@ module.exports = function(grunt)
   grunt.loadNpmTasks("grunt-jekyll");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-ftp-deploy");
+  grunt.loadNpmTasks("grunt-text-replace");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-regarde");
 
