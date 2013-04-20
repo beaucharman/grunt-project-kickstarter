@@ -1,6 +1,7 @@
 /**
  * Grunt Project Kickstater
  * ------------------------------------------------------------------------
+ * Gruntfile.js
  * @version   1.0 | 19th Feb, 2013
  * @author    Beau Charman | @beaucharman | http://beaucharman.me
  * @link      https://github.com/beaucharman/Grunt-Project-Kickstarter/
