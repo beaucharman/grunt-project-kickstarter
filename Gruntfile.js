@@ -15,7 +15,7 @@ module.exports = function(grunt)
 {
 
   /* ------------------------------------------------------------------------
-     Project configuration 
+     Project configuration
      ------------------------------------------------------------------------ */
   grunt.initConfig(
   {
@@ -26,7 +26,7 @@ module.exports = function(grunt)
       name: "Grunt Project Kickstater"
     },
 
-    /** 
+    /**
      * Sass
      * ------------------------------------------------------------------------
      * npm install grunt-contrib-sass --save-dev
@@ -119,7 +119,7 @@ module.exports = function(grunt)
       }
     },
 
-    /** 
+    /**
      * Image Min
      * ------------------------------------------------------------------------
      * npm install grunt-contrib-imagemin --save-dev
@@ -139,7 +139,7 @@ module.exports = function(grunt)
       }
     },
 
-    /** 
+    /**
      * Jekyll Task
      * ------------------------------------------------------------------------
      * npm install grunt-jekyll --save-dev
@@ -164,7 +164,7 @@ module.exports = function(grunt)
       }
     },
 
-    /** 
+    /**
      * Copy Files
      * ------------------------------------------------------------------------
      * To be used with WordPress theme development and/or
@@ -223,7 +223,7 @@ module.exports = function(grunt)
       }
     },
 
-    /** 
+    /**
      * FTP Deploy
      * ------------------------------------------------------------------------
      * Store ftp connection details in a .ftppass file
@@ -244,7 +244,7 @@ module.exports = function(grunt)
       }
     },
 
-    /** 
+    /**
      * Text Replace
      * ------------------------------------------------------------------------
      * npm install grunt-text-replace --save-dev
@@ -265,7 +265,7 @@ module.exports = function(grunt)
       }
     },
 
-    /** 
+    /**
      * Contrib Watch Task
      * ------------------------------------------------------------------------
      * npm install grunt-contrib-watch --save-dev
@@ -293,7 +293,7 @@ module.exports = function(grunt)
       }
     },
 
-    /** 
+    /**
      * Regarde Watch Task
      * ------------------------------------------------------------------------
      * Watch task alternative.
@@ -331,7 +331,7 @@ module.exports = function(grunt)
         dest:   "relative/path/to/destination/"
       }
     });
-    
+
     /* May need to use this instead of grunt.watch.event.tasks:copy:changed */
     // return grunt.task.run("copy:changed");
   });
