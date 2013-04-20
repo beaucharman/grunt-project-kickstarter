@@ -252,8 +252,8 @@ module.exports = function(grunt)
     {
       deploy:
       {
-        src: ['application/development/filename.html'],
-        dest: 'application/deploy/filename.html',
+        src: ["application/development/filename.html"],
+        dest: "application/deploy/filename.html",
         replacements:
         [
           {
