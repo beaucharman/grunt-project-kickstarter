@@ -1,19 +1,21 @@
-/*
-
-  Grunt Project Kickstater
-
------------------------------------------------
-19th Feb, 2013
-@beaucharman, http://beaucharman.me
-npm install -g grunt-cli
-npm install grunt --save-dev
------------------------------------------------ */
+/**
+ * Grunt Project Kickstater
+ * ------------------------------------------------------------------------
+ * @version   1.0 | 19th Feb, 2013
+ * @author    Beau Charman | @beaucharman | http://beaucharman.me
+ * @link      https://github.com/beaucharman/Grunt-Project-Kickstarter/
+ * @license   GNU http://www.gnu.org/licenses/lgpl.txt
+ *
+ * npm install -g grunt-cli
+ * npm install grunt --save-dev
+ * ------------------------------------------------------------------------ */
 
 module.exports = function(grunt)
 {
 
-  /* Project configuration
-  ----------------------------------------------- */
+  /* ------------------------------------------------------------------------
+     Project configuration 
+     ------------------------------------------------------------------------ */
   grunt.initConfig(
   {
     pkg: grunt.file.readJSON("package.json"),
@@ -23,10 +25,11 @@ module.exports = function(grunt)
       name: "Grunt Project Kickstater"
     },
 
-    /* Sass
-    -----------------------------------------------
-    npm install grunt-contrib-sass --save-dev
-    ----------------------------------------------- */
+    /** 
+     * Sass
+     * ------------------------------------------------------------------------
+     * npm install grunt-contrib-sass --save-dev
+     * ------------------------------------------------------------------------ */
     sass:
     {
       development:
@@ -53,10 +56,11 @@ module.exports = function(grunt)
       }
     },
 
-    /* Coffee
-    -----------------------------------------------
-    npm install grunt-contrib-coffee --save-dev
-    ----------------------------------------------- */
+    /**
+     * Coffee
+     * ------------------------------------------------------------------------
+     * npm install grunt-contrib-coffee --save-dev
+     * ------------------------------------------------------------------------ */
     coffee:
     {
       development:
@@ -71,10 +75,11 @@ module.exports = function(grunt)
       }
     },
 
-    /* Concat
-    -----------------------------------------------
-    npm install grunt-contrib-concat --save-dev
-    ----------------------------------------------- */
+    /**
+     * Concat
+     * ------------------------------------------------------------------------
+     * npm install grunt-contrib-concat --save-dev
+     * ------------------------------------------------------------------------ */
     concat:
     {
       development:
@@ -88,11 +93,12 @@ module.exports = function(grunt)
       }
     },
 
-    /* Uglify
-    -----------------------------------------------
-    Concats and minfies js files
-    npm install grunt-contrib-uglify --save-dev
-    ----------------------------------------------- */
+    /**
+     * Uglify
+     * ------------------------------------------------------------------------
+     * Concats and minfies js files
+     * npm install grunt-contrib-uglify --save-dev
+     * ------------------------------------------------------------------------ */
     uglify:
     {
       development:
@@ -112,10 +118,11 @@ module.exports = function(grunt)
       }
     },
 
-    /* Image Min
-    -----------------------------------------------
-    npm install grunt-contrib-imagemin --save-dev
-    ----------------------------------------------- */
+    /** 
+     * Image Min
+     * ------------------------------------------------------------------------
+     * npm install grunt-contrib-imagemin --save-dev
+     * ------------------------------------------------------------------------ */
     imagemin:
     {
       development:
@@ -131,10 +138,11 @@ module.exports = function(grunt)
       }
     },
 
-    /* Jekyll Task
-    -----------------------------------------------
-    npm install grunt-jekyll --save-dev
-    -----------------------------------------------*/
+    /** 
+     * Jekyll Task
+     * ------------------------------------------------------------------------
+     * npm install grunt-jekyll --save-dev
+     * ------------------------------------------------------------------------ */
     jekyll:
     {
       server:
@@ -155,12 +163,13 @@ module.exports = function(grunt)
       }
     },
 
-    /* Copy Files
-    -----------------------------------------------
-    To be used with WordPress theme development and/or
-    moving development files to deployment
-    npm install grunt-contrib-copy --save-dev
-    -----------------------------------------------*/
+    /** 
+     * Copy Files
+     * ------------------------------------------------------------------------
+     * To be used with WordPress theme development and/or
+     * moving development files to deployment
+     * npm install grunt-contrib-copy --save-dev
+     * ------------------------------------------------------------------------ */
     copy:
     {
       build:
@@ -213,10 +222,11 @@ module.exports = function(grunt)
       }
     },
 
-    /* FTP Deploy
-    -----------------------------------------------
-    Store ftp connection details in a .ftppass file
-    ----------------------------------------------- */
+    /** 
+     * FTP Deploy
+     * ------------------------------------------------------------------------
+     * Store ftp connection details in a .ftppass file
+     * ------------------------------------------------------------------------ */
     "ftp-deploy":
     {
       deploy:
@@ -233,10 +243,11 @@ module.exports = function(grunt)
       }
     },
 
-    /* Text Replace
-    -----------------------------------------------
-    npm install grunt-text-replace --save-dev
-    -----------------------------------------------*/
+    /** 
+     * Text Replace
+     * ------------------------------------------------------------------------
+     * npm install grunt-text-replace --save-dev
+     * ------------------------------------------------------------------------ */
     replace:
     {
       deploy:
@@ -253,10 +264,11 @@ module.exports = function(grunt)
       }
     },
 
-    /* Contrib Watch Task
-    -----------------------------------------------
-    npm install grunt-contrib-watch --save-dev
-    -----------------------------------------------*/
+    /** 
+     * Contrib Watch Task
+     * ------------------------------------------------------------------------
+     * npm install grunt-contrib-watch --save-dev
+     * ------------------------------------------------------------------------ */
     watch:
     {
       sass:
@@ -280,11 +292,12 @@ module.exports = function(grunt)
       }
     },
 
-    /* Regarde Watch Task
-    -----------------------------------------------
-    Watch task alternative.
-    npm install grunt-regarde --save-dev
-    -----------------------------------------------*/
+    /** 
+     * Regarde Watch Task
+     * ------------------------------------------------------------------------
+     * Watch task alternative.
+     * npm install grunt-regarde --save-dev
+     * ------------------------------------------------------------------------ */
     regarde:
     {
       css:
@@ -297,12 +310,12 @@ module.exports = function(grunt)
 
   });
 
-  /* Dynamic Watch task
-  -----------------------------------------------
-  To be used with Contrib Watch Task, this event function
-  will capture the actual file changed and run run the task
-  on it, rather then the entire watched folder.
-  ----------------------------------------------- */
+  /** Dynamic Watch task
+   * -----------------------------------------------
+   * To be used with Contrib Watch Task, this event function
+   * will capture the actual file changed and run run the task
+   * on it, rather then the entire watched folder.
+   * ----------------------------------------------- */
   grunt.event.on("watch", function(action, filepath)
   {
     var cwd = "application/development/";
@@ -317,12 +330,12 @@ module.exports = function(grunt)
         dest:   "relative/path/to/destination/"
       }
     });
+    
     /* May need to use this instead of grunt.watch.event.tasks:copy:changed */
     // return grunt.task.run("copy:changed");
   });
 
-  /* Load Tasks
-  ----------------------------------------------- */
+  /* Load Tasks */
   grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-coffee");
   grunt.loadNpmTasks("grunt-contrib-uglify");
@@ -335,8 +348,7 @@ module.exports = function(grunt)
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-regarde");
 
-  /* Register Tasks
-  ----------------------------------------------- */
+  /* Register Tasks */
   grunt.registerTask("default", ["sass:development"]);
   grunt.registerTask("build", ["sass:development", "uglify:development"]);
   grunt.registerTask("copy_build", ["copy:build", "sass:development"]);
