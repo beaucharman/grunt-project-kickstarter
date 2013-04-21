@@ -90,7 +90,7 @@ module.exports = function(grunt)
           "application/development/library/scripts/plugin.js",
           "application/development/library/scripts/main.js"
         ],
-        dest: "application/deploy/main.js"
+        dest: "application/deploy/library/scripts/main.js"
       }
     },
 
@@ -110,7 +110,7 @@ module.exports = function(grunt)
         },
         files:
         {
-          "application/deploy/main.js" :
+          "application/deploy/library/scripts/main.js" :
           [
             "application/development/library/scripts/plugin.js",
             "application/development/library/scripts/main.js"
