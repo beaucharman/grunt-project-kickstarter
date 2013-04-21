@@ -7,6 +7,8 @@
  * @link      https://github.com/beaucharman/Grunt-Project-Kickstarter/
  * @license   GNU http://www.gnu.org/licenses/lgpl.txt
  *
+ * Instructions: http://gruntjs.com/getting-started
+ * npm uninstall -g grunt
  * npm install -g grunt-cli
  * npm install grunt --save-dev
  * ------------------------------------------------------------------------ */
@@ -15,16 +17,17 @@ module.exports = function(grunt)
 {
 
   /* ------------------------------------------------------------------------
-     Project configuration
+     Init configuration
      ------------------------------------------------------------------------ */
   grunt.initConfig(
   {
-    pkg: grunt.file.readJSON("package.json"),
 
-    meta:
-    {
-      name: "Project Name"
-    },
+    /**
+     * Package file
+     * ------------------------------------------------------------------------
+     * All variable, dependency and version information for the project.
+     * ------------------------------------------------------------------------ */
+    pkg: grunt.file.readJSON("package.json"),
 
     /**
      * Sass
@@ -66,7 +69,7 @@ module.exports = function(grunt)
      * ------------------------------------------------------------------------ */
     coffee:
     {
-      development:
+      deploy:
       {
         compile:
         {
@@ -100,7 +103,6 @@ module.exports = function(grunt)
     /**
      * Uglify
      * ------------------------------------------------------------------------
-     * Concats and minfies js files
      * npm install grunt-contrib-uglify --save-dev
      * ------------------------------------------------------------------------ */
     uglify:
@@ -171,9 +173,9 @@ module.exports = function(grunt)
     /**
      * Copy Files
      * ------------------------------------------------------------------------
-     * To be used with WordPress theme development and/or
-     * moving development files to deployment
      * npm install grunt-contrib-copy --save-dev
+     * For WordPress theme development, use:
+     * copy.build.files.dest:"<%= pkg.path.wordpress %>"
      * ------------------------------------------------------------------------ */
     copy:
     {
@@ -184,7 +186,7 @@ module.exports = function(grunt)
           {
             expand: true,
             cwd: "<%= pkg.path.development %>",
-            src: ["**"],
+            src: ["**", "!**.DS_Store"],
             dest: "relative/path/to/destination/"
           }
         ]
@@ -196,7 +198,7 @@ module.exports = function(grunt)
           {
             expand: true,
             cwd:    "<%= pkg.path.development %>",
-            src:    ["**"],
+            src:    ["**", "!**.DS_Store"],
             dest:   "<%= pkg.path.wordpress %>"
           }
         ]
@@ -369,9 +371,12 @@ module.exports = function(grunt)
 
   /* Register Tasks
      ------------------------------------------------------------------------ */
+
+  /* The default Grunt task */
   grunt.registerTask("default", ["sass:development"]);
-  grunt.registerTask("build", ["sass:development", "uglify:development"]);
-  grunt.registerTask("copyBuild", ["copy:build", "sass:development"]);
-  grunt.registerTask("deploy", ["copy:deploy", "sass:deploy", "ftp-deploy:deploy"]);
+
+  /* Deployment */
+  grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy"]);
+  grunt.registerTask("testDeploy", ["copy:testDeploy"]);
 
 };

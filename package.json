@@ -1,6 +1,8 @@
 {
   "name": "project-name",
+
   "version": "0.1.0",
+
   "path": {
     "development": "application/development/",
     "deploy":      "application/deploy/",
@@ -17,6 +19,7 @@
       "jekyll":    "application/source/jekyll/"
     }
   },
+
   "devDependencies": {
     "grunt": "~0.4.1"
   }
