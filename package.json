@@ -1,0 +1,23 @@
+{
+  "name": "project-name",
+  "version": "0.1.0",
+  "path": {
+    "development": "application/development/",
+    "deploy":      "application/deploy/",
+    "wordpress":   "application/wordpress/wp-content/themes/theme-name/",
+    "lib": {
+      "scripts":   "library/scripts/",
+      "styles":    "library/styles/",
+      "images":    "library/images/"
+    },
+    "src": {
+      "sass":      "application/source/sass/",
+      "coffee":    "application/source/coffee/",
+      "images":    "application/source/images/",
+      "jekyll":    "application/source/jekyll/"
+    }
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  }
+}

@@ -1,5 +1,5 @@
 /**
- * Grunt Project Kickstater
+ * Project Name
  * ------------------------------------------------------------------------
  * Gruntfile.js
  * @version   1.0 | 19th Feb, 2013
@@ -23,7 +23,7 @@ module.exports = function(grunt)
 
     meta:
     {
-      name: "Grunt Project Kickstater"
+      name: "Project Name"
     },
 
     /**
@@ -37,7 +37,8 @@ module.exports = function(grunt)
       {
         files:
         {
-          "application/development/library/styles/main.css" : "application/source/sass/main.scss"
+          "<%= pkg.path.development %><%= pkg.path.lib.styles %>main.css" :
+            "<%= pkg.path.src.sass %>main.scss"
         },
         options:
         {
@@ -48,7 +49,8 @@ module.exports = function(grunt)
       {
         files:
         {
-          "application/deploy/library/styles/main.css" : "application/source/sass/main.scss"
+          "<%= pkg.path.deploy %><%= pkg.path.lib.styles %>main.css" :
+            "<%= pkg.path.src.sass %>main.scss"
         },
         options:
         {
@@ -70,7 +72,8 @@ module.exports = function(grunt)
         {
           files:
           {
-            "application/development/library/scripts/main.js" : "application/source/coffee/main.coffee"
+            "<%= pkg.path.development %><%= pkg.path.lib.scripts %>main.js" :
+              "<%= pkg.path.src.coffee %>main.coffee"
           }
         }
       }
@@ -83,14 +86,14 @@ module.exports = function(grunt)
      * ------------------------------------------------------------------------ */
     concat:
     {
-      development:
+      deploy:
       {
         src:
         [
-          "application/development/library/scripts/plugin.js",
-          "application/development/library/scripts/main.js"
+          "<%= pkg.path.development %><%= pkg.path.lib.scripts %>plugin.js",
+          "<%= pkg.path.development %><%= pkg.path.lib.scripts %>main.js"
         ],
-        dest: "application/deploy/library/scripts/main.js"
+        dest: "<%= pkg.path.deploy %><%= pkg.path.lib.scripts %>main.js"
       }
     },
 
@@ -102,7 +105,7 @@ module.exports = function(grunt)
      * ------------------------------------------------------------------------ */
     uglify:
     {
-      development:
+      deploy:
       {
         options:
         {
@@ -110,10 +113,10 @@ module.exports = function(grunt)
         },
         files:
         {
-          "application/deploy/library/scripts/main.js" :
+          "<%= pkg.path.deploy %><%= pkg.path.lib.scripts %>main.js" :
           [
-            "application/development/library/scripts/plugin.js",
-            "application/development/library/scripts/main.js"
+            "<%= pkg.path.development %><%= pkg.path.lib.scripts %>plugin.js",
+            "<%= pkg.path.development %><%= pkg.path.lib.scripts %>main.js"
           ]
         }
       }
@@ -126,7 +129,7 @@ module.exports = function(grunt)
      * ------------------------------------------------------------------------ */
     imagemin:
     {
-      development:
+      build:
       {
         options:
         {
@@ -134,7 +137,8 @@ module.exports = function(grunt)
         },
         files:
         {
-          "application/source/images/imagename.png" : "application/development/library/images/imagename.png"
+          "<%= pkg.path.src.images %>imagename.png" :
+            "<%= pkg.path.development %><%= pkg.path.lib.images %>imagename.png"
         }
       }
     },
@@ -148,8 +152,8 @@ module.exports = function(grunt)
     {
       server:
       {
-        src:         "application/source/jekyll/",
-        dest:        "application/development/",
+        src:         "<%= pkg.path.src.jekyll %>",
+        dest:        "<%= pkg.path.development %>",
         auto:        false,
         server:      true,
         server_port: 4000,
@@ -157,8 +161,8 @@ module.exports = function(grunt)
         permalink:   "/articles/:year/:month/:title/"
       },
       compile:{
-        src :        "application/jekyll/",
-        dest:        "application/development/",
+        src :        "<%= pkg.path.src.jekyll %>",
+        dest:        "<%= pkg.path.development %>",
         pygments:    true,
         permalink:   "/articles/:year/:month/:title/"
       }
@@ -179,7 +183,7 @@ module.exports = function(grunt)
         [
           {
             expand: true,
-            cwd: "application/development/",
+            cwd: "<%= pkg.path.development %>",
             src: ["**"],
             dest: "relative/path/to/destination/"
           }
@@ -191,9 +195,9 @@ module.exports = function(grunt)
         [
           {
             expand: true,
-            cwd:    "application/development/theme/",
+            cwd:    "<%= pkg.path.development %>",
             src:    ["**"],
-            dest:   "relative/path/to/wordpress/install/and/theme/"
+            dest:   "<%= pkg.path.wordpress %>"
           }
         ]
       },
@@ -203,19 +207,19 @@ module.exports = function(grunt)
         [
           {
             expand: true,
-            cwd: "application/development/",
+            cwd: "<%= pkg.path.development %>",
             src: ["**", "!**.DS_Store"],
-            dest: "application/deploy/"
+            dest: "<%= pkg.path.deploy %>"
           }
         ]
       },
-      test_deploy:
+      testDeploy:
       {
         files:
         [
           {
             expand: true,
-            cwd: "application/deploy/",
+            cwd: "<%= pkg.path.deploy %>",
             src: ["**"],
             dest: "relative/path/to/destination/"
           }
@@ -238,7 +242,7 @@ module.exports = function(grunt)
           port:     21,
           authKey:  "keyname"
         },
-        src:        "application/deploy/",
+        src:        "<%= pkg.path.deploy %>",
         dest:       "public_html/",
         exclusions: ["**/.DS_Store", "**/Thumbs.db"]
       }
@@ -253,8 +257,8 @@ module.exports = function(grunt)
     {
       deploy:
       {
-        src: ["application/development/filename.html"],
-        dest: "application/deploy/filename.html",
+        src: ["<%= pkg.path.development %>filename.html"],
+        dest: "<%= pkg.path.deploy %>filename.html",
         replacements:
         [
           {
@@ -274,17 +278,17 @@ module.exports = function(grunt)
     {
       sass:
       {
-        files:  ["application/source/sass/**"],
+        files:  ["<%= pkg.path.src.sass %>**"],
         tasks:  ["sass:development"],
         options:
         {
           nospawn: true
         }
       },
-      /* Used with dynamic watch task below */
+      // used with event listener
       event:
       {
-        files:  ["application/development/**"],
+        files:  ["<%= pkg.path.development %>**"],
         tasks:  ["copy:changed"],
         options:
         {
@@ -301,9 +305,9 @@ module.exports = function(grunt)
      * ------------------------------------------------------------------------ */
     regarde:
     {
-      css:
+      sass:
       {
-        files:  "application/source/sass/**",
+        files:  "<%= pkg.path.src.sass %>**",
         tasks:  ["sass:development"],
         events: true
       }
@@ -319,7 +323,8 @@ module.exports = function(grunt)
    * ----------------------------------------------- */
   grunt.event.on("watch", function(action, filepath)
   {
-    var cwd = "application/development/";
+    var pkg = grunt.file.readJSON("package.json");
+    var cwd = pkg.path.development;
     filepath = filepath.replace(cwd, "");
     grunt.config.set("copy",
     {
@@ -339,8 +344,8 @@ module.exports = function(grunt)
   /* Load Tasks */
   grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-coffee");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-imagemin");
   grunt.loadNpmTasks("grunt-jekyll");
   grunt.loadNpmTasks("grunt-contrib-copy");
@@ -352,7 +357,7 @@ module.exports = function(grunt)
   /* Register Tasks */
   grunt.registerTask("default", ["sass:development"]);
   grunt.registerTask("build", ["sass:development", "uglify:development"]);
-  grunt.registerTask("copy_build", ["copy:build", "sass:development"]);
+  grunt.registerTask("copyBuild", ["copy:build", "sass:development"]);
   grunt.registerTask("deploy", ["copy:deploy", "sass:deploy", "ftp-deploy:deploy"]);
 
 };
