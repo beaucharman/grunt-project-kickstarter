@@ -316,16 +316,16 @@ module.exports = function(grunt)
   });
 
   /** Dynamic Watch task
-   * -----------------------------------------------
+   * ------------------------------------------------------------------------
    * To be used with Contrib Watch Task, this event function
    * will capture the actual file changed and run run the task
    * on it, rather then the entire watched folder.
-   * ----------------------------------------------- */
-  grunt.event.on("watch", function(action, filepath)
+   * ------------------------------------------------------------------------ */
+  grunt.event.on("watch", function(event, listener)
   {
     var pkg = grunt.file.readJSON("package.json");
     var cwd = pkg.path.development;
-    filepath = filepath.replace(cwd, "");
+    filepath = listener.replace(cwd, "");
     grunt.config.set("copy",
     {
       changed:
@@ -341,7 +341,19 @@ module.exports = function(grunt)
     // return grunt.task.run("copy:changed");
   });
 
-  /* Load Tasks */
+  /**
+   * Volo
+   * ------------------------------------------------------------------------
+   * npm install grunt-volo
+   * Used to fetch Github repos through the terminal.
+   * To fetch a file:  grunt volo:add:[flags]:[archive]:[localName]
+   * To search github: grunt volo:search:[name]
+   * More information:
+   *   https://github.com/volojs/volo/blob/master/commands/add/doc.md
+   * ------------------------------------------------------------------------ */
+
+  /* Load Tasks
+     ------------------------------------------------------------------------ */
   grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-coffee");
   grunt.loadNpmTasks("grunt-contrib-concat");
@@ -353,8 +365,10 @@ module.exports = function(grunt)
   grunt.loadNpmTasks("grunt-text-replace");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-regarde");
+  grunt.loadNpmTasks('grunt-volo');
 
-  /* Register Tasks */
+  /* Register Tasks
+     ------------------------------------------------------------------------ */
   grunt.registerTask("default", ["sass:development"]);
   grunt.registerTask("build", ["sass:development", "uglify:development"]);
   grunt.registerTask("copyBuild", ["copy:build", "sass:development"]);
