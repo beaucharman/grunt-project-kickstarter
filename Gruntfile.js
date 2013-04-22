@@ -354,7 +354,8 @@ module.exports = function(grunt)
    *   https://github.com/volojs/volo/blob/master/commands/add/doc.md
    * ------------------------------------------------------------------------ */
 
-  /* Load Tasks
+  /* ------------------------------------------------------------------------
+     Load Tasks
      ------------------------------------------------------------------------ */
   grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-coffee");
@@ -369,13 +370,26 @@ module.exports = function(grunt)
   grunt.loadNpmTasks("grunt-regarde");
   grunt.loadNpmTasks('grunt-volo');
 
-  /* Register Tasks
+  /* ------------------------------------------------------------------------
+     Register tasks
      ------------------------------------------------------------------------ */
 
-  /* The default Grunt task */
+  /* The default Grunt task
+   * ------------------------------------------------------------------------
+   * Tasks run simply with the command `grunt`
+   */
   grunt.registerTask("default", ["sass:development"]);
 
-  /* Deployment */
+  /** Build
+   * ------------------------------------------------------------------------
+   * Run preprocessing and copy files
+   */
+  grunt.registerTask("build", ["sass:development", "copy:build"]);
+
+  /** Deploy
+   * ------------------------------------------------------------------------
+   * Run preprocessing, concatenate, minify and copy files for deploment
+   */
   grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy"]);
   grunt.registerTask("testDeploy", ["copy:testDeploy"]);
 
