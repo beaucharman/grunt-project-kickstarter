@@ -232,6 +232,7 @@ module.exports = function(grunt)
     /**
      * FTP Deploy
      * ------------------------------------------------------------------------
+     * git clone git://github.com/zonak/grunt-ftp-deploy.git
      * Store ftp connection details in a .ftppass file
      * ------------------------------------------------------------------------ */
     "ftp-deploy":

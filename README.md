@@ -12,7 +12,11 @@ Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `np
 
 Install **Grunt CLI globally** `npm install -g grunt-cli`
 
-`cd` to your project folder, install **Grunt** there with `npm install grunt --save-dev`
+`cd` to your project folder
+
+Get the files $ git clone https://github.com/beaucharman/Grunt-Project-Kickstarter.git (move the files one level up if need)
+
+Install **Grunt** there with `npm install grunt --save-dev`
 
 ## Optional Tasks
 
@@ -32,11 +36,15 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[Copy](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
 
-**[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `github copy git://github.com/zonak/grunt-ftp-deploy.git`
+**[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `git clone git://github.com/zonak/grunt-ftp-deploy.git`
+
+**[Text Replace](https://github.com/yoniholmes/grunt-text-replace)** `npm install grunt-text-replace --save-dev`
 
 **[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
 
 **[Regarde](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
+
+**[Volo](https://github.com/volojs/grunt-volo)** `npm install grunt-volo --save-dev`
 
 ### Working with FTP Deploy
 
@@ -111,7 +119,7 @@ grunt.event.on("watch", function(event, listener)
 
 **[Compass](https://github.com/kahlil/grunt-compass)** `npm install grunt-compass --save-dev`
 
-**[SHH](https://github.com/andrewrjones/grunt-ssh)**
+**[SHH](https://github.com/andrewrjones/grunt-ssh)** `git clone git://github.com/andrewrjones/grunt-ssh.git`
 
 ## Static and Dynamic Site Development
 
