@@ -380,6 +380,12 @@ module.exports = function(grunt)
    */
   grunt.registerTask("default", ["sass:development"]);
 
+  /** Watch Sass
+   * ------------------------------------------------------------------------
+   * Simply watch for Sass changes and process
+   */
+  grunt.registerTask("watchSass", ["watch:sass"]);
+
   /** Build
    * ------------------------------------------------------------------------
    * Run preprocessing and copy files
