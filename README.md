@@ -69,55 +69,31 @@ The `authKey` is referencing an entry in a JSON object saved in a `.ftppass` fil
 }
 ```
 
-### Working with Contrib Watch or Regarde
-
-Use Watch if there are issues with Regarde.
-
-```javascript
-/* Watch Task
------------------------------------------------
-npm install grunt-contrib-watch --save-dev
------------------------------------------------*/
-watch:
-{
-  sass:
-  {
-    files: ['application/source/sass/**'],
-    tasks: ['sass'],
-    options:
-    {
-      interrupt: true
-    }
-  }
-}
-
-...
-
-grunt.loadNpmTasks('grunt-contrib-watch');
-```
-
 ### Creating a dynamic watch task
 
+The following creates a listener for the watch task, captures the event and filename
+when a change is detected, then runs the dynamically created (in this instance, copy:changed)
+on the effected file.
+
 ```javascript
-/* Dynamic Watch task
------------------------------------------------
-To be used with Contrib Watch Task
------------------------------------------------ */
-grunt.event.on('watch', function(action, filepath)
+grunt.event.on("watch", function(event, listener)
 {
-  var cwd = 'application/development/';
-  filepath = filepath.replace(cwd, '');
-  grunt.config.set('copy',
+  var pkg = grunt.file.readJSON("package.json");
+  var cwd = pkg.path.development;
+  filepath = listener.replace(cwd, "");
+  grunt.config.set("copy",
   {
     changed:
     {
       expand: true,
-      cwd: cwd,
-      src: filepath,
-      dest: '/destination/folder/'
+      cwd:    cwd,
+      src:    filepath,
+      dest:   "relative/path/to/destination/"
     }
   });
-  return grunt.task.run('copy:changed');
+
+  /* May need to use this instead of grunt.watch.event.tasks:copy:changed */
+  // return grunt.task.run("copy:changed");
 });
 ```
 
@@ -155,7 +131,7 @@ Folder structure for a typical project, powered by Grunt.
     | (output from test ralated tasks)
 | Gruntfile.js        <- where the magic happens
 | node_modules        <- all the good stuff, will appear after an 'npm install'
-| package.json        <- Grunt's package file
+| package.json        <- Grunt's package file, store our variables too :)
 | README.md           <- this file
 ```
 

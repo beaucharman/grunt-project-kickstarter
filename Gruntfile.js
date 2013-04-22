@@ -382,7 +382,7 @@ module.exports = function(grunt)
 
   /** Watch Sass
    * ------------------------------------------------------------------------
-   * Simply watch for Sass changes and process
+   * Simply watch for Sass changes, and process
    */
   grunt.registerTask("watchSass", ["watch:sass"]);
 
@@ -397,6 +397,8 @@ module.exports = function(grunt)
    * Run preprocessing, concatenate, minify and copy files for deploment
    */
   grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy"]);
+
+  /* Test deployment files */
   grunt.registerTask("testDeploy", ["copy:testDeploy"]);
 
 };
