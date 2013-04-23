@@ -13,8 +13,7 @@
  * npm install grunt --save-dev
  * ------------------------------------------------------------------------ */
 
-module.exports = function(grunt)
-{
+module.exports = function(grunt) {
 
   /* ------------------------------------------------------------------------
      Init configuration
@@ -324,8 +323,7 @@ module.exports = function(grunt)
    * will capture the actual file changed and run run the task
    * on it, rather then the entire watched folder.
    * ------------------------------------------------------------------------ */
-  grunt.event.on("watch", function(event, listener)
-  {
+  grunt.event.on("watch", function(event, listener) {
     var pkg = grunt.file.readJSON("package.json");
     var cwd = pkg.path.development;
     filepath = listener.replace(cwd, "");
