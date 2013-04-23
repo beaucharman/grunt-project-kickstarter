@@ -399,6 +399,14 @@ module.exports = function(grunt)
    */
   grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy"]);
 
+  /** WordPress Deploy
+   * ------------------------------------------------------------------------
+   * Run preprocessing, concatenate, minify and copy files.
+   * Also change any development mode options in template files to be
+   * ready for deployment.
+   */
+  grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy", "replace:deploy"]);
+
   /* Test deployment files */
   grunt.registerTask("testDeploy", ["copy:testDeploy"]);
 
