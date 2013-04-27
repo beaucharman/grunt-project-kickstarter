@@ -39,7 +39,7 @@ module.exports = function(grunt) {
       {
         files:
         {
-          "<%= pkg.path.development %><%= pkg.path.lib.styles %>main.css" :
+          "<%= pkg.path.development %><%= pkg.path.lib.styles %>main.css":
             "<%= pkg.path.src.sass %>main.scss"
         },
         options:

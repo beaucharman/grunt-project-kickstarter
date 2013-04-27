@@ -165,3 +165,11 @@ and then, the WordPress install (running with either MAMP, or any LAMP applicati
 Alternatively WordPress can be placed outside of your project folder, if you wish to keep your source project files and localhost files separate.
 
 Then, simply ensure the correct paths are set for the 'copy' Grunt task :)
+
+### More ideas for WordPress development
+
+Add the following to the Sass task to create a dynamic Sass generated `custom-editor-styles.css` file.
+
+/* WordPress editor styles */
+"<%= pkg.path.development %><%= pkg.path.lib.styles %>custom-editor-styles.css":
+  "<%= pkg.path.src.sass %>includes/custom-editor-styles.scss"
