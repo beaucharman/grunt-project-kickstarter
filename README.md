@@ -170,6 +170,8 @@ Then, simply ensure the correct paths are set for the 'copy' Grunt task :)
 
 Add the following to the Sass task to create a dynamic Sass generated `custom-editor-styles.css` file.
 
+```javaScript
 /* WordPress editor styles */
 "<%= pkg.path.development %><%= pkg.path.lib.styles %>custom-editor-styles.css":
   "<%= pkg.path.src.sass %>includes/custom-editor-styles.scss"
+```
