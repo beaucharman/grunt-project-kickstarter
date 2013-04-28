@@ -22,8 +22,6 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee --save-dev`
 
-**[Image Min](https://github.com/gruntjs/grunt-contrib-imagemin)** `npm install grunt-contrib-imagemin --save-dev`
-
 **[Concat](https://github.com/gruntjs/grunt-contrib-concat)** `pm install grunt-contrib-concat --save-dev`
 
 **[Uglify](https://github.com/gruntjs/grunt-contrib-uglify)** `npm install grunt-contrib-uglify --save-dev`
@@ -42,24 +40,22 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[Volo](https://github.com/volojs/grunt-volo)** `npm install grunt-volo --save-dev`
 
-Plus many, many others via the [Grunt Plugins](http://gruntjs.com/plugins).
-
-For each task you wish to use,
+Plus many, many others via the [Grunt Plugins](http://gruntjs.com/plugins) page.
 
 ## Configuration
 
 **Tasks**
 
-For each task that is used, it needs to be locally install (described in the above section), and needs to be referenced
-in the `Gruntfile.js` by using the `grunt.loadNpmTasks();` function.
+For each task that is used, it needs to be locally installed (described in the above section), and needs to be referenced
+in the `Gruntfile.js` by using the `grunt.loadNpmTasks();` function. Comment out or remove any unneeded tasks.
 
 **File Paths**
 
 Most tasks require and use file paths to perform said tasks. The Grunt Project Kickstarter stores paths in the package.json file. Make sure these paths reflect that of your project structure, and add / change paths where required.
 
-## A Run Down of the Registered Tasks
+## A Run Down of the Registered Custom Tasks
 
-The following registered tasks are basically suggestions for an easy workflow.
+The following registered, custom tasks are suggestions for an awesome workflow. Custom tasks are declared using the `grunt.registerTask();` function, which at it's basic usage takes two arguments, one being the new task's alias (how it will be called in the terminal), and the other being an array of tasks that will run (executed in array index order). Read more about [creating tasks](http://gruntjs.com/creating-tasks).
 
 **Default**
 

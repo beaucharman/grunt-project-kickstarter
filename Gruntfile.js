@@ -124,27 +124,6 @@ module.exports = function(grunt) {
     },
 
     /**
-     * Image Min
-     * ------------------------------------------------------------------------
-     * npm install grunt-contrib-imagemin --save-dev
-     * ------------------------------------------------------------------------ */
-    imagemin:
-    {
-      build:
-      {
-        options:
-        {
-          optimizationLevel: 3
-        },
-        files:
-        {
-          "<%= pkg.path.src.images %>imagename.png" :
-            "<%= pkg.path.development %><%= pkg.path.lib.images %>imagename.png"
-        }
-      }
-    },
-
-    /**
      * Jekyll Task
      * ------------------------------------------------------------------------
      * npm install grunt-jekyll --save-dev
@@ -360,7 +339,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-coffee");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-contrib-imagemin");
   grunt.loadNpmTasks("grunt-jekyll");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-ftp-deploy");
@@ -370,7 +348,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-volo');
 
   /* ------------------------------------------------------------------------
-     Register tasks
+     Register custom tasks
      ------------------------------------------------------------------------ */
 
   /* The default Grunt task
