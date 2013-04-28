@@ -4,23 +4,19 @@ Welcome to the **Grunt Project Kickstarter**, a file and folder structure to aid
 
 ## Installation
 
-Boot up Terminal
+Follow http://gruntjs.com/getting-started for an in-depth look at setting up Grunt, but basically:
 
-Make sure to have **[Node.js](http://nodejs.org/download/)** installed, and **[NPM](https://npmjs.org/doc/install.html)** would be handy also
-
-Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`
-
-Install **Grunt CLI globally** `npm install -g grunt-cli`
-
-`cd` to your project folder
-
-Get the files $ git clone https://github.com/beaucharman/Grunt-Project-Kickstarter.git (move the files one level up if need)
-
-Install **Grunt** there with `npm install grunt --save-dev`
+- Boot up Terminal
+- Make sure to have **[Node.js](http://nodejs.org/download/)** installed
+- Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`
+- Install **Grunt CLI globally** `npm install -g grunt-cli`
+- `cd` to your project folder
+- Get the files $ git clone https://github.com/beaucharman/Grunt-Project-Kickstarter.git (move the files one level up if need)
+- Install Grunt to the project root with `npm install grunt --save-dev`
 
 ## Optional Tasks
 
-To use some of the task included in the `Grintfile.js`, make sure you install the following relavent node modules:
+To use some of the task included in the `Grintfile.js`, make sure you install the following relavent node modules (using [npm](https://npmjs.org/doc/install.html)):
 
 **[Contrib Sass](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
 
@@ -46,7 +42,24 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[Volo](https://github.com/volojs/grunt-volo)** `npm install grunt-volo --save-dev`
 
+Plus many, many others via the [Grunt Plugins](http://gruntjs.com/plugins).
+
+For each task you wish to use,
+
+## Configuration
+
+**Tasks**
+
+For each task that is used, it needs to be locally install (described in the above section), and needs to be referenced
+in the `Gruntfile.js` by using the `grunt.loadNpmTasks();` function.
+
+**File Paths**
+
+Most tasks require and use file paths to perform said tasks. The Grunt Project Kickstarter stores paths in the package.json file. Make sure these paths reflect that of your project structure, and add / change paths where required.
+
 ## A Run Down of the Registered Tasks
+
+The following registered tasks are basically suggestions for an easy workflow.
 
 **Default**
 
@@ -120,21 +133,20 @@ when a change is detected, then runs the dynamically created (in this instance, 
 on the effected file.
 
 ```javascript
-grunt.event.on("watch", function(event, listener)
-{
-  var pkg = grunt.file.readJSON("package.json");
-  var cwd = pkg.path.development;
-  filepath = listener.replace(cwd, "");
-  grunt.config.set("copy",
-  {
-    changed:
+ grunt.event.on("watch", function(event, listener) {
+    var pkg = grunt.file.readJSON("package.json");
+    var cwd = pkg.path.development;
+    filepath = listener.replace(cwd, "");
+    grunt.config.set("copy",
     {
-      expand: true,
-      cwd:    cwd,
-      src:    filepath,
-      dest:   "relative/path/to/destination/"
-    }
-  });
+      changed:
+      {
+        expand: true,
+        cwd:    cwd,
+        src:    filepath,
+        dest:   "relative/path/to/destination/"
+      }
+    });
 
   /* May need to use this instead of grunt.watch.event.tasks:copy:changed */
   // return grunt.task.run("copy:changed");
