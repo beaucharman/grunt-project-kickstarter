@@ -46,23 +46,59 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[Volo](https://github.com/volojs/grunt-volo)** `npm install grunt-volo --save-dev`
 
+## A Run Down of the Registered Tasks
+
+**Default**
+
+Command: `grunt`
+
+Task registration: `grunt.registerTask("default", ["sass:development"]);`
+
+Can be defined as necessary, currenty simply processes the Sass:development task.
+
+**Watch Sass**
+
+Command: `grunt watchSass`
+
+Task registration: `grunt.registerTask("watchSass", ["watch:sass"]);`
+
+This task watches the defined Sass directory for changes, and processes them.
+
+**Build**
+
+Command: `grunt build`
+
+Task registration: `grunt.registerTask("build", ["sass:development", "copy:build"]);`
+
+Run preprocessing and copy files to the development environment. Great to use when working in a 'development files here... testing environment here' way.
+
+**Deploy**
+
+Command: `grunt deploy`
+
+Task registration: `grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy"]);`
+
+Run preprocessing, concatenate, minify and copy files for deploment.
+
+**WordPress Deploy**
+
+Task registration: `grunt.registerTask("deploy", ["copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"]);`
+
+Run preprocessing, concatenate, minify and copy files. Also change any development mode options in template files to be ready for deployment. Can be used with any framework, particularly where you have options in your files that change once in deployment mode.
+
+**Test Deploy**
+
+Command: `grunt testDeploy`
+
+Task registration: `grunt.registerTask("testDeploy", ["copy:testDeploy"]);`
+
+Copies the deployment files into the development environment for testing. Awesome to use with a framework or CMS workflow. (make sure your minified and concatenated js files still work... sorta thing)
+
 ### Working with FTP Deploy
 
-```javascript
-"ftp-deploy": {
-  build: {
-    auth: {
-      host: "ftp.website.com",
-      port: 21,
-      authKey: "keyname"
-    },
-    src: "application/production/",
-    dest: "public_html/",
-    exclusions: ["**/.DS_Store", "**/Thumbs.db"]
-  }
-},
-```
 The `authKey` is referencing an entry in a JSON object saved in a `.ftppass` file that you can create and save in the `Gruntfile.js` directory :)
+
+Example `.ftppass` file:
 
 ```javascript
 {

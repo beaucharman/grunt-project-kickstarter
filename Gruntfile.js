@@ -2,10 +2,10 @@
  * Project Name
  * ------------------------------------------------------------------------
  * Gruntfile.js
- * @version   1.0 | 19th Feb, 2013
+ * @version   2.0 | 28th April, 2013
  * @author    Beau Charman | @beaucharman | http://beaucharman.me
- * @link      https://github.com/beaucharman/Grunt-Project-Kickstarter/
- * @license   GNU http://www.gnu.org/licenses/lgpl.txt
+ * @link      http://git.io/WrVN3g
+ * @license   MIT license
  *
  * Instructions: http://gruntjs.com/getting-started
  * npm uninstall -g grunt
@@ -403,7 +403,7 @@ module.exports = function(grunt) {
    * Also change any development mode options in template files to be
    * ready for deployment.
    */
-  grunt.registerTask("deploy", ["copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"]);
+  // grunt.registerTask("deploy", ["copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"]);
 
   /* Test deployment files */
   grunt.registerTask("testDeploy", ["copy:testDeploy"]);
