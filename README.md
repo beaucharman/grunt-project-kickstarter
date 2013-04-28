@@ -103,6 +103,8 @@ Task registration: `grunt.registerTask("testDeploy", ["copy:testDeploy"]);`
 
 Copies the deployment files into the development environment for testing. Awesome to use with a framework or CMS workflow. (make sure your minified and concatenated js files still work... sorta thing)
 
+---
+
 ### Working with FTP Deploy
 
 The `authKey` is referencing an entry in a JSON object saved in a `.ftppass` file that you can create and save in the `Gruntfile.js` directory :)
@@ -165,7 +167,7 @@ on the effected file.
 
 **[SHH](https://github.com/andrewrjones/grunt-ssh)** `git clone git://github.com/andrewrjones/grunt-ssh.git`
 
-## Static and Dynamic Site Development
+### Static and Dynamic Site Development
 
 Folder structure for a typical project, powered by Grunt.
 ```
@@ -187,7 +189,7 @@ Folder structure for a typical project, powered by Grunt.
 | README.md           <- this file
 ```
 
-## WordPress Theme Development
+### WordPress Theme Development
 For local WordPress development, all theme files (the ones that you will be making direct changes to) reside in the `development` folder, for example:
 ```
 | application
