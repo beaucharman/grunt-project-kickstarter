@@ -4,7 +4,7 @@
  * Gruntfile.js
  * @version   2.0 | 28th April, 2013
  * @author    Beau Charman | @beaucharman | http://beaucharman.me
- * @link      https://github.com/beaucharman/Grunt-Project-Kickstarter
+ * @link      https://github.com/beaucharman/grunt-project-kickstarter
  * @license   MIT license
  *
  * Instructions: http://gruntjs.com/getting-started
