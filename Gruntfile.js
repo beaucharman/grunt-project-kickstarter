@@ -15,6 +15,8 @@
 
 module.exports = function(grunt) {
 
+  'use strict';
+
   /* ------------------------------------------------------------------------
      Init configuration
      ------------------------------------------------------------------------ */
@@ -58,6 +60,20 @@ module.exports = function(grunt) {
         {
           style: "compressed"
         }
+      }
+    },
+
+    /**
+     * cssLint
+     * ------------------------------------------------------------------------
+     * npm install grunt-contrib-csslint --save-dev
+     * ------------------------------------------------------------------------ */
+    csslint: {
+      all: {
+        src:
+        [
+          "<%= pkg.path.development %><%= pkg.path.lib.styles %>main.css"
+        ]
       }
     },
 
@@ -121,6 +137,19 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+
+    /**
+     * jsHint
+     * ------------------------------------------------------------------------
+     * npm install grunt-contrib-jshint --save-dev
+     * ------------------------------------------------------------------------ */
+    jshint: {
+      all:
+      [
+        "<%= pkg.path.development %><%= pkg.path.lib.scripts %>plugin.js",
+        "<%= pkg.path.development %><%= pkg.path.lib.scripts %>main.js"
+      ]
     },
 
     /**
@@ -336,9 +365,11 @@ module.exports = function(grunt) {
      Load Tasks
      ------------------------------------------------------------------------ */
   grunt.loadNpmTasks("grunt-contrib-sass");
+  grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks("grunt-contrib-coffee");
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks("grunt-jekyll");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-ftp-deploy");

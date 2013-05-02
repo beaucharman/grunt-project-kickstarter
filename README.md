@@ -20,11 +20,15 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[Contrib Sass](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
 
+**[cssLint](https://github.com/gruntjs/grunt-contrib-csslint)** `npm install grunt-contrib-csslint --save-dev`
+
 **[Contrib Coffee](https://github.com/gruntjs/grunt-contrib-coffee)** `npm install grunt-contrib-coffee --save-dev`
 
 **[Concat](https://github.com/gruntjs/grunt-contrib-concat)** `pm install grunt-contrib-concat --save-dev`
 
 **[Uglify](https://github.com/gruntjs/grunt-contrib-uglify)** `npm install grunt-contrib-uglify --save-dev`
+
+**[jsHint](https://github.com/gruntjs/grunt-contrib-jshint)** `npm install grunt-contrib-jshint --save-dev`
 
 **[Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
 
@@ -152,10 +156,6 @@ on the effected file.
 ```
 
 ### Would love to intergrate these soon:
-
-**[jsLint](https://github.com/stephenmathieson/grunt-jslint)** `npm install grunt-jslint--save-dev`
-
-**[CSSLint](https://github.com/gruntjs/grunt-contrib-csslint)** `npm install grunt-contrib-csslint --save-dev`
 
 **[CSSmin](https://github.com/gruntjs/grunt-contrib-cssmin)** `npm install grunt-contrib-cssmin --save-dev`
 
