@@ -57,7 +57,7 @@ in the `Gruntfile.js` by using the `grunt.loadNpmTasks();` function. Comment out
 
 **File Paths**
 
-Most tasks require and use file paths to perform said tasks. The Grunt Project Kickstarter stores paths in the package.json file. Make sure these paths reflect that of your project structure, and add / change paths where required.
+Most tasks require and use file paths to perform said tasks. The Grunt Project Kickstarter stores paths in the `package.json` file. Make sure these paths reflect that of your project structure, and add / change paths where required.
 
 ## A Run Down of the Registered Custom Tasks
 
@@ -69,7 +69,7 @@ Command: `grunt`
 
 Task registration: `grunt.registerTask("default", ["sass:development"]);`
 
-Can be defined as necessary, currenty simply processes the Sass:development task.
+Can be defined as necessary, currenty just processes the `sass:development` task.
 
 **Watch Sass**
 
@@ -130,8 +130,8 @@ Example `.ftppass` file:
 
 ### Creating a dynamic watch task
 
-The following creates a listener for the watch task, captures the event and filename
-when a change is detected, then runs the dynamically created (in this instance, copy:changed)
+The following  function creates a listener for the **watch** task, captures the event and filename
+when a change is detected, then runs the dynamically created (in this instance, `copy:changed`)
 on the effected file.
 
 ```javascript
@@ -185,7 +185,7 @@ Folder structure for a typical project, powered by Grunt.
     | (output from test ralated tasks)
 | Gruntfile.js        <- where the magic happens
 | node_modules        <- all the good stuff, will appear after an 'npm install'
-| package.json        <- Grunt's package file, store our variables too :)
+| package.json        <- Grunt's package file, stores our variables too :)
 | README.md           <- this file
 ```
 
@@ -194,10 +194,9 @@ For local WordPress development, all theme files (the ones that you will be maki
 ```
 | application
   | development
-    | theme-name (within a appropriately named folder for easy zip and WordPress interaction purposes)
-      | function.php
-      | index.php
-      | style.css etc...
+    | function.php
+    | index.php
+    | style.css etc...
 ```
 
 and then, the WordPress install (running with either MAMP, or any LAMP application, locally of course) will sit in a folder within `application`, such as:
@@ -210,7 +209,7 @@ and then, the WordPress install (running with either MAMP, or any LAMP applicati
 
 Alternatively WordPress can be placed outside of your project folder, if you wish to keep your source project files and localhost files separate.
 
-Then, simply ensure the correct paths are set for the 'copy' Grunt task :)
+Then, simply ensure the correct paths are set for the `copy` Grunt task :)
 
 ### More ideas for WordPress development
 
