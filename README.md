@@ -11,7 +11,7 @@ Follow http://gruntjs.com/getting-started for an in-depth look at setting up Gru
 - Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`
 - Install **Grunt CLI globally** `npm install -g grunt-cli`
 - `cd` to your project folder
-- Get the files $ git clone https://github.com/beaucharman/Grunt-Project-Kickstarter.git (move the files one level up if need)
+- Get the files `$ git clone https://github.com/beaucharman/Grunt-Project-Kickstarter.git` (move the files one level up if need)
 - Install Grunt to the project root with `npm install grunt --save-dev`
 
 ## Optional Tasks
