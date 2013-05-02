@@ -280,6 +280,23 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Smushit
+     * ------------------------------------------------------------------------
+     * npm install grunt-smushit
+     * ------------------------------------------------------------------------ */
+    smushit:
+    {
+      deploy:
+      {
+        src:
+        [
+          '<%= pkg.path.development %>/**/*.jpg',
+          '<%= pkg.path.development %>/**/*.png'
+        ]
+      }
+    },
+
+    /**
      * Contrib Watch Task
      * ------------------------------------------------------------------------
      * npm install grunt-contrib-watch --save-dev
@@ -374,6 +391,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-ftp-deploy");
   grunt.loadNpmTasks("grunt-text-replace");
+  grunt.loadNpmTasks('grunt-smushit');
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-regarde");
   grunt.loadNpmTasks('grunt-volo');

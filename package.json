@@ -1,7 +1,18 @@
 {
-  "name": "project-name",
-
-  "version": "0.1.0",
+  "name":          "project-name",
+  "description":   "Project description",
+  "version":       "0.9.0",
+  "license":       "MIT",
+  "homepage":      "http://",
+  "author": {
+    "name":        "",
+    "email":       "",
+    "url":         "http://"
+  },
+  "repository": {
+    "type":        "git",
+    "url":         "git://github.com/pghalliday/grunt-mocha-test.git"
+  },
 
   "path": {
     "development": "application/development/",

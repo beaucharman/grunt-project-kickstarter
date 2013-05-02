@@ -38,6 +38,8 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[Text Replace](https://github.com/yoniholmes/grunt-text-replace)** `npm install grunt-text-replace --save-dev`
 
+**[Smushit](https://github.com/heldr/grunt-smushit)** `npm install grunt-smushit`
+
 **[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
 
 **[Regarde](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
@@ -106,8 +108,6 @@ Command: `grunt testDeploy`
 Task registration: `grunt.registerTask("testDeploy", ["copy:testDeploy"]);`
 
 Copies the deployment files into the development environment for testing. Awesome to use with a framework or CMS workflow. (make sure your minified and concatenated js files still work... sorta thing)
-
----
 
 ### Working with FTP Deploy
 
