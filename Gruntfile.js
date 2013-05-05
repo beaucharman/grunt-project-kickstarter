@@ -194,7 +194,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: "<%= pkg.path.development %>",
             src: ["**", "!**.DS_Store"],
-            dest: "relative/path/to/destination/"
+            dest: "<%= pkg.path.deploy %>" //relative/path/to/destination/
           }
         ]
       },
@@ -348,10 +348,10 @@ module.exports = function(grunt) {
    * will capture the actual file changed and run run the task
    * on it, rather then the entire watched folder.
    * ------------------------------------------------------------------------ */
-  grunt.event.on("watch", function(event, listener) {
+  grunt.event.on("watch", function(event, file) {
     var pkg = grunt.file.readJSON("package.json");
     var cwd = pkg.path.development;
-    filepath = listener.replace(cwd, "");
+    var filepath = file.replace(cwd, "");
     grunt.config.set("copy",
     {
       changed:
@@ -359,7 +359,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd:    cwd,
         src:    filepath,
-        dest:   "relative/path/to/destination/"
+        dest:   'path/to/copy/destination/'
       }
     });
 
@@ -381,20 +381,20 @@ module.exports = function(grunt) {
   /* ------------------------------------------------------------------------
      Load Tasks
      ------------------------------------------------------------------------ */
-  grunt.loadNpmTasks("grunt-contrib-sass");
-  grunt.loadNpmTasks('grunt-contrib-csslint');
-  grunt.loadNpmTasks("grunt-contrib-coffee");
-  grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks("grunt-jekyll");
-  grunt.loadNpmTasks("grunt-contrib-copy");
-  grunt.loadNpmTasks("grunt-ftp-deploy");
-  grunt.loadNpmTasks("grunt-text-replace");
-  grunt.loadNpmTasks('grunt-smushit');
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-regarde");
-  grunt.loadNpmTasks('grunt-volo');
+  //grunt.loadNpmTasks("grunt-contrib-sass");
+  //grunt.loadNpmTasks('grunt-contrib-csslint');
+  //grunt.loadNpmTasks("grunt-contrib-coffee");
+  //grunt.loadNpmTasks("grunt-contrib-concat");
+  //grunt.loadNpmTasks("grunt-contrib-uglify");
+  //grunt.loadNpmTasks('grunt-contrib-jshint');
+  //grunt.loadNpmTasks("grunt-jekyll");
+  //grunt.loadNpmTasks("grunt-contrib-copy");
+  //grunt.loadNpmTasks("grunt-ftp-deploy");
+  //grunt.loadNpmTasks("grunt-text-replace");
+  //grunt.loadNpmTasks('grunt-smushit');
+  //grunt.loadNpmTasks("grunt-contrib-watch");
+  //grunt.loadNpmTasks("grunt-regarde");
+  //grunt.loadNpmTasks('grunt-volo');
 
   /* ------------------------------------------------------------------------
      Register custom tasks

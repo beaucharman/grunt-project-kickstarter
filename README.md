@@ -14,9 +14,9 @@ Follow http://gruntjs.com/getting-started for an in-depth look at setting up Gru
 - Get the files `$ git clone https://github.com/beaucharman/Grunt-Project-Kickstarter.git` (move the files one level up if need)
 - Install Grunt to the project root with `npm install grunt --save-dev`
 
-## Optional Tasks
+## Existing Optional Tasks
 
-To use some of the task included in the `Grintfile.js`, make sure you install the following relavent node modules (using [npm](https://npmjs.org/doc/install.html)):
+To use some of the task included in the `Grintfile.js`, make sure you install the following relavent node modules (using [npm](https://npmjs.org/doc/install.html)).
 
 **[Contrib Sass](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
 
@@ -52,7 +52,7 @@ Plus many, many others via the [Grunt Plugins](http://gruntjs.com/plugins) page.
 
 **Tasks**
 
-For each task that is used, it needs to be locally installed (described in the above section), and needs to be referenced
+For each task that is to be used, it needs to be locally installed (described in the above section), and needs to be referenced
 in the `Gruntfile.js` by using the `grunt.loadNpmTasks();` function. Comment out or remove any unneeded tasks.
 
 **File Paths**
@@ -61,7 +61,7 @@ Most tasks require and use file paths to perform said tasks. The Grunt Project K
 
 ## A Run Down of the Registered Custom Tasks
 
-The following registered, custom tasks are suggestions for an awesome workflow. Custom tasks are declared using the `grunt.registerTask();` function, which at it's basic usage takes two arguments, one being the new task's alias (how it will be called in the terminal), and the other being an array of tasks that will run (executed in array index order). Read more about [creating tasks](http://gruntjs.com/creating-tasks).
+The following registered, custom tasks are suggestions for an awesome workflow. Custom tasks are declared using the `grunt.registerTask();` function, which at it's basic usage takes two arguments, one being the new task's alias (how it will be called in the terminal), and the other being an array of tasks that will run (executed in array index order). Remove the custom tasks that are no required. Read more about [creating tasks](http://gruntjs.com/creating-tasks).
 
 **Default**
 
@@ -130,7 +130,7 @@ Example `.ftppass` file:
 
 ### Creating a dynamic watch task
 
-The following  function creates a listener for the **watch** task, captures the event and filename
+The following function creates a listener for the **watch** task, captures the event and filename
 when a change is detected, then runs the dynamically created (in this instance, `copy:changed`)
 on the effected file.
 

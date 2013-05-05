@@ -7,3 +7,9 @@ node_modules
 *.jpg
 Grunt-Project-Kickstarter.sublime-project
 Grunt-Project-Kickstarter.sublime-workspace
+application/development/**
+!application/development/.gitignore
+application/source/sass/**
+!application/source/sass/.gitignore
+application/deploy/**
+!application/deploy/.gitignore

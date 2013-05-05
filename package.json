@@ -1,37 +1,36 @@
 {
-  "name":          "project-name",
-  "description":   "Project description",
-  "version":       "0.9.0",
-  "license":       "MIT",
-  "homepage":      "http://",
+  "name": "project-name",
+  "description": "Project description",
+  "version": "0.9.0",
+  "license": "MIT",
+  "homepage": "http://",
   "author": {
-    "name":        "",
-    "email":       "",
-    "url":         "http://"
+    "name": "",
+    "email": "",
+    "url": "http://"
   },
   "repository": {
-    "type":        "git",
-    "url":         "git://github.com/pghalliday/grunt-mocha-test.git"
+    "type": "git",
+    "url": "git://github.com/pghalliday/grunt-mocha-test.git"
   },
-
   "path": {
     "development": "application/development/",
-    "deploy":      "application/deploy/",
-    "wordpress":   "application/wordpress/wp-content/themes/theme-name/",
+    "deploy": "application/deploy/",
+    "wordpress": "application/wordpress/wp-content/themes/theme-name/",
     "lib": {
-      "scripts":   "library/scripts/",
-      "styles":    "library/styles/",
-      "images":    "library/images/"
+      "scripts": "library/scripts/",
+      "styles": "library/styles/",
+      "images": "library/images/"
     },
     "src": {
-      "sass":      "application/source/sass/",
-      "coffee":    "application/source/coffee/",
-      "images":    "application/source/images/",
-      "jekyll":    "application/source/jekyll/"
+      "sass": "application/source/sass/",
+      "coffee": "application/source/coffee/",
+      "images": "application/source/images/",
+      "jekyll": "application/source/jekyll/"
     }
   },
-
   "devDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1"
   }
 }
