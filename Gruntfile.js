@@ -13,22 +13,21 @@
  * npm install grunt --save-dev
  * ------------------------------------------------------------------------ */
 
-module.exports = function(grunt) {
+module.exports = function( grunt ) {
 
   'use strict';
 
   /* ------------------------------------------------------------------------
      Init configuration
      ------------------------------------------------------------------------ */
-  grunt.initConfig(
-  {
+  grunt.initConfig({
 
     /**
      * Package file
      * ------------------------------------------------------------------------
      * All variable, dependency and version information for the project.
      * ------------------------------------------------------------------------ */
-    pkg: grunt.file.readJSON("package.json"),
+    pkg: grunt.file.readJSON( "package.json" ),
 
     /**
      * Sass
@@ -68,8 +67,10 @@ module.exports = function(grunt) {
      * ------------------------------------------------------------------------
      * npm install grunt-contrib-csslint --save-dev
      * ------------------------------------------------------------------------ */
-    csslint: {
-      all: {
+    csslint:
+    {
+      all:
+      {
         src:
         [
           "<%= pkg.path.development %><%= pkg.path.lib.styles %>main.css"
@@ -144,7 +145,8 @@ module.exports = function(grunt) {
      * ------------------------------------------------------------------------
      * npm install grunt-contrib-jshint --save-dev
      * ------------------------------------------------------------------------ */
-    jshint: {
+    jshint:
+    {
       all:
       [
         "<%= pkg.path.development %><%= pkg.path.lib.scripts %>plugin.js",
@@ -169,7 +171,8 @@ module.exports = function(grunt) {
         pygments:    true,
         permalink:   "/articles/:year/:month/:title/"
       },
-      compile:{
+      compile:
+      {
         src :        "<%= pkg.path.src.jekyll %>",
         dest:        "<%= pkg.path.development %>",
         pygments:    true,
@@ -192,9 +195,9 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd: "<%= pkg.path.development %>",
-            src: ["**", "!**.DS_Store"],
-            dest: "<%= pkg.path.deploy %>" //relative/path/to/destination/
+            cwd:    "<%= pkg.path.development %>",
+            src:    [ "**", "!**.DS_Store" ],
+            dest:   "<%= pkg.path.deploy %>" //relative/path/to/destination/
           }
         ]
       },
@@ -205,7 +208,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:    "<%= pkg.path.development %>",
-            src:    ["**", "!**.DS_Store"],
+            src:    [ "**", "!**.DS_Store" ],
             dest:   "<%= pkg.path.wordpress %>"
           }
         ]
@@ -216,9 +219,9 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd: "<%= pkg.path.development %>",
-            src: ["**", "!**.DS_Store"],
-            dest: "<%= pkg.path.deploy %>"
+            cwd:    "<%= pkg.path.development %>",
+            src:    [ "**", "!**.DS_Store" ],
+            dest:   "<%= pkg.path.deploy %>"
           }
         ]
       },
@@ -228,9 +231,9 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd: "<%= pkg.path.deploy %>",
-            src: ["**"],
-            dest: "relative/path/to/destination/"
+            cwd:    "<%= pkg.path.deploy %>",
+            src:    [ "**" ],
+            dest:   "relative/path/to/destination/"
           }
         ]
       }
@@ -254,7 +257,7 @@ module.exports = function(grunt) {
         },
         src:        "<%= pkg.path.deploy %>",
         dest:       "public_html/",
-        exclusions: ["**/.DS_Store", "**/Thumbs.db"]
+        exclusions: [ "**/.DS_Store", "**/Thumbs.db" ]
       }
     },
 
@@ -267,7 +270,7 @@ module.exports = function(grunt) {
     {
       deploy:
       {
-        src: ["<%= pkg.path.development %>filename.html"],
+        src:  [ "<%= pkg.path.development %>filename.html" ],
         dest: "<%= pkg.path.deploy %>filename.html",
         replacements:
         [
@@ -305,8 +308,8 @@ module.exports = function(grunt) {
     {
       sass:
       {
-        files:  ["<%= pkg.path.src.sass %>**"],
-        tasks:  ["sass:development"],
+        files: [ "<%= pkg.path.src.sass %>**" ],
+        tasks: [ "sass:development" ],
         options:
         {
           nospawn: true
@@ -315,8 +318,8 @@ module.exports = function(grunt) {
       // used with event listener
       event:
       {
-        files:  ["<%= pkg.path.development %>**"],
-        tasks:  ["copy:changed"],
+        files: [ "<%= pkg.path.development %>**" ],
+        tasks: [ "copy:changed" ],
         options:
         {
           nospawn: true
@@ -335,7 +338,7 @@ module.exports = function(grunt) {
       sass:
       {
         files:  "<%= pkg.path.src.sass %>**",
-        tasks:  ["sass:development"],
+        tasks:  [ "sass:development" ],
         events: true
       }
     }
@@ -348,11 +351,11 @@ module.exports = function(grunt) {
    * will capture the actual file changed and run run the task
    * on it, rather then the entire watched folder.
    * ------------------------------------------------------------------------ */
-  grunt.event.on("watch", function(event, file) {
-    var pkg = grunt.file.readJSON("package.json");
+  grunt.event.on( "watch", function( event, file ) {
+    var pkg = grunt.file.readJSON( "package.json" );
     var cwd = pkg.path.development;
-    var filepath = file.replace(cwd, "");
-    grunt.config.set("copy",
+    var filepath = file.replace( cwd, "" );
+    grunt.config.set( "copy",
     {
       changed:
       {
@@ -404,25 +407,25 @@ module.exports = function(grunt) {
    * ------------------------------------------------------------------------
    * Tasks run simply with the command `grunt`
    */
-  grunt.registerTask("default", ["sass:development"]);
+  grunt.registerTask( "default", [ "sass:development" ] );
 
   /** Watch Sass
    * ------------------------------------------------------------------------
    * Simply watch for Sass changes, and process
    */
-  grunt.registerTask("watchSass", ["watch:sass"]);
+  grunt.registerTask( "watchSass", [ "watch:sass" ] );
 
   /** Build
    * ------------------------------------------------------------------------
    * Run preprocessing and copy files
    */
-  grunt.registerTask("build", ["sass:development", "copy:build"]);
+  grunt.registerTask( "build", [ "sass:development", "copy:build" ] );
 
   /** Deploy
    * ------------------------------------------------------------------------
    * Run preprocessing, concatenate, minify and copy files for deploment
    */
-  grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy"]);
+  grunt.registerTask( "deploy", [ "uglify:deploy", "copy:deploy", "sass:deploy" ] );
 
   /** WordPress Deploy
    * ------------------------------------------------------------------------
@@ -430,9 +433,9 @@ module.exports = function(grunt) {
    * Also change any development mode options in template files to be
    * ready for deployment.
    */
-  grunt.registerTask("wp-deploy", ["copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"]);
+  grunt.registerTask( "wp-deploy", [ "copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy" ] );
 
   /* Test deployment files */
-  grunt.registerTask("testDeploy", ["copy:testDeploy"]);
+  grunt.registerTask( "testDeploy", [ "copy:testDeploy" ] );
 
 };
