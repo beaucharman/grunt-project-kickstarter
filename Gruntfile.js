@@ -13,9 +13,9 @@
  * npm install grunt --save-dev
  * ======================================================================== */
 
-'use strict';
-
 module.exports = function(grunt) {
+
+  'use strict';
 
   /* ========================================================================
      Init configuration

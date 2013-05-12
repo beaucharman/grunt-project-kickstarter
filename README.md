@@ -32,6 +32,8 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
 
+**[Clean](https://github.com/gruntjs/grunt-contrib-clean)** `npm install grunt-contrib-clean --save-dev`
+
 **[Copy](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
 
 **[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `git clone git://github.com/zonak/grunt-ftp-deploy.git`
@@ -97,7 +99,7 @@ Run preprocessing, concatenate, minify and copy files for deploment.
 
 **WordPress Deploy**
 
-Task registration: `grunt.registerTask("deploy", ["copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"]);`
+Task registration: `grunt.registerTask("deploy", ["clean:deploy", copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"]);`
 
 Run preprocessing, concatenate, minify and copy files. Also change any development mode options in template files to be ready for deployment. Can be used with any framework, particularly where you have options in your files that change once in deployment mode.
 
