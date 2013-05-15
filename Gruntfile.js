@@ -40,8 +40,8 @@ module.exports = function(grunt) {
       {
         files:
         {
-          "<%= pkg.path.development %><%= pkg.path.lib.styles %>main.css":
-            "<%= pkg.path.src.sass %>main.scss"
+          "<%= pkg.path.development %>/<%= pkg.path.lib.styles %>/main.css":
+            "<%= pkg.path.src.sass %>/main.scss"
         },
         options:
         {
@@ -52,8 +52,8 @@ module.exports = function(grunt) {
       {
         files:
         {
-          "<%= pkg.path.deploy %><%= pkg.path.lib.styles %>main.css" :
-            "<%= pkg.path.src.sass %>main.scss"
+          "<%= pkg.path.deploy %>/<%= pkg.path.lib.styles %>/main.css" :
+            "<%= pkg.path.src.sass %>/main.scss"
         },
         options:
         {
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
       {
         src:
         [
-          "<%= pkg.path.development %><%= pkg.path.lib.styles %>main.css"
+          "<%= pkg.path.development %>/<%= pkg.path.lib.styles %>/main.css"
         ]
       }
     },
@@ -91,8 +91,8 @@ module.exports = function(grunt) {
         {
           files:
           {
-            "<%= pkg.path.development %><%= pkg.path.lib.scripts %>main.js" :
-              "<%= pkg.path.src.coffee %>main.coffee"
+            "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js" :
+              "<%= pkg.path.src.coffee %>/main.coffee"
           }
         }
       }
@@ -109,10 +109,10 @@ module.exports = function(grunt) {
       {
         src:
         [
-          "<%= pkg.path.development %><%= pkg.path.lib.scripts %>plugin.js",
-          "<%= pkg.path.development %><%= pkg.path.lib.scripts %>main.js"
+          "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugin.js",
+          "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
         ],
-        dest: "<%= pkg.path.deploy %><%= pkg.path.lib.scripts %>main.js"
+        dest: "<%= pkg.path.deploy %>/<%= pkg.path.lib.scripts %>/main.js"
       }
     },
 
@@ -131,10 +131,10 @@ module.exports = function(grunt) {
         },
         files:
         {
-          "<%= pkg.path.deploy %><%= pkg.path.lib.scripts %>main.js" :
+          "<%= pkg.path.deploy %>/<%= pkg.path.lib.scripts %>/main.js" :
           [
-            "<%= pkg.path.development %><%= pkg.path.lib.scripts %>plugin.js",
-            "<%= pkg.path.development %><%= pkg.path.lib.scripts %>main.js"
+            "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugin.js",
+            "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
           ]
         }
       }
@@ -149,8 +149,8 @@ module.exports = function(grunt) {
     {
       all:
       [
-        "<%= pkg.path.development %><%= pkg.path.lib.scripts %>plugin.js",
-        "<%= pkg.path.development %><%= pkg.path.lib.scripts %>main.js"
+        "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugin.js",
+        "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
       ]
     },
 
@@ -163,8 +163,8 @@ module.exports = function(grunt) {
     {
       server:
       {
-        src:         "<%= pkg.path.src.jekyll %>",
-        dest:        "<%= pkg.path.development %>",
+        src:         "<%= pkg.path.src.jekyll %>/",
+        dest:        "<%= pkg.path.development %>/",
         auto:        false,
         server:      true,
         server_port: 4000,
@@ -173,8 +173,8 @@ module.exports = function(grunt) {
       },
       compile:
       {
-        src :        "<%= pkg.path.src.jekyll %>",
-        dest:        "<%= pkg.path.development %>",
+        src :        "<%= pkg.path.src.jekyll %>/",
+        dest:        "<%= pkg.path.development %>/",
         pygments:    true,
         permalink:   "/articles/:year/:month/:title/"
       }
@@ -187,7 +187,7 @@ module.exports = function(grunt) {
      * ======================================================================== */
     clean:
     {
-      deploy: ["<%= pkg.path.deploy %>"],
+      deploy: ["<%= pkg.path.deploy %>/"],
       wordpress: ["<%= pkg.path.wordpress %>"]
     },
 
@@ -206,9 +206,9 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd:    "<%= pkg.path.development %>",
+            cwd:    "<%= pkg.path.development %>/",
             src:    ["**", "!**.DS_Store"],
-            dest:   "<%= pkg.path.deploy %>"
+            dest:   "<%= pkg.path.deploy %>/"
           }
         ]
       },
@@ -218,7 +218,7 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd:    "<%= pkg.path.development %>",
+            cwd:    "<%= pkg.path.development %>/",
             src:    ["**", "!**.DS_Store"],
             dest:   "<%= pkg.path.wordpress %>"
           }
@@ -230,9 +230,9 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd:    "<%= pkg.path.development %>",
+            cwd:    "<%= pkg.path.development %>/",
             src:    ["**", "!**.DS_Store"],
-            dest:   "<%= pkg.path.deploy %>"
+            dest:   "<%= pkg.path.deploy %>/"
           }
         ]
       },
@@ -242,7 +242,7 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd:    "<%= pkg.path.deploy %>",
+            cwd:    "<%= pkg.path.deploy %>/",
             src:    ["**"],
             dest:   "relative/path/to/destination/"
           }
@@ -266,7 +266,7 @@ module.exports = function(grunt) {
           port:     21,
           authKey:  "keyname"
         },
-        src:        "<%= pkg.path.deploy %>",
+        src:        "<%= pkg.path.deploy %>/",
         dest:       "public_html/",
         exclusions: ["**/.DS_Store", "**/Thumbs.db"]
       }
@@ -281,8 +281,8 @@ module.exports = function(grunt) {
     {
       deploy:
       {
-        src:  ["<%= pkg.path.development %>filename.html"],
-        dest: "<%= pkg.path.deploy %>filename.html",
+        src:  ["<%= pkg.path.development %>/filename.html"],
+        dest: "<%= pkg.path.deploy %>/filename.html",
         replacements:
         [
           {
@@ -319,7 +319,7 @@ module.exports = function(grunt) {
     {
       sass:
       {
-        files: ["<%= pkg.path.src.sass %>**"],
+        files: ["<%= pkg.path.src.sass %>/**"],
         tasks: ["sass:development"],
         options:
         {
@@ -329,7 +329,7 @@ module.exports = function(grunt) {
       // used with event listener
       event:
       {
-        files: ["<%= pkg.path.development %>**"],
+        files: ["<%= pkg.path.development %>/**"],
         tasks: ["copy:changed"],
         options:
         {
@@ -348,7 +348,7 @@ module.exports = function(grunt) {
     {
       sass:
       {
-        files:  "<%= pkg.path.src.sass %>**",
+        files:  "<%= pkg.path.src.sass %>/**",
         tasks:  ["sass:development"],
         events: true
       }
@@ -364,7 +364,7 @@ module.exports = function(grunt) {
    * ======================================================================== */
   grunt.event.on("watch", function (event, file) {
     var pkg = grunt.file.readJSON("package.json");
-    var cwd = pkg.path.development;
+    var cwd = pkg.path.development + "/";
     var filepath = file.replace(cwd, "");
     grunt.config.set("copy",
     {
