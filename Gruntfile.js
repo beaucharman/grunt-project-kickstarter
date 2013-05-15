@@ -415,31 +415,36 @@ module.exports = function(grunt) {
      Register custom tasks
      ======================================================================== */
 
-  /* The default Grunt task
+  /**
+   * The default Grunt task
    * ========================================================================
    * Tasks to run simply with the command `grunt`
    */
   grunt.registerTask("default", ["sass:development"]);
 
-  /** Watch Sass
+  /**
+   * Watch Sass
    * ========================================================================
    * Simply watch for Sass changes, and process
    */
   grunt.registerTask("watchSass", ["watch:sass"]);
 
-  /** Build
+  /**
+   * Build
    * ========================================================================
    * Run preprocessing and copy files
    */
   grunt.registerTask("build", ["sass:development", "copy:build"]);
 
-  /** Deploy
+  /**
+   * Deploy
    * ========================================================================
    * Run preprocessing, concatenate, minify and copy files for deploment
    */
   grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy"]);
 
-  /** WordPress Deploy
+  /**
+   * WordPress Deploy
    * ========================================================================
    * Run preprocessing, concatenate, minify and copy files.
    * Also change any development mode options in template files to be
