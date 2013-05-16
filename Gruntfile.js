@@ -109,7 +109,7 @@ module.exports = function(grunt) {
       {
         src:
         [
-          "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugin.js",
+          "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugins.js",
           "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
         ],
         dest: "<%= pkg.path.deploy %>/<%= pkg.path.lib.scripts %>/main.js"
@@ -133,7 +133,7 @@ module.exports = function(grunt) {
         {
           "<%= pkg.path.deploy %>/<%= pkg.path.lib.scripts %>/main.js" :
           [
-            "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugin.js",
+            "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugins.js",
             "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
           ]
         }
@@ -149,7 +149,7 @@ module.exports = function(grunt) {
     {
       all:
       [
-        "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugin.js",
+        "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugins.js",
         "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
       ]
     },
@@ -441,7 +441,7 @@ module.exports = function(grunt) {
    * ========================================================================
    * Run preprocessing, concatenate, minify and copy files for deploment
    */
-  grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy"]);
+  grunt.registerTask("deploy", ["copy:deploy", "uglify:deploy", "sass:deploy"]);
 
   /**
    * WordPress Deploy
