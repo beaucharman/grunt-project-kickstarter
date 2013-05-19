@@ -63,6 +63,38 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Compass
+     * ========================================================================
+     * npm install grunt-contrib-compass --save-dev
+     * ======================================================================== */
+    compass:
+    {
+      development:
+      {
+        options:
+        {
+          httpPath:       "",
+          cssDir:         "<%= pkg.path.development %>",
+          sassDir:        "<%= pkg.path.src.sass %>",
+          imagesDir:      "<%= pkg.path.development %>/<%= pkg.path.lib.images %>",
+          outputStyle:    "expanded",
+          relativeAssets: true
+        }
+      },
+      deploy:
+      {
+        options:
+        {
+          httpPath:       "",
+          sassDir:        "<%= pkg.path.src.sass %>",
+          cssDir:         "<%= pkg.path.deploy %>",
+          imagesDir:      "<%= pkg.path.lib.images %>",
+          outputStyle:    "compressed"
+        }
+      }
+    },
+
+    /**
      * cssLint
      * ========================================================================
      * npm install grunt-contrib-csslint --save-dev
@@ -396,6 +428,7 @@ module.exports = function(grunt) {
      Load Tasks
      ======================================================================== */
   //grunt.loadNpmTasks("grunt-contrib-sass");
+  //grunt.loadNpmTasks('grunt-contrib-compass');
   //grunt.loadNpmTasks('grunt-contrib-csslint');
   //grunt.loadNpmTasks("grunt-contrib-coffee");
   //grunt.loadNpmTasks("grunt-contrib-concat");
