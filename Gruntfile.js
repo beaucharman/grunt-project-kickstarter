@@ -239,8 +239,9 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:    "<%= pkg.path.development %>/",
-            src:    ["**", "!**.DS_Store"],
-            dest:   "<%= pkg.path.deploy %>/"
+            src:    ["**", "!**.DS_Store", ".gitignore"],
+            dest:   "<%= pkg.path.deploy %>/",
+            dot:    true
           }
         ]
       },
@@ -251,8 +252,9 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:    "<%= pkg.path.development %>/",
-            src:    ["**", "!**.DS_Store"],
-            dest:   "<%= pkg.path.wordpress %>"
+            src:    ["**", "!**.DS_Store", ".gitignore"],
+            dest:   "<%= pkg.path.wordpress %>",
+            dot:    true
           }
         ]
       },
@@ -263,8 +265,9 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:    "<%= pkg.path.development %>/",
-            src:    ["**", "!**.DS_Store"],
-            dest:   "<%= pkg.path.deploy %>/"
+            src:    ["**", "!**.DS_Store", ".gitignore"],
+            dest:   "<%= pkg.path.deploy %>/",
+            dot:    true
           }
         ]
       },
@@ -275,8 +278,9 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:    "<%= pkg.path.deploy %>/",
-            src:    ["**"],
-            dest:   "relative/path/to/destination/"
+            src:    ["**", "!**.DS_Store", ".gitignore"],
+            dest:   "relative/path/to/destination/",
+            dot:    true
           }
         ]
       }
