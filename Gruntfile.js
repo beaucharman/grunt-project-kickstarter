@@ -45,7 +45,8 @@ module.exports = function(grunt) {
         },
         options:
         {
-          style: "expanded"
+          style: "expanded",
+          lineNumbers: true
         }
       },
       deploy:
@@ -57,7 +58,8 @@ module.exports = function(grunt) {
         },
         options:
         {
-          style: "compressed"
+          style: "compressed",
+          lineNumbers: false
         }
       }
     },
