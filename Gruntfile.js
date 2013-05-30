@@ -7,10 +7,12 @@
  * @link      https://github.com/beaucharman/grunt-project-kickstarter
  * @license   MIT license
  *
- * Instructions: http://gruntjs.com/getting-started
+ * Installation
  * npm uninstall -g grunt
  * npm install -g grunt-cli
  * npm install grunt --save-dev
+ *
+ * Further instructions: http://gruntjs.com/getting-started
  * ======================================================================== */
 
 module.exports = function(grunt) {
@@ -33,6 +35,7 @@ module.exports = function(grunt) {
      * Sass
      * ========================================================================
      * npm install grunt-contrib-sass --save-dev
+     * https://github.com/gruntjs/grunt-contrib-sass
      * ======================================================================== */
     sass:
     {
@@ -68,6 +71,7 @@ module.exports = function(grunt) {
      * Compass
      * ========================================================================
      * npm install grunt-contrib-compass --save-dev
+     * https://github.com/gruntjs/grunt-contrib-compass
      * ======================================================================== */
     compass:
     {
@@ -100,6 +104,7 @@ module.exports = function(grunt) {
      * cssLint
      * ========================================================================
      * npm install grunt-contrib-csslint --save-dev
+     * https://github.com/gruntjs/grunt-contrib-csslint
      * ======================================================================== */
     csslint:
     {
@@ -116,6 +121,7 @@ module.exports = function(grunt) {
      * Coffee
      * ========================================================================
      * npm install grunt-contrib-coffee --save-dev
+     * https://github.com/gruntjs/grunt-contrib-coffee
      * ======================================================================== */
     coffee:
     {
@@ -136,6 +142,7 @@ module.exports = function(grunt) {
      * Concat
      * ========================================================================
      * npm install grunt-contrib-concat --save-dev
+     * https://github.com/gruntjs/grunt-contrib-concat
      * ======================================================================== */
     concat:
     {
@@ -154,6 +161,7 @@ module.exports = function(grunt) {
      * Uglify
      * ========================================================================
      * npm install grunt-contrib-uglify --save-dev
+     * https://github.com/gruntjs/grunt-contrib-uglify
      * ======================================================================== */
     uglify:
     {
@@ -178,6 +186,7 @@ module.exports = function(grunt) {
      * jsHint
      * ========================================================================
      * npm install grunt-contrib-jshint --save-dev
+     * https://github.com/gruntjs/grunt-contrib-jshint
      * ======================================================================== */
     jshint:
     {
@@ -192,6 +201,8 @@ module.exports = function(grunt) {
      * Jekyll
      * ========================================================================
      * npm install grunt-jekyll --save-dev
+     * https://github.com/dannygarcia/grunt-jekyll
+     * Requires Jekyll >= v1.0.0
      * ======================================================================== */
     jekyll:
     {
@@ -214,10 +225,40 @@ module.exports = function(grunt) {
       }
     },
 
+    /* Curently implementing the following */
+    jekyll_alt:
+    {
+      server:
+      {
+        src:         "<%= pkg.path.development %>",
+        dest:        "<%= pkg.path.public %>",
+        auto:        false,
+        server:      true,
+        server_port: 4000,
+        pygments:    true,
+        config:      "_config.yml"
+      },
+      development:
+      {
+        src:        "<%= pkg.path.development %>",
+        dest:        "<%= pkg.path.public %>",
+        pygments:    true,
+        config:      "_config.yml"
+      },
+      deploy:
+      {
+        src:        "<%= pkg.path.development %>",
+        dest:        "<%= pkg.path.deploy %>",
+        pygments:    true,
+        config:      "_config.yml"
+      }
+    },
+
     /**
      * Clean
      * ========================================================================
      * npm install grunt-contrib-clean --save-dev
+     * https://github.com/gruntjs/grunt-contrib-clean
      * ======================================================================== */
     clean:
     {
@@ -229,6 +270,7 @@ module.exports = function(grunt) {
      * Copy
      * ========================================================================
      * npm install grunt-contrib-copy --save-dev
+     * https://github.com/gruntjs/grunt-contrib-copy
      * For WordPress theme development, use:
      * copy.build.files.dest:"<%= pkg.path.wordpress %>"
      * ======================================================================== */
@@ -289,31 +331,10 @@ module.exports = function(grunt) {
     },
 
     /**
-     * FTP Deploy
-     * ========================================================================
-     * git clone git://github.com/zonak/grunt-ftp-deploy.git
-     * Store ftp connection details in a .ftppass file
-     * ======================================================================== */
-    "ftp-deploy":
-    {
-      deploy:
-      {
-        auth:
-        {
-          host:     "ftp.website.com",
-          port:     21,
-          authKey:  "keyname"
-        },
-        src:        "<%= pkg.path.deploy %>/",
-        dest:       "public_html/",
-        exclusions: ["**/.DS_Store", "**/Thumbs.db"]
-      }
-    },
-
-    /**
      * Text Replace
      * ========================================================================
      * npm install grunt-text-replace --save-dev
+     * https://github.com/yoniholmes/grunt-text-replace
      * ======================================================================== */
     replace:
     {
@@ -335,6 +356,7 @@ module.exports = function(grunt) {
      * Smushit
      * ========================================================================
      * npm install grunt-smushit
+     * https://github.com/heldr/grunt-smushit
      * ======================================================================== */
     smushit:
     {
@@ -352,6 +374,7 @@ module.exports = function(grunt) {
      * Watch
      * ========================================================================
      * npm install grunt-contrib-watch --save-dev
+     * https://github.com/gruntjs/grunt-contrib-watch
      * ======================================================================== */
     watch:
     {
@@ -381,6 +404,7 @@ module.exports = function(grunt) {
      * ========================================================================
      * Watch task alternative.
      * npm install grunt-regarde --save-dev
+     * https://github.com/yeoman/grunt-regarde
      * ======================================================================== */
     regarde:
     {
@@ -423,6 +447,7 @@ module.exports = function(grunt) {
    * Volo
    * ========================================================================
    * npm install grunt-volo
+   * https://github.com/volojs/volo/
    * Used to fetch Github repos through the terminal.
    * To fetch a file:  grunt volo:add:[flags]:[archive]:[localName]
    * To search github: grunt volo:search:[name]
@@ -443,7 +468,6 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks("grunt-jekyll");
   //grunt.loadNpmTasks("grunt-contrib-clean");
   //grunt.loadNpmTasks("grunt-contrib-copy");
-  //grunt.loadNpmTasks("grunt-ftp-deploy");
   //grunt.loadNpmTasks("grunt-text-replace");
   //grunt.loadNpmTasks('grunt-smushit');
   //grunt.loadNpmTasks("grunt-contrib-watch");
