@@ -207,28 +207,6 @@ module.exports = function(grunt) {
     {
       server:
       {
-        src:         "<%= pkg.path.src.jekyll %>/",
-        dest:        "<%= pkg.path.development %>/",
-        auto:        false,
-        server:      true,
-        server_port: 4000,
-        pygments:    true,
-        permalink:   "/articles/:year/:month/:title/"
-      },
-      compile:
-      {
-        src :        "<%= pkg.path.src.jekyll %>/",
-        dest:        "<%= pkg.path.development %>/",
-        pygments:    true,
-        permalink:   "/articles/:year/:month/:title/"
-      }
-    },
-
-    /* Curently implementing the following */
-    jekyll_alt:
-    {
-      server:
-      {
         src:         "<%= pkg.path.development %>",
         dest:        "<%= pkg.path.public %>",
         auto:        false,
