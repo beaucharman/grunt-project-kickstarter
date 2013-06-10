@@ -35,6 +35,8 @@ module.exports = function(grunt) {
      * ========================================================================
      * npm install grunt-contrib-sass --save-dev
      * https://github.com/gruntjs/grunt-contrib-sass
+     * If utilising Compass, simply point to your
+     * config.rb file via sass.method.options.compass:
      * ======================================================================== */
     sass:
     {
@@ -62,39 +64,6 @@ module.exports = function(grunt) {
         {
           style: "compressed",
           lineNumbers: false
-        }
-      }
-    },
-
-    /**
-     * Compass
-     * ========================================================================
-     * npm install grunt-contrib-compass --save-dev
-     * https://github.com/gruntjs/grunt-contrib-compass
-     * ======================================================================== */
-    compass:
-    {
-      development:
-      {
-        options:
-        {
-          httpPath:       "",
-          cssDir:         "<%= pkg.path.development %>",
-          sassDir:        "<%= pkg.path.src.sass %>",
-          imagesDir:      "<%= pkg.path.development %>/<%= pkg.path.lib.images %>",
-          outputStyle:    "expanded",
-          relativeAssets: true
-        }
-      },
-      deploy:
-      {
-        options:
-        {
-          httpPath:       "",
-          sassDir:        "<%= pkg.path.src.sass %>",
-          cssDir:         "<%= pkg.path.deploy %>",
-          imagesDir:      "<%= pkg.path.lib.images %>",
-          outputStyle:    "compressed"
         }
       }
     },
@@ -211,7 +180,7 @@ module.exports = function(grunt) {
           pretty: true
         },
         files: {
-          "path/to/dest.html": ["path/to/templates/*.jade", "another/path/tmpl.jade"]
+          "<%= pkg.path.development %>/index.html": ["<%= pkg.path.src.jade %>/index.jade"]
         }
       },
       deploy: {
@@ -222,10 +191,10 @@ module.exports = function(grunt) {
           pretty: false
         },
         files: {
-          "path/to/dest.html": ["path/to/templates/*.jade", "another/path/tmpl.jade"]
+          "<%= pkg.path.deploy %>/index.html": ["<%= pkg.path.src.jade %>/index.jade"]
         }
       }
-    }
+    },
 
     /**
      * Jekyll
