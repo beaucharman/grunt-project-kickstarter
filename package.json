@@ -15,18 +15,19 @@
   },
   "path": {
     "development": "application/development",
-    "deploy": "application/deploy",
-    "wordpress": "application/wordpress/wp-content/themes/theme-name",
+    "deploy":      "application/deploy",
+    "wordpress":   "application/wordpress/wp-content/themes/theme-name",
     "lib": {
       "scripts": "library/scripts",
-      "styles": "library/styles",
-      "images": "library/images"
+      "styles":  "library/styles",
+      "images":  "library/images"
     },
     "src": {
-      "sass": "application/source/sass",
-      "coffee": "application/source/coffee",
-      "images": "application/source/images",
-      "jekyll": "application/source/jekyll"
+      "sass":     "application/source/sass",
+      "coffee":   "application/source/coffee",
+      "images":   "application/source/images",
+      "jekyll":   "application/source/jekyll",
+      "jade":     "application/source/jade"
     }
   },
   "devDependencies": {

@@ -16,7 +16,6 @@
  * ======================================================================== */
 
 module.exports = function(grunt) {
-
   'use strict';
 
   /* ========================================================================
@@ -196,6 +195,37 @@ module.exports = function(grunt) {
         "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
       ]
     },
+
+    /**
+     * Jade
+     * ========================================================================
+     * npm install grunt-contrib-jade --save-dev
+     * https://github.com/gruntjs/grunt-contrib-jade
+     * ======================================================================== */
+    jade: {
+      development: {
+        options: {
+          data: {
+            debug: false
+          },
+          pretty: true
+        },
+        files: {
+          "path/to/dest.html": ["path/to/templates/*.jade", "another/path/tmpl.jade"]
+        }
+      },
+      deploy: {
+        options: {
+          data: {
+            debug: false
+          },
+          pretty: false
+        },
+        files: {
+          "path/to/dest.html": ["path/to/templates/*.jade", "another/path/tmpl.jade"]
+        }
+      }
+    }
 
     /**
      * Jekyll
@@ -459,13 +489,13 @@ module.exports = function(grunt) {
      Load Tasks
      ======================================================================== */
   //grunt.loadNpmTasks("grunt-contrib-sass");
-  //grunt.loadNpmTasks('grunt-contrib-compass');
   //grunt.loadNpmTasks('grunt-contrib-csslint');
   //grunt.loadNpmTasks("grunt-contrib-coffee");
   //grunt.loadNpmTasks("grunt-contrib-concat");
   //grunt.loadNpmTasks("grunt-contrib-uglify");
   //grunt.loadNpmTasks('grunt-contrib-jshint');
   //grunt.loadNpmTasks("grunt-jekyll");
+  //grunt.loadNpmTasks('grunt-contrib-jade');
   //grunt.loadNpmTasks("grunt-contrib-clean");
   //grunt.loadNpmTasks("grunt-contrib-copy");
   //grunt.loadNpmTasks("grunt-text-replace");
