@@ -3,7 +3,7 @@
  * ========================================================================
  * Gruntfile.js
  * @version   2.0 | 28th April, 2013
- * @author    Beau Charman | @beaucharman | http://beaucharman.me
+ * @author    Beau Charman | @beaucharman | http://www.beaucharman.me
  * @link      https://github.com/beaucharman/grunt-project-kickstarter
  * @license   MIT license
  *
@@ -16,7 +16,6 @@
  * ======================================================================== */
 
 module.exports = function(grunt) {
-
   'use strict';
 
   /* ========================================================================
@@ -36,6 +35,8 @@ module.exports = function(grunt) {
      * ========================================================================
      * npm install grunt-contrib-sass --save-dev
      * https://github.com/gruntjs/grunt-contrib-sass
+     * If utilising Compass, simply point to your
+     * config.rb file via sass.method.options.compass:
      * ======================================================================== */
     sass:
     {
@@ -63,39 +64,6 @@ module.exports = function(grunt) {
         {
           style: "compressed",
           lineNumbers: false
-        }
-      }
-    },
-
-    /**
-     * Compass
-     * ========================================================================
-     * npm install grunt-contrib-compass --save-dev
-     * https://github.com/gruntjs/grunt-contrib-compass
-     * ======================================================================== */
-    compass:
-    {
-      development:
-      {
-        options:
-        {
-          httpPath:       "",
-          cssDir:         "<%= pkg.path.dev %>",
-          sassDir:        "<%= pkg.path.src.sass %>",
-          imagesDir:      "<%= pkg.path.dev %>/<%= pkg.path.lib.images %>",
-          outputStyle:    "expanded",
-          relativeAssets: true
-        }
-      },
-      deploy:
-      {
-        options:
-        {
-          httpPath:       "",
-          sassDir:        "<%= pkg.path.src.sass %>",
-          cssDir:         "<%= pkg.path.deploy %>",
-          imagesDir:      "<%= pkg.path.lib.images %>",
-          outputStyle:    "compressed"
         }
       }
     },
@@ -198,6 +166,37 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Jade
+     * ========================================================================
+     * npm install grunt-contrib-jade --save-dev
+     * https://github.com/gruntjs/grunt-contrib-jade
+     * ======================================================================== */
+    jade: {
+      development: {
+        options: {
+          data: {
+            debug: false
+          },
+          pretty: true
+        },
+        files: {
+          "<%= pkg.path.development %>/index.html": ["<%= pkg.path.src.jade %>/index.jade"]
+        }
+      },
+      deploy: {
+        options: {
+          data: {
+            debug: false
+          },
+          pretty: false
+        },
+        files: {
+          "<%= pkg.path.deploy %>/index.html": ["<%= pkg.path.src.jade %>/index.jade"]
+        }
+      }
+    },
+
+    /**
      * Jekyll
      * ========================================================================
      * npm install grunt-jekyll --save-dev
@@ -208,29 +207,7 @@ module.exports = function(grunt) {
     {
       server:
       {
-        src:         "<%= pkg.path.src.jekyll %>/",
-        dest:        "<%= pkg.path.dev %>/",
-        auto:        false,
-        server:      true,
-        server_port: 4000,
-        pygments:    true,
-        permalink:   "/articles/:year/:month/:title/"
-      },
-      compile:
-      {
-        src :        "<%= pkg.path.src.jekyll %>/",
-        dest:        "<%= pkg.path.dev %>/",
-        pygments:    true,
-        permalink:   "/articles/:year/:month/:title/"
-      }
-    },
-
-    /* Curently implementing the following */
-    jekyll_alt:
-    {
-      server:
-      {
-        src:         "<%= pkg.path.dev %>",
+        src:         "<%= pkg.path.development %>",
         dest:        "<%= pkg.path.public %>",
         auto:        false,
         server:      true,
@@ -459,13 +436,13 @@ module.exports = function(grunt) {
      Load Tasks
      ======================================================================== */
   //grunt.loadNpmTasks("grunt-contrib-sass");
-  //grunt.loadNpmTasks('grunt-contrib-compass');
   //grunt.loadNpmTasks('grunt-contrib-csslint');
   //grunt.loadNpmTasks("grunt-contrib-coffee");
   //grunt.loadNpmTasks("grunt-contrib-concat");
   //grunt.loadNpmTasks("grunt-contrib-uglify");
   //grunt.loadNpmTasks('grunt-contrib-jshint');
   //grunt.loadNpmTasks("grunt-jekyll");
+  //grunt.loadNpmTasks('grunt-contrib-jade');
   //grunt.loadNpmTasks("grunt-contrib-clean");
   //grunt.loadNpmTasks("grunt-contrib-copy");
   //grunt.loadNpmTasks("grunt-text-replace");

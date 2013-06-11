@@ -26,7 +26,7 @@
       "sass":    "application/source/sass",
       "coffee":  "application/source/coffee",
       "images":  "application/source/images",
-      "jekyll":  "application/source/jekyll"
+      "jade":    "application/source/jade"
     }
   },
   "devDependencies": {
