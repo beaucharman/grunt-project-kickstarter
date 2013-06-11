@@ -43,7 +43,7 @@ module.exports = function(grunt) {
       {
         files:
         {
-          "<%= pkg.path.development %>/<%= pkg.path.lib.styles %>/main.css":
+          "<%= pkg.path.dev %>/<%= pkg.path.lib.css %>/main.css":
             "<%= pkg.path.src.sass %>/main.scss"
         },
         options:
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
       {
         files:
         {
-          "<%= pkg.path.deploy %>/<%= pkg.path.lib.styles %>/main.css" :
+          "<%= pkg.path.deploy %>/<%= pkg.path.lib.css %>/main.css" :
             "<%= pkg.path.src.sass %>/main.scss"
         },
         options:
@@ -80,9 +80,9 @@ module.exports = function(grunt) {
         options:
         {
           httpPath:       "",
-          cssDir:         "<%= pkg.path.development %>",
+          cssDir:         "<%= pkg.path.dev %>",
           sassDir:        "<%= pkg.path.src.sass %>",
-          imagesDir:      "<%= pkg.path.development %>/<%= pkg.path.lib.images %>",
+          imagesDir:      "<%= pkg.path.dev %>/<%= pkg.path.lib.images %>",
           outputStyle:    "expanded",
           relativeAssets: true
         }
@@ -112,7 +112,7 @@ module.exports = function(grunt) {
       {
         src:
         [
-          "<%= pkg.path.development %>/<%= pkg.path.lib.styles %>/main.css"
+          "<%= pkg.path.dev %>/<%= pkg.path.lib.css %>/main.css"
         ]
       }
     },
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
         {
           files:
           {
-            "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js" :
+            "<%= pkg.path.dev %>/<%= pkg.path.lib.js %>/main.js" :
               "<%= pkg.path.src.coffee %>/main.coffee"
           }
         }
@@ -150,10 +150,10 @@ module.exports = function(grunt) {
       {
         src:
         [
-          "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugins.js",
-          "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
+          "<%= pkg.path.dev %>/<%= pkg.path.lib.js %>/plugins.js",
+          "<%= pkg.path.dev %>/<%= pkg.path.lib.js %>/main.js"
         ],
-        dest: "<%= pkg.path.deploy %>/<%= pkg.path.lib.scripts %>/main.js"
+        dest: "<%= pkg.path.deploy %>/<%= pkg.path.lib.js %>/main.js"
       }
     },
 
@@ -173,10 +173,10 @@ module.exports = function(grunt) {
         },
         files:
         {
-          "<%= pkg.path.deploy %>/<%= pkg.path.lib.scripts %>/main.js" :
+          "<%= pkg.path.deploy %>/<%= pkg.path.lib.js %>/main.js" :
           [
-            "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugins.js",
-            "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
+            "<%= pkg.path.dev %>/<%= pkg.path.lib.js %>/plugins.js",
+            "<%= pkg.path.dev %>/<%= pkg.path.lib.js %>/main.js"
           ]
         }
       }
@@ -192,8 +192,8 @@ module.exports = function(grunt) {
     {
       all:
       [
-        "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/plugins.js",
-        "<%= pkg.path.development %>/<%= pkg.path.lib.scripts %>/main.js"
+        "<%= pkg.path.dev %>/<%= pkg.path.lib.js %>/plugins.js",
+        "<%= pkg.path.dev %>/<%= pkg.path.lib.js %>/main.js"
       ]
     },
 
@@ -209,7 +209,7 @@ module.exports = function(grunt) {
       server:
       {
         src:         "<%= pkg.path.src.jekyll %>/",
-        dest:        "<%= pkg.path.development %>/",
+        dest:        "<%= pkg.path.dev %>/",
         auto:        false,
         server:      true,
         server_port: 4000,
@@ -219,7 +219,7 @@ module.exports = function(grunt) {
       compile:
       {
         src :        "<%= pkg.path.src.jekyll %>/",
-        dest:        "<%= pkg.path.development %>/",
+        dest:        "<%= pkg.path.dev %>/",
         pygments:    true,
         permalink:   "/articles/:year/:month/:title/"
       }
@@ -230,7 +230,7 @@ module.exports = function(grunt) {
     {
       server:
       {
-        src:         "<%= pkg.path.development %>",
+        src:         "<%= pkg.path.dev %>",
         dest:        "<%= pkg.path.public %>",
         auto:        false,
         server:      true,
@@ -240,14 +240,14 @@ module.exports = function(grunt) {
       },
       development:
       {
-        src:        "<%= pkg.path.development %>",
+        src:        "<%= pkg.path.dev %>",
         dest:        "<%= pkg.path.public %>",
         pygments:    true,
         config:      "_config.yml"
       },
       deploy:
       {
-        src:        "<%= pkg.path.development %>",
+        src:        "<%= pkg.path.dev %>",
         dest:        "<%= pkg.path.deploy %>",
         pygments:    true,
         config:      "_config.yml"
@@ -263,7 +263,7 @@ module.exports = function(grunt) {
     clean:
     {
       deploy: ["<%= pkg.path.deploy %>/"],
-      wordpress: ["<%= pkg.path.wordpress %>"]
+      wordpress: ["<%= pkg.path.wp %>"]
     },
 
     /**
@@ -272,7 +272,7 @@ module.exports = function(grunt) {
      * npm install grunt-contrib-copy --save-dev
      * https://github.com/gruntjs/grunt-contrib-copy
      * For WordPress theme development, use:
-     * copy.build.files.dest:"<%= pkg.path.wordpress %>"
+     * copy.build.files.dest:"<%= pkg.path.wp %>"
      * ======================================================================== */
     copy:
     {
@@ -282,7 +282,7 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd:    "<%= pkg.path.development %>/",
+            cwd:    "<%= pkg.path.dev %>/",
             src:    ["**", "!**.DS_Store", ".gitignore"],
             dest:   "<%= pkg.path.deploy %>/",
             dot:    true
@@ -295,9 +295,9 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd:    "<%= pkg.path.development %>/",
+            cwd:    "<%= pkg.path.dev %>/",
             src:    ["**", "!**.DS_Store", ".gitignore"],
-            dest:   "<%= pkg.path.wordpress %>",
+            dest:   "<%= pkg.path.wp %>",
             dot:    true
           }
         ]
@@ -308,7 +308,7 @@ module.exports = function(grunt) {
         [
           {
             expand: true,
-            cwd:    "<%= pkg.path.development %>/",
+            cwd:    "<%= pkg.path.dev %>/",
             src:    ["**", "!**.DS_Store", ".gitignore"],
             dest:   "<%= pkg.path.deploy %>/",
             dot:    true
@@ -340,7 +340,7 @@ module.exports = function(grunt) {
     {
       deploy:
       {
-        src:  ["<%= pkg.path.development %>/filename.html"],
+        src:  ["<%= pkg.path.dev %>/filename.html"],
         dest: "<%= pkg.path.deploy %>/filename.html",
         replacements:
         [
@@ -364,8 +364,8 @@ module.exports = function(grunt) {
       {
         src:
         [
-          '<%= pkg.path.development %>/**/*.jpg',
-          '<%= pkg.path.development %>/**/*.png'
+          '<%= pkg.path.dev %>/**/*.jpg',
+          '<%= pkg.path.dev %>/**/*.png'
         ]
       }
     },
@@ -390,7 +390,7 @@ module.exports = function(grunt) {
       // used with event listener
       event:
       {
-        files: ["<%= pkg.path.development %>/**"],
+        files: ["<%= pkg.path.dev %>/**"],
         tasks: ["copy:changed"],
         options:
         {
@@ -426,7 +426,7 @@ module.exports = function(grunt) {
    * ======================================================================== */
   grunt.event.on("watch", function (event, file) {
     var pkg = grunt.file.readJSON("package.json");
-    var cwd = pkg.path.development + "/";
+    var cwd = pkg.path.dev + "/";
     var filepath = file.replace(cwd, "");
     grunt.config.set("copy",
     {
