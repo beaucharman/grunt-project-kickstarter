@@ -478,11 +478,9 @@ module.exports = function(grunt) {
    * Also change any development mode options in template files to be
    * ready for deployment.
    */
-  /*
-  grunt.registerTask("deploy", [
-    "clean:deploy", "copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"
-  ]);
-  */
+  //grunt.registerTask("deploy", [
+  //  "clean:deploy", "copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"
+  //]);
 
   /* Test deployment files */
   grunt.registerTask("testDeploy", ["copy:testDeploy"]);
