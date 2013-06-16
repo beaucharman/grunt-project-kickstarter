@@ -412,25 +412,13 @@ module.exports = function(grunt) {
         expand: true,
         cwd:    cwd,
         src:    filepath,
-        dest:   'path/to/copy/destination/'
+        dest:   '<%= pkg.path.dev %>'
       }
     });
 
     /* May need to use this instead of grunt.watch.event.tasks:copy:changed */
     // return grunt.task.run("copy:changed");
   });
-
-  /**
-   * Volo
-   * ========================================================================
-   * npm install grunt-volo
-   * https://github.com/volojs/volo/
-   * Used to fetch Github repos through the terminal.
-   * To fetch a file:  grunt volo:add:[flags]:[archive]:[localName]
-   * To search github: grunt volo:search:[name]
-   * More information:
-   *   https://github.com/volojs/volo/blob/master/commands/add/doc.md
-   * ======================================================================== */
 
   /* ========================================================================
      Load Tasks
@@ -490,9 +478,11 @@ module.exports = function(grunt) {
    * Also change any development mode options in template files to be
    * ready for deployment.
    */
+  /*
   grunt.registerTask("deploy", [
     "clean:deploy", "copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"
   ]);
+  */
 
   /* Test deployment files */
   grunt.registerTask("testDeploy", ["copy:testDeploy"]);

@@ -30,13 +30,13 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 **[jsHint](https://github.com/gruntjs/grunt-contrib-jshint)** `npm install grunt-contrib-jshint --save-dev`
 
-**[Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-jekyll --save-dev`
+**[Jade](https://github.com/gruntjs/grunt-contrib-jade)** `npm install grunt-jekyll --save-dev`
+
+**[Jekyll](https://github.com/dannygarcia/grunt-jekyll)** `npm install grunt-contrib-jade --save-dev`
 
 **[Clean](https://github.com/gruntjs/grunt-contrib-clean)** `npm install grunt-contrib-clean --save-dev`
 
 **[Copy](https://github.com/gruntjs/grunt-contrib-copy)** `npm install grunt-contrib-copy --save-dev`
-
-**[FTP Deploy](https://github.com/zonak/grunt-ftp-deploy)** `git clone git://github.com/zonak/grunt-ftp-deploy.git`
 
 **[Text Replace](https://github.com/yoniholmes/grunt-text-replace)** `npm install grunt-text-replace --save-dev`
 
@@ -45,8 +45,6 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 **[Contrib Watch](https://github.com/gruntjs/grunt-contrib-watch)** `npm install grunt-contrib-watch --save-dev`
 
 **[Regarde](https://github.com/yeoman/grunt-regarde)** `npm install grunt-regarde --save-dev`
-
-**[Volo](https://github.com/volojs/grunt-volo)** `npm install grunt-volo --save-dev`
 
 Plus many, many others via the [Grunt Plugins](http://gruntjs.com/plugins) page.
 
@@ -163,10 +161,6 @@ on the effected file.
 
 **[Mocha Test](https://github.com/pghalliday/grunt-mocha-test)** `npm install grunt-mocha-test --save-dev`
 
-**[Smush it](https://github.com/heldr/grunt-smushit)** `npm install grunt-smushit --save-dev`
-
-**[Compass](https://github.com/kahlil/grunt-compass)** `npm install grunt-compass --save-dev`
-
 **[SHH](https://github.com/andrewrjones/grunt-ssh)** `git clone git://github.com/andrewrjones/grunt-ssh.git`
 
 ### Static and Dynamic Site Development
@@ -215,10 +209,10 @@ Then, simply ensure the correct paths are set for the `copy` Grunt task :)
 
 ### More ideas for WordPress development
 
-Add the following to the Sass task to create a dynamic Sass generated `custom-editor-styles.css` file.
+Add the following to the Sass task to create a dynamically generated `custom-editor-styles.css` file.
 
 ```javaScript
 /* WordPress editor styles */
-"<%= pkg.path.development %><%= pkg.path.lib.styles %>custom-editor-styles.css":
-  "<%= pkg.path.src.sass %>includes/custom-editor-styles.scss"
+"<%= pkg.path.dev %><%= pkg.path.lib.css %>/custom-editor-styles.css":
+  "<%= pkg.path.src.sass %>/includes/custom-editor-styles.scss"
 ```
