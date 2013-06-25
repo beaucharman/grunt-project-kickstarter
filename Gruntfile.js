@@ -440,7 +440,7 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-volo');
 
   /* ========================================================================
-     Register custom tasks
+     Register custom tasks aliases
      ======================================================================== */
 
   /**
