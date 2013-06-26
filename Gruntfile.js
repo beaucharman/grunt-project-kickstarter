@@ -437,7 +437,6 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-smushit');
   //grunt.loadNpmTasks("grunt-contrib-watch");
   //grunt.loadNpmTasks("grunt-regarde");
-  //grunt.loadNpmTasks('grunt-volo');
 
   /* ========================================================================
      Register custom tasks aliases

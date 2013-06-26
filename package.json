@@ -1,32 +1,32 @@
 {
-  "name":        "project-name",
+  "name": "project-name",
   "description": "Project description",
-  "version":     "0.1.0",
-  "license":     "MIT",
-  "homepage":    "http://",
+  "version": "0.1.0",
+  "license": "MIT",
+  "homepage": "http://",
   "author": {
-    "name":      "",
-    "email":     "",
-    "url":       "http://"
+    "name": "",
+    "email": "",
+    "url": "http://"
   },
   "repository": {
-    "type":      "git",
-    "url":       "git://github.com/githubber/repo.git"
+    "type": "git",
+    "url": "git://github.com/githubber/repo.git"
   },
   "path": {
-    "dev":       "application/development",
-    "deploy":    "application/deploy",
-    "wp":        "application/wordpress/wp-content/themes/theme-name",
+    "dev": "application/development",
+    "deploy": "application/deploy",
+    "wp": "application/wordpress/wp-content/themes/theme-name",
     "lib": {
-      "js":      "library/javascripts",
-      "css":     "library/stylesheets",
-      "images":  "library/images"
+      "js": "library/javascripts",
+      "css": "library/stylesheets",
+      "images": "library/images"
     },
     "src": {
-      "sass":    "application/source/sass",
-      "coffee":  "application/source/coffee",
-      "images":  "application/source/images",
-      "jade":    "application/source/jade"
+      "sass": "application/source/sass",
+      "coffee": "application/source/coffee",
+      "images": "application/source/images",
+      "jade": "application/source/jade"
     }
   },
   "devDependencies": {
