@@ -2,7 +2,7 @@
  * Project Name
  * ========================================================================
  * Gruntfile.js
- * @version   2.0 | 28th April, 2013
+ * @version   2.0 | April 28th 2013
  * @author    Beau Charman | @beaucharman | http://www.beaucharman.me
  * @link      https://github.com/beaucharman/grunt-project-kickstarter
  * @license   MIT license
