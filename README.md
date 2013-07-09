@@ -209,6 +209,11 @@ Then, simply ensure the correct paths are set for the `copy` Grunt task :)
 
 ### More ideas for WordPress development
 
+Within the package.json file, alter the enviro variable to be
+```
+"enviro": "application/environment/wp-content/themes/theme-name",
+```
+
 Add the following to the Sass task to create a dynamically generated `custom-editor-styles.css` file.
 
 ```javaScript
