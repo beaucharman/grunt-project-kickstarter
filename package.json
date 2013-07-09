@@ -16,7 +16,9 @@
   "path": {
     "dev": "application/development",
     "deploy": "application/deploy",
-    "wp": "application/wordpress/wp-content/themes/theme-name",
+    "enviro": "application/environment",
+    // For WordPress installations:
+    //"enviro": "application/environment/wp-content/themes/theme-name",
     "lib": {
       "js": "library/javascripts",
       "css": "library/stylesheets",
@@ -29,10 +31,5 @@
       "jade": "application/source/jade"
     }
   },
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-jshint": "~0.4.3",
-    "grunt-contrib-watch": "~0.4.0"
-  }
+  "devDependencies": {  }
 }

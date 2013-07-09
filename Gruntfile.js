@@ -8,9 +8,18 @@
  * @license   MIT license
  *
  * Installation
+ *
+ * First time instructions, uinstall Grunt globally:
  * npm uninstall -g grunt
+ *
+ * Then install the Grunt CLI globally:
  * npm install -g grunt-cli
+ *
+ * Then, each time a new project is started, local to the project run:
  * npm install grunt --save-dev
+ *
+ * Plus install the package for each required task,
+ * and uncomment the related task loader in the Load Tasks section of this file
  *
  * Further instructions: http://gruntjs.com/getting-started
  * ======================================================================== */
@@ -46,6 +55,10 @@ module.exports = function(grunt) {
         {
           "<%= pkg.path.dev %>/<%= pkg.path.lib.css %>/main.css":
             "<%= pkg.path.src.sass %>/main.scss"
+
+          // For WordPress installations:
+          //"<%= pkg.path.dev %>/style.css":
+          //  "<%= pkg.path.src.sass %>/main.scss"
         },
         options:
         {
@@ -59,6 +72,10 @@ module.exports = function(grunt) {
         {
           "<%= pkg.path.deploy %>/<%= pkg.path.lib.css %>/main.css" :
             "<%= pkg.path.src.sass %>/main.scss"
+
+          // For WordPress installations:
+          //"<%= pkg.path.dev %>/style.css":
+          //  "<%= pkg.path.src.sass %>/main.scss"
         },
         options:
         {
@@ -81,6 +98,9 @@ module.exports = function(grunt) {
         src:
         [
           "<%= pkg.path.dev %>/<%= pkg.path.lib.css %>/main.css"
+
+          // For WordPress installations:
+          //"<%= pkg.path.dev %>/style.css":
         ]
       }
     },
@@ -240,7 +260,7 @@ module.exports = function(grunt) {
     clean:
     {
       deploy: ["<%= pkg.path.deploy %>/"],
-      wordpress: ["<%= pkg.path.wp %>"]
+      wordpress: ["<%= pkg.path.enviro %>"]
     },
 
     /**
@@ -249,7 +269,7 @@ module.exports = function(grunt) {
      * npm install grunt-contrib-copy --save-dev
      * https://github.com/gruntjs/grunt-contrib-copy
      * For WordPress theme development, use:
-     * copy.build.files.dest:"<%= pkg.path.wp %>"
+     * copy.build.files.dest:"<%= pkg.path.enviro %>"
      * ======================================================================== */
     copy:
     {
@@ -261,20 +281,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd:    "<%= pkg.path.dev %>/",
             src:    ["**", "!**.DS_Store", ".gitignore"],
-            dest:   "<%= pkg.path.deploy %>/",
-            dot:    true
-          }
-        ]
-      },
-      wordpress:
-      {
-        files:
-        [
-          {
-            expand: true,
-            cwd:    "<%= pkg.path.dev %>/",
-            src:    ["**", "!**.DS_Store", ".gitignore"],
-            dest:   "<%= pkg.path.wp %>",
+            dest:   "<%= pkg.path.enviro %>/",
             dot:    true
           }
         ]
@@ -300,7 +307,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd:    "<%= pkg.path.deploy %>/",
             src:    ["**", "!**.DS_Store", ".gitignore"],
-            dest:   "relative/path/to/destination/",
+            dest:   "<%= pkg.path.enviro %>/",
             dot:    true
           }
         ]
@@ -412,7 +419,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd:    cwd,
         src:    filepath,
-        dest:   '<%= pkg.path.dev %>'
+        dest:   '<%= pkg.path.enviro %>'
       }
     });
 
