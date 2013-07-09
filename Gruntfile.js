@@ -15,10 +15,10 @@
  * Then install the Grunt CLI globally:
  * npm install -g grunt-cli
  *
- * Then, each time a new project is started, local to the project run:
+ * Each time a new project is started, local to the project; run:
  * npm install grunt --save-dev
  *
- * Plus install the package for each required task,
+ * Plus install the appropriate package for each required task,
  * and uncomment the related task loader in the Load Tasks section of this file
  *
  * Further instructions: http://gruntjs.com/getting-started
