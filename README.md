@@ -1,22 +1,58 @@
 # Grunt Project Kickstarter
 
-Welcome to the **Grunt Project Kickstarter**, a file and folder structure to aid in the development and deployment process of a HTML, CMS or framework based applications - with some added [Grunt](https://github.com/gruntjs).
+> Welcome to the **Grunt Project Kickstarter**, a file and folder structure to aid in the development and deployment process of a HTML, CMS or framework based applications - with some added [Grunt](https://github.com/gruntjs).
+
+Also, this is a pretty good guide for getting started with Grunt in general.
+
+# What is this 'Grunt'?
+Grunt is a JavaScript based task runner. I see it as a project workflow automation tool. From watching and processing Sass, linting files, to managing Jekyll, contacting & copying files and just being awesome. [Check it out](http://gruntjs.com/).
+
+# What is a task?
+A task is each individual operation that Grunt can run. There is  a Coffeescript task that will process Coffeescript; there is a watch task that will watch for changes then do something; there is also a task that uglifies your JavaScript. [More information on tasks](http://gruntjs.com/configuring-tasks).
+
+Why not just use a web based linking and uglifing? Why not use the default `sass --watch …` command? Why not hand copy files to a deployment folder after concatenating scripts… Because productivity, easy maintenance, seamless collaboration and keeping tools & resources related is too important :D
 
 ## Installation
 
 Follow http://gruntjs.com/getting-started for an in-depth look at setting up Grunt, but basically:
 
-- Boot up Terminal
-- Make sure to have **[Node.js](http://nodejs.org/download/)** installed
+- Boot up Terminal.
+- Make sure to have **[Node.js](http://nodejs.org/download/)** installed. (Plus Sass, and any other resource that might be needed by tasks).
 - Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`
 - Install **Grunt CLI globally** `npm install -g grunt-cli`
 - `cd` to your project folder
-- Get the files `$ git clone https://github.com/beaucharman/Grunt-Project-Kickstarter.git` (move the files one level up if need)
-- Install Grunt to the project root with `npm install grunt --save-dev`
+- Git Clone, or download the zip from https://github.com/beaucharman/Grunt-Project-Kickstarter, or [create your own!](http://gruntjs.com/getting-started) (The custom task aliases below refer to the Grunt Project Kickstarter)
+- Install Grunt and required tasks by either:
+
+1. Add Grunt and each required task to the `package.json` file's `devDependencies` object (as either 'latest', or the current version number to prevent deprecation problems later). Then in Terminal, run `npm install`. This command will find the **package.json** file and install all `devDependencies` it finds :). An example:
+
+```
+...
+"devDependencies": {
+  "grunt": "latest",
+  "grunt-contrib-sass": "latest",
+  "grunt-contrib-copy": "~0.3.2"
+}
+...
+```
+
+2. Or, in Terminal install Grunt (npm install grunt --save-dev) and each task individually (with `npm install {{task-name}} --save-dev`). The `--save-dev` command makes sure to add the task to the `devDependencies` object in the **package.json** file.
+
+Either way, if the project is moved, there is no need to take the node modules folder, just cd to the project, run `npm install` and you are good to go. 
+
+## Configuration
+
+**Tasks**
+
+For each task that is to be used, it needs to be locally installed (described in the above section), and needs to be referenced in the `Gruntfile.js` by using the `grunt.loadNpmTasks();` function. Add or comment out any required tasks, or remove any unneeded tasks.
+
+**File Paths**
+
+Most tasks require and use file paths to perform said tasks. The Grunt Project Kickstarter stores paths in the `package.json` file. Make sure these paths reflect that of your project structure, and add / change paths where required.
 
 ## Existing Optional Tasks
 
-To use some of the task included in the `Grintfile.js`, make sure you install the following relavent node modules (using [npm](https://npmjs.org/doc/install.html)).
+To use some of the task included in the Grunt Project Kickstarter's `Grintfile.js`, make sure you install the following relevant node modules as described above (using [npm](https://npmjs.org/doc/install.html)).
 
 **[Contrib Sass](https://github.com/gruntjs/grunt-contrib-sass)** `npm install grunt-contrib-sass --save-dev`
 
@@ -48,20 +84,11 @@ To use some of the task included in the `Grintfile.js`, make sure you install th
 
 Plus many, many others via the [Grunt Plugins](http://gruntjs.com/plugins) page.
 
-## Configuration
+## A Run Down of the custom tasks aliases
 
-**Tasks**
+**Custom tasks aliases** are a way of running multiple tasks with just one command.
 
-For each task that is to be used, it needs to be locally installed (described in the above section), and needs to be referenced
-in the `Gruntfile.js` by using the `grunt.loadNpmTasks();` function. Comment out or remove any unneeded tasks.
-
-**File Paths**
-
-Most tasks require and use file paths to perform said tasks. The Grunt Project Kickstarter stores paths in the `package.json` file. Make sure these paths reflect that of your project structure, and add / change paths where required.
-
-## A Run Down of the Registered Custom Tasks
-
-The following registered, custom tasks are suggestions for an awesome workflow. Custom tasks are declared using the `grunt.registerTask();` function, which at it's basic usage takes two arguments, one being the new task's alias (how it will be called in the terminal), and the other being an array of tasks that will run (executed in array index order). Remove the custom tasks that are no required. Read more about [creating tasks](http://gruntjs.com/creating-tasks).
+The following registered, custom task aliases are suggestions for an awesome workflow. Custom tasks are declared using the `grunt.registerTask();` function, which at it's basic usage takes two arguments, one being the new task's alias (how it will be called in the terminal), and the other being an array of tasks that will run (executed in array index order). Remove the custom tasks that are no required. Read more about [creating tasks](http://gruntjs.com/creating-tasks).
 
 **Default**
 
@@ -69,7 +96,7 @@ Command: `grunt`
 
 Task registration: `grunt.registerTask("default", ["sass:development"]);`
 
-Can be defined as necessary, currenty just processes the `sass:development` task.
+Can be defined as necessary, currently just processes the `sass:development` task.
 
 **Watch Sass**
 
@@ -108,25 +135,6 @@ Command: `grunt testDeploy`
 Task registration: `grunt.registerTask("testDeploy", ["copy:testDeploy"]);`
 
 Copies the deployment files into the development environment for testing. Awesome to use with a framework or CMS workflow. (make sure your minified and concatenated js files still work... sorta thing)
-
-### Working with FTP Deploy
-
-The `authKey` is referencing an entry in a JSON object saved in a `.ftppass` file that you can create and save in the `Gruntfile.js` directory :)
-
-Example `.ftppass` file:
-
-```javascript
-{
-  "keyname": {
-    "username": "",
-    "password": ""
-  },
-  "altkeyname": {
-    "username": "",
-    "password": ""
-  }
-}
-```
 
 ### Creating a dynamic watch task
 
