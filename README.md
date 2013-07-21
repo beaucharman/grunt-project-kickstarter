@@ -4,27 +4,31 @@
 
 Also, this is a pretty good guide for getting started with Grunt in general.
 
-# What is this 'Grunt'?
-Grunt is a JavaScript based task runner. I see it as a project workflow automation tool. From watching and processing Sass, linting files, to managing Jekyll, contacting & copying files and just being awesome. [Check it out](http://gruntjs.com/).
+### What is this 'Grunt'?
+Grunt is a JavaScript based task runner. I see it as an automated, project workflow tool. From watching and processing Sass, linting files, to managing Jekyll, contacting & copying files and just being awesome.
 
-# What is a task?
-A task is each individual operation that Grunt can run. There is  a Coffeescript task that will process Coffeescript; there is a watch task that will watch for changes then do something; there is also a task that uglifies your JavaScript. [More information on tasks](http://gruntjs.com/configuring-tasks).
+[Check it out](http://gruntjs.com/).
 
-Why not just use a web based linking and uglifing? Why not use the default `sass --watch …` command? Why not hand copy files to a deployment folder after concatenating scripts… Because productivity, easy maintenance, seamless collaboration and keeping tools & resources related is too important :D
+### What is a task?
+A task is each individual operation that Grunt can run. There is a Coffeescript task that will process Coffeescript; there is a watch task that will watch for changes then do something; there is also a task that uglifies your JavaScript. [More information on tasks](http://gruntjs.com/configuring-tasks). Also, check out the [tasks already available](http://gruntjs.com/plugins).
+
+### Why should I bother?
+
+Why not just use a web based linting and uglifing tool? Why not use the default `sass --watch …` command? Why not hand copy files to a deployment folder after concatenating scripts… Because productivity, easy maintenance, seamless collaboration and keeping tools & resources related is too important :D Grunt helps you do that in one (well, two) files. It becomes an extremely helpful, efficient and reliable part of your development stack. It can do as little, or as much as you want.
 
 ## Installation
 
 Follow http://gruntjs.com/getting-started for an in-depth look at setting up Grunt, but basically:
 
-- Boot up Terminal.
-- Make sure to have **[Node.js](http://nodejs.org/download/)** installed. (Plus Sass, and any other resource that might be needed by tasks).
-- Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`
-- Install **Grunt CLI globally** `npm install -g grunt-cli`
-- `cd` to your project folder
-- Git Clone, or download the zip from https://github.com/beaucharman/Grunt-Project-Kickstarter, or [create your own!](http://gruntjs.com/getting-started) (The custom task aliases below refer to the Grunt Project Kickstarter)
-- Install Grunt and required tasks by either:
+1. Boot up Terminal.
+2. Make sure to have **[Node.js](http://nodejs.org/download/)** installed. (Plus Sass, and any other resource that might be needed by tasks).
+3. Uninstall **[Grunt](https://github.com/gruntjs)** globally, just incase with `npm uninstall -g grunt`.
+4. Install **Grunt CLI globally** `npm install -g grunt-cli`.
+5. `cd` to your project folder.
+6. Git clone, or download the zip from https://github.com/beaucharman/Grunt-Project-Kickstarter, or [create your own!](http://gruntjs.com/getting-started) (The custom task aliases below refer to the Grunt Project Kickstarter).
+7. Install Grunt and required tasks by either:
 
-1. Add Grunt and each required task to the `package.json` file's `devDependencies` object (as either 'latest', or the current version number to prevent deprecation problems later). Then in Terminal, run `npm install`. This command will find the **package.json** file and install all `devDependencies` it finds :). An example:
+a. Add Grunt and each required task to the `package.json` file's `devDependencies` object (as either 'latest', or the current version number to prevent deprecation problems later). Then in Terminal, run `npm install`. This command will find the **package.json** file and install all `devDependencies` it finds :). An example:
 
 ```
 ...
@@ -36,9 +40,9 @@ Follow http://gruntjs.com/getting-started for an in-depth look at setting up Gru
 ...
 ```
 
-2. Or, in Terminal install Grunt (npm install grunt --save-dev) and each task individually (with `npm install {{task-name}} --save-dev`). The `--save-dev` command makes sure to add the task to the `devDependencies` object in the **package.json** file.
+b. Or, in Terminal install Grunt (npm install grunt --save-dev) and each task individually (with `npm install {{task-name}} --save-dev`). The `--save-dev` command makes sure to add the task to the `devDependencies` object in the **package.json** file.
 
-Either way, if the project is moved, there is no need to take the node modules folder, just cd to the project, run `npm install` and you are good to go. 
+Either way, if the project is moved, there is no need to take the node modules folder, just cd to the project, run `npm install` and you are good to go. Also, once Grunt is configured globally, you only need steps 5 - 7 to set up new projects.
 
 ## Configuration
 
