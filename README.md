@@ -5,11 +5,13 @@
 Also, this is a pretty good guide for getting started with Grunt in general.
 
 ### What is this 'Grunt'?
+
 Grunt is a JavaScript based task runner. I see it as an automated, project workflow tool. From watching and processing Sass, linting files, to managing Jekyll, contacting & copying files and just being awesome.
 
 [Check it out](http://gruntjs.com/).
 
 ### What is a task?
+
 A task is each individual operation that Grunt can run. There is a Coffeescript task that will process Coffeescript; there is a watch task that will watch for changes then do something; there is also a task that uglifies your JavaScript. [More information on tasks](http://gruntjs.com/configuring-tasks). Also, check out the [tasks already available](http://gruntjs.com/plugins).
 
 ### Why should I bother?
@@ -124,7 +126,7 @@ Command: `grunt deploy`
 
 Task registration: `grunt.registerTask("deploy", ["uglify:deploy", "copy:deploy", "sass:deploy"]);`
 
-Run preprocessing, concatenate, minify and copy files for deploment.
+Run preprocessing, concatenate, minify and copy files for deployment.
 
 **WordPress Deploy**
 
@@ -167,7 +169,7 @@ on the effected file.
 });
 ```
 
-### Would love to intergrate these soon:
+### Would love to integrate these soon:
 
 **[CSSmin](https://github.com/gruntjs/grunt-contrib-cssmin)** `npm install grunt-contrib-cssmin --save-dev`
 
@@ -190,7 +192,7 @@ Folder structure for a typical project, powered by Grunt.
     | jekyll          <- Jekyll templates (if utilising Jekyll)
     | sass            <- Sass directory
   | test
-    | (output from test ralated tasks)
+    | (output from test related tasks)
 | Gruntfile.js        <- where the magic happens
 | node_modules        <- all the good stuff, will appear after an 'npm install'
 | package.json        <- Grunt's package file, stores our variables too :)
