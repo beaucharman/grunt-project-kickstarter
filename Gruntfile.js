@@ -260,7 +260,8 @@ module.exports = function(grunt) {
     clean:
     {
       deploy: ["<%= pkg.path.deploy %>/"],
-      wordpress: ["<%= pkg.path.enviro %>"]
+      wordpress: ["<%= pkg.path.enviro %>"],
+      jsDeploy: ["<%= pkg.path.deploy %>/<%= pkg.path.lib.js %>/"]
     },
 
     /**
@@ -475,7 +476,9 @@ module.exports = function(grunt) {
    * ========================================================================
    * Run preprocessing, concatenate, minify and copy files for deploment
    */
-  grunt.registerTask("deploy", ["copy:deploy", "uglify:deploy", "sass:deploy"]);
+  grunt.registerTask("deploy", [
+    "clean:deploy", "copy:deploy", "clean:jsDeploy", "uglify:deploy", "sass:deploy"
+  ]);
 
   /**
    * WordPress Deploy
@@ -485,7 +488,7 @@ module.exports = function(grunt) {
    * ready for deployment.
    */
   //grunt.registerTask("deploy", [
-  //  "clean:deploy", "copy:deploy", "uglify:deploy", "sass:deploy", "replace:deploy"
+  //  "clean:deploy", "copy:deploy", "clean:js_deploy", "uglify:deploy", "sass:deploy", "replace:deploy"
   //]);
 
   /* Test deployment files */
