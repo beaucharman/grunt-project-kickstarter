@@ -74,7 +74,7 @@ module.exports = function(grunt) {
             "<%= pkg.path.src.sass %>/main.scss"
 
           // For WordPress installations:
-          //"<%= pkg.path.dev %>/style.css":
+          //"<%= pkg.path.deploy %>/style.css":
           //  "<%= pkg.path.src.sass %>/main.scss"
         },
         options:
